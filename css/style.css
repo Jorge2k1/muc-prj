@@ -1,0 +1,139 @@
+
+body, html {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/*ENCABEZADO*/
+.global {
+    color: white;
+    background-image: linear-gradient(to bottom, black 37%, white 63%);
+    height: 100vh;
+}
+
+
+.log {
+    font-size: large;
+    text-align: right;
+    padding-top: 20px;
+    margin-right: 20px;
+}
+
+.ach {
+    text-align: center;
+    font-family: 'Noto Serif Old Uyghur';
+    font-size: 80px;
+    margin-bottom: 0%;
+
+}
+.slogan {
+    text-align: center;
+    font-style:italic;
+    font-size: 22px;
+}
+
+/*CUERPO*/
+.menu {
+
+    width: max-content; /* Puedes ajustar el ancho según tus necesidades */
+    height: 200px; /* Puedes ajustar la altura según tus necesidades */
+    background-color: transparent; /* Color de fondo del div para visualización */
+    margin: auto; /* Esto alinea el div horizontalmente */
+    top: 0; bottom: 0; /* Esto alinea el div verticalmente */
+    left: 0; right: 0; /* Esto alinea el div horizontalmente */
+}
+.menu ul li{
+    display: inline-block;
+    
+
+}
+
+.menu ul li a {
+    font-size: large;
+    display: block;
+    color: whitesmoke;
+    text-decoration: none;
+    padding:15px 40px; 
+    transition: transform 0.4s;
+
+}
+.menu ul li a:hover {
+    transform: scale(1.1);
+    color:burlywood;
+}
+
+#inicio {
+    width: 500px; /* Tamaño del div */
+    height: 300px; /* Tamaño del div */
+    background-image: url('../img/inicio/violin.jpeg'); /* Ruta de la imagen de fondo */
+    background-size: cover; /* Ajusta el tamaño de la imagen de fondo */
+    background-position: center; /* Centra la imagen de fondo */
+    opacity: 0.7; /* Opacidad del div */
+    border-radius: 20px; /* Borde redondeado */
+    overflow: hidden; /* Oculta el desbordamiento de la imagen */
+    filter: blur(10px); /* Aplica un desenfoque a los bordes */
+    z-index: 1;
+}
+#acercade {
+    width: 500px; /* Tamaño del div */
+    height: 300px; /* Tamaño del div */
+    background-image: url('../img/inicio/violin.jpeg'); /* Ruta de la imagen de fondo */
+    background-size: cover; /* Ajusta el tamaño de la imagen de fondo */
+    background-position: center; /* Centra la imagen de fondo */
+    opacity: 0.7; /* Opacidad del div */
+    border-radius: 20px; /* Borde redondeado */
+    overflow: hidden; /* Oculta el desbordamiento de la imagen */
+    filter: blur(10px); /* Aplica un desenfoque a los bordes */
+    z-index: 1;
+}
+#servicio {
+    width: 500px; /* Tamaño del div */
+    height: 300px; /* Tamaño del div */
+    background-image: url('../img/inicio/violin.jpeg'); /* Ruta de la imagen de fondo */
+    background-size: cover; /* Ajusta el tamaño de la imagen de fondo */
+    background-position: center; /* Centra la imagen de fondo */
+    opacity: 0.7; /* Opacidad del div */
+    border-radius: 20px; /* Borde redondeado */
+    overflow: hidden; /* Oculta el desbordamiento de la imagen */
+    filter: blur(10px); /* Aplica un desenfoque a los bordes */
+    z-index: 1;
+}
+
+#contacto {
+    width: 500px; /* Tamaño del div */
+    height: 300px; /* Tamaño del div */
+    background-image: url('../img/inicio/violin.jpeg'); /* Ruta de la imagen de fondo */
+    background-size: cover; /* Ajusta el tamaño de la imagen de fondo */
+    background-position: center; /* Centra la imagen de fondo */
+    opacity: 0.7; /* Opacidad del div */
+    border-radius: 20px; /* Borde redondeado */
+    overflow: hidden; /* Oculta el desbordamiento de la imagen */
+    filter: blur(10px); /* Aplica un desenfoque a los bordes */
+    z-index: 1;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
