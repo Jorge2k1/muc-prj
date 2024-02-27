@@ -17,10 +17,15 @@ $(document).ready(function() {
 
 function gatherTop() {
     $(window).scroll(function() {
-        if ($(this).scrollTop() > 300) { // Cambiar 100 por la cantidad de desplazamiento en píxeles que deseas
+        if ($(this).scrollTop() > 100) { // Cambiar 100 por la cantidad de desplazamiento en píxeles que deseas
             $('.head').addClass('scrolled');
+            $('.menu').addClass('scrolled');
+            $('.global').addClass('scrolled');
+
         } else {
             $('.head').removeClass('scrolled');
+            $('.menu').removeClass('scrolled');
+            $('.global').removeClass('scrolled');
         }
     });
 }
@@ -28,3 +33,4 @@ function gatherTop() {
 $(document).ready(function() {
     gatherTop();
 });
+ 
