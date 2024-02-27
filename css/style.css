@@ -12,6 +12,13 @@ body, html {
     height: 100vh;
 }
 
+.head {
+    transition: all 0.3s ease; /* Transición suave para el movimiento y el tamaño */
+}
+
+.global.scrolled .head {
+    transform: translate(-50%, -50%) scale(0.8); /* Mueve y reduce el tamaño del logo y eslogan al hacer scroll */
+}
 
 .log {
     font-size: large;
