@@ -29,6 +29,9 @@ body, html {
     margin-bottom: 0%;
 
 }
+.ach, .slogan {
+    transition: transform 0.7s ease; /* Agregar una transición suave */
+}
 .scrolled .ach {
     transform: translate(-50%, -50%) scale(0.8);
 }
