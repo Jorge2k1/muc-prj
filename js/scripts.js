@@ -14,3 +14,17 @@ function scrollSuave() {
 $(document).ready(function() {
     scrollSuave();
 });
+
+function gatherTop() {
+    $(window).scroll(function() {
+        if ($(this).scrollTop() > 100) { // Cambiar 100 por la cantidad de desplazamiento en píxeles que deseas
+            $('.head').addClass('scrolled');
+        } else {
+            $('.head').removeClass('scrolled');
+        }
+    });
+}
+
+$(document).ready(function() {
+    gatherTop();
+});
