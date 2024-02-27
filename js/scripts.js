@@ -17,7 +17,7 @@ $(document).ready(function() {
 
 function gatherTop() {
     $(window).scroll(function() {
-        if ($(this).scrollTop() > 100) { // Cambiar 100 por la cantidad de desplazamiento en píxeles que deseas
+        if ($(this).scrollTop() > 300) { // Cambiar 100 por la cantidad de desplazamiento en píxeles que deseas
             $('.head').addClass('scrolled');
         } else {
             $('.head').removeClass('scrolled');
