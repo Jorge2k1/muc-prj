@@ -15,9 +15,10 @@ $(document).ready(function() {
     scrollSuave();
 });
 
+
 function gatherTop() {
     $(window).scroll(function() {
-        if ($(this).scrollTop() > 100) { // Cambiar 100 por la cantidad de desplazamiento en píxeles que deseas
+        if ($(this).scrollTop() > 100) {
             $('.head').addClass('scrolled');
             $('.menu').addClass('scrolled');
             $('.global').addClass('scrolled');
@@ -33,4 +34,31 @@ function gatherTop() {
 $(document).ready(function() {
     gatherTop();
 });
- 
+
+function scroll() {
+    $(window).scroll(function() {
+        var scrollPosition = $(this).scrollTop();
+        var windowHeight = $(window).height();
+
+        var transparentEnd = 38;
+        var blackEnd = 100;
+
+        var blackEndPercentage = blackEnd - ((scrollPosition / windowHeight) * (blackEnd - transparentEnd));
+        var transparentStartPercentage = Math.max(0, transparentEnd - ((scrollPosition / windowHeight) * transparentEnd));
+
+        blackEndPercentage = Math.max(blackEndPercentage, 0);
+        transparentStartPercentage = Math.min(transparentStartPercentage, transparentEnd);
+
+        $('.global').css('background-image', `linear-gradient(to bottom, transparent ${transparentStartPercentage}%, black ${blackEndPercentage}%)`);
+
+        if(blackEndPercentage <= transparentEnd - 19) { 
+            $('.front').addClass('white-text'); 
+        } else {
+            $('.front').removeClass('white-text'); 
+        }
+    });
+}
+
+$(document).ready(function() {
+    scroll();
+});

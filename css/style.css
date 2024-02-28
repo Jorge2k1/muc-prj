@@ -10,15 +10,15 @@ body, html {
     position: sticky; 
     top: 0;
     color: black;
-     background-image: linear-gradient(to bottom, transparent 38%, black 47%);
+    background-image: linear-gradient(to top, transparent 77%, black 60%);
     height: 100vh; 
-    z-index: 1; 
-    transition: transform 0.5s ease;
+    z-index: 1000; 
+    transition: background-image 0.5s ease;
 }
 
 .scrolled .global {
         /* Estilos cuando se desplaza hacia abajo */
-    
+    background-image: linear-gradient(to bottom, transparent 60%, black 50%); 
     height: 50%; /* Reduce el tamaño del div */
 }
 
@@ -59,6 +59,27 @@ body, html {
 .scrolled .slogan {
     transform: translate(-41%, -440%) scale(0.7);
 }
+
+/* Clases para cambiar el color de texto a blanco */
+/* Clases para cambiar el color de texto a blanco */
+
+.log a {
+    transition: color 1s ease; /* Cambia 0.5s a la duración que prefieras */
+}
+
+.white-text,
+.white-text .log a,
+.white-text .ach,
+.white-text .slogan,
+.white-text .menu ul li a {
+    color: white;
+}
+
+.white-text .menu ul li a:hover {
+    color: grey; 
+}
+
+
 
 /*CUERPO*/
 .menu {
