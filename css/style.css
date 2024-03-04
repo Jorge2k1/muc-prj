@@ -1,179 +1,139 @@
-
 body, html {
-    width: 100%;
     margin: 0;
     padding: 0;
 }
 
-/*ENCABEZADO*/
-.global {
+body.dark-background {
+    /* verdecillo xulote #013220; */
+    background: radial-gradient(circle at center, black 10%, #013220 100%);
+
+}
+
+.global2 {
     position: sticky; 
     top: 0;
     color: black;
-    background-image: linear-gradient(to top, transparent 77%, black 60%);
-    height: 100vh; 
-    z-index: 1000; 
-    transition: background-image 0.5s ease;
-}
-
-.scrolled .global {
-        /* Estilos cuando se desplaza hacia abajo */
-    background-image: linear-gradient(to bottom, transparent 60%, black 50%); 
-    height: 50%; /* Reduce el tamaño del div */
+    background-color: transparent
 }
 
 
-.front {
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 999; 
-}
-.log {
-    font-size: large;
-    text-align: right;
-    padding-top: 20px;
-    margin-right: 20px;
-}
-
-.ach {
+.ach2 {
     text-align: center;
     font-family: 'Noto Serif Old Uyghur';
     font-size: 80px;
     margin-bottom: 0%;
-
-}
-.ach, .slogan {
-    top: -50;
-    transition: transform 0.7s ease; /* Agregar una transición suave */
-}
-.scrolled .ach {
-    transform: translate(-43%, -50%) scale(0.5);
+    color: white; /* Cambiar a blanco para que resalte en el fondo oscuro */
 }
 
-.slogan {
+.watermark img {
+    color: white;
+    padding-left: 30px;
+    padding-top:15px;
+    width: 16%;
+
+}
+
+.login-container {
+    /* background: radial-gradient(circle at center, transparent 20%, #013220 60%); */
+    /* background-color: rgba(2, 3, 2, 0.582); Fondo negro con algo de transparencia */
+    
+    margin-left: 200px;
+    margin-right: 200px;
+    margin-top: 120px;
+    margin-bottom: 200px;
+    flex-direction: column; /* Alinea los elementos del formulario en columna */
+    border-radius: 100px; 
+    
+}
+
+.login {
+    padding-top:20px;
+    padding-bottom:200px;
+    justify-content: center;
+    align-items: center; /* Centrar contenido verticalmente */
+    color: white;
+    width: 100%; 
+    max-width: 400px; /* Establecer un ancho máximo para el formulario */
+    margin: 0 auto; /* Centrar el formulario en el div si es menos del ancho máximo */
+    box-sizing: border-box; /* Incluir el padding y border en el ancho total del elemento */
+}
+
+.login .titleLog {
+    text-align: center;
+    padding-bottom: 70px;
+
+}
+
+.titleLog {
+    font-family: 'Noto Serif Old Uyghur';
+    font-size:26px;
+}
+
+.form-group, .field {
+    font-family: 'Noto Serif Old Uyghur';
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+ .input {
+    margin-left: 350px;
+    padding-top: 40px;
+    text-align: center;
+    width: 17%;
+} 
+
+ 
+.botonTexto a  {
+     font-family: 'Noto Serif Old Uyghur';
+    font-size: 17px;
+    position: relative;
+    color:inherit;
+    text-decoration: none;
+    transition: transform 0.4s ;
+  }
+
+#acceso:hover{
+    color: rgb(94, 128, 72);
+    transform: scale(1.1);
+  }
+
+#acceso::after {
+    background: black;
+    font-size: 16px;
+    border:none;
+    font-family: 'Noto Serif Old Uyghur';
+    cursor: pointer;
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px; 
+    bottom: -5px;
+    left: 50%;
+    background-color: rgb(94, 128, 72);
+    transition: all 0.3s ease;
+
+
+}
+#acceso:hover::after {
+    color: rgb(94, 128, 72);
+    width: 100%; 
+    left: 0;
+}
+
+
+
+/* Otros  */
+/*.slogan2 {
     text-align: center;
     font-style: italic;
     font-size: 22px;
 }
-.scrolled .slogan {
+*/
+
+/* .scrolled .ach2 {
+    transform: translate(-43%, -50%) scale(0.5);
+}
+
+.scrolled .slogan2 {
     transform: translate(-41%, -440%) scale(0.7);
-}
-
-/* Clases para cambiar el color de texto a blanco */
-/* Clases para cambiar el color de texto a blanco */
-
-.log a {
-    transition: color 1s ease; /* Cambia 0.5s a la duración que prefieras */
-}
-
-.white-text,
-.white-text .log a,
-.white-text .ach,
-.white-text .slogan,
-.white-text .menu ul li a {
-    color: white;
-}
-
-.white-text .menu ul li a:hover {
-    color: grey; 
-}
-
-
-
-/*CUERPO*/
-.menu {
-    width: max-content; 
-    background-color: transparent;
-    margin: auto;
-    transition: transform 0.7s ease; 
-
-}
-/* .menu1 {
-
-    
-    transition: transform 0.7s ease; 
-
 } */
-/* .scrolled .menu {
-    transform: translate(0%, 50%) scale(0.8);
-} */
-.scrolled .menu {
-    transform: translate(0%, -173px) scale(1.1);
-}
-.menu ul li{
-    display: inline-block;
-
-}
-
-.menu ul li a {
-    font-size: large;
-    display: block;
-    color: black;
-    text-decoration: none;
-    padding:15px 40px; 
-    transition: transform 0.4s ease; 
-
-
-}
-
-
-.menu ul li a:hover {
-    transform: scale(1.1);
-    color:burlywood;
-}
-/* /* 
-#inicio {
-    width: 500px;
-    height: 300px;
-    background-image: url('../img/inicio/violin.jpeg');
-    background-size: cover;
-    background-position: center;
-    opacity: 0.7;
-    border-radius: 20px;
-    overflow: hidden;
-    filter: blur(10px);
-    margin-top: 200px;
-    z-index: 0;
-} */
-
-#acercade {
-    padding-top: 400px;
-    width: 500px;
-    height: 300px;
-    background-color: transparent;    
-    background-size: cover;
-    background-position: center;
-    opacity: 0.7;
-    border-radius: 20px;
-    overflow: hidden;
-    filter: blur(10px);
-    z-index: 1;
-}
-
-#servicio {
-    padding-top: 400px;
-    width: 500px;
-    height: 300px;
-    background-color: transparent;    
-    background-size: cover;
-    background-position: center;
-    opacity: 0.7;
-    border-radius: 20px;
-    overflow: hidden;
-    filter: blur(10px);
-    z-index: 1;
-}
-
-#contacto {
-    padding-top: 400px;
-    width: 500px;
-    height: 300px;
-background-color: transparent;    
-    background-position: center;
-    opacity: 0.7;
-    border-radius: 20px;
-    overflow: hidden;
-    filter: blur(10px);
-    z-index: 1;
-}

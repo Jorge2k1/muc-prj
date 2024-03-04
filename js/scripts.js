@@ -49,7 +49,7 @@ function scroll() {
         blackEndPercentage = Math.max(blackEndPercentage, 0);
         transparentStartPercentage = Math.min(transparentStartPercentage, transparentEnd);
 
-        $('.global').css('background-image', `linear-gradient(to bottom, transparent ${transparentStartPercentage}%, black ${blackEndPercentage}%)`);
+        $('.global').css('background-image', `linear-gradient(to bottom, black ${transparentStartPercentage}%,  #013220 ${blackEndPercentage}%)`);
 
         if(blackEndPercentage <= transparentEnd - 19) { 
             $('.front').addClass('white-text'); 
@@ -58,7 +58,6 @@ function scroll() {
         }
     });
 }
-
 $(document).ready(function() {
     scroll();
 });

@@ -1,0 +1,172 @@
+
+body, html {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/*ENCABEZADO*/
+.global {
+    position: sticky; 
+    top: 0;
+    color: white;
+    background-image: linear-gradient(to top, transparent 77%, white 60%);
+    height: 100vh; 
+    z-index: 1000; 
+    transition: background-image 0.5s ease;
+}
+
+.scrolled .global {
+        /* Estilos cuando se desplaza hacia abajo */
+    background-image: linear-gradient(to bottom, transparent 60%, white 50%); 
+    height: 50%; /* Reduce el tamaño del div */
+}
+
+
+.front {
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999; 
+}
+.log {
+    font-size: large;
+    text-align: right;
+    padding-top: 20px;
+    margin-right: 20px;
+}
+
+.ach {
+    text-align: center;
+    font-family: 'Noto Serif Old Uyghur';
+    font-size: 80px;
+    margin-bottom: 0%;
+
+}
+
+.ach, .slogan {
+   top: -50;
+   transition: transform 0.7s ease; /* Agregar una transición suave */
+}
+
+.scrolled .ach {
+    transform: translate(-43%, -50%) scale(0.5);
+}
+
+.slogan {
+    text-align: center;
+    font-style: italic;
+    font-size: 22px;
+}
+.scrolled .slogan {
+    transform: translate(-41%, -440%) scale(0.7);
+}
+
+.log a {
+    color:inherit;
+    text-decoration: none;
+    transition: color 1s ease; /* Cambia 0.5s a la duración que prefieras */
+}
+
+.white-text,
+.white-text .log a,
+.white-text .ach,
+.white-text .slogan,
+.white-text .menu ul li a {
+    color: white;
+}
+
+.white-text .menu ul li a:hover {
+    color: grey; 
+}
+
+
+
+/*CUERPO*/
+.menu {
+    width: max-content; 
+    background-color: transparent;
+    margin: auto;
+    transition: transform 0.7s ease; 
+
+}
+
+.scrolled .menu {
+    transform: translate(0%, -173px) scale(1.1);
+}
+.menu ul li{
+    display: inline-block;
+
+}
+
+.menu ul li a {
+    font-size: large;
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding:15px 40px; 
+    transition: transform 0.4s ease; 
+
+
+}
+
+
+.menu ul li a:hover {
+    transform: scale(1.1);
+    color:rgb(233, 195, 185);
+}
+/* /* 
+#inicio {
+    width: 500px;
+    height: 300px;
+    background-image: url('../img/inicio/violin.jpeg');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.7;
+    border-radius: 20px;
+    overflow: hidden;
+    filter: blur(10px);
+    margin-top: 200px;
+    z-index: 0;
+} */
+
+#acercade {
+    padding-top: 400px;
+    width: 500px;
+    height: 300px;
+    background-color: transparent;    
+    background-size: cover;
+    background-position: center;
+    opacity: 0.7;
+    border-radius: 20px;
+    overflow: hidden;
+    filter: blur(10px);
+    z-index: 1;
+}
+
+#servicio {
+    padding-top: 400px;
+    width: 500px;
+    height: 300px;
+    background-color: transparent;    
+    background-size: cover;
+    background-position: center;
+    opacity: 0.7;
+    border-radius: 20px;
+    overflow: hidden;
+    filter: blur(10px);
+    z-index: 1;
+}
+
+#contacto {
+    padding-top: 400px;
+    width: 500px;
+    height: 300px;
+background-color: transparent;    
+    background-position: center;
+    opacity: 0.7;
+    border-radius: 20px;
+    overflow: hidden;
+    filter: blur(10px);
+    z-index: 1;
+}
