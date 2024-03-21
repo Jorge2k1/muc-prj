@@ -10,7 +10,6 @@ function scrollSuave() {
         }
     });
 }
-
 $(document).ready(function() {
     scrollSuave();
 });

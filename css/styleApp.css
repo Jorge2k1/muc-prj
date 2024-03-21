@@ -1,0 +1,104 @@
+/*estilo global fondo*/
+body, html {
+    margin: 0;
+    padding: 0;
+}
+
+.background {
+    background: radial-gradient(circle at center, black 10%, #013220 100%);
+}
+/* estilo cabecera / parte de arriba */
+.watermark img {
+    color: white;
+    padding-left: 30px;
+    padding-top:15px;
+    width: 12.5%;
+}
+
+/* estilo cuerpo u otros estilos, ya definiré dentro de este */
+/* menú lateral */
+.side-menu {
+    position: fixed;
+    padding-top: 50px;
+    border-right: 4px solid;
+    border-color: rgb(107, 153, 107);
+    height: 1000vh;
+    padding-right: 26px;
+    margin-right: 50px;
+    z-index: 1000;
+}
+
+.list-group-item.list-group-item-action {
+    background-color: transparent; /* Hace el fondo 100% transparente */
+    text-align: left;
+    font-family: 'Noto Serif Old Uyghur';
+    color: rgb(152, 209, 152); /* Cambia el color de la letra */
+    padding-left: 60px;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+
+}
+
+.list-group-item.list-group-item-action:hover {
+    transform: scale(1.1);
+    opacity: 0.4;
+}
+
+/*estilo chat */
+
+
+#chatList {
+    border-radius: 2px;
+    position: relative;
+    background-color:rgba(255, 255, 255, 0.553);
+    border-image-slice: 1 !important;
+    height: 1000vh;
+    margin-left: 12px;
+
+}
+#chatList:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 30px; /* Ancho del degradado */
+    background: linear-gradient(to left, rgba(255, 255, 255, 0.553),  rgba(255, 255, 255, 0.553));
+}
+.mainContainer{
+    flex-direction: column; 
+    height: 1000vh; 
+    width: 1000vw;
+    border-radius: 1px;
+    background-color: rgba(255, 255, 255, 0.553) !important;
+    position: relative;
+    max-width: 1500px; 
+    margin: 0 auto; 
+    margin-left: -33px;
+}
+
+
+.fixed-bottom {
+    margin-left: 365px;
+    margin-bottom: 120px;
+    padding-right: 80px;
+    position: fixed;
+}
+
+#msg {
+    border-radius: 16px;
+    margin-left: 200px;
+    max-width: 1040px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

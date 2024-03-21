@@ -1,0 +1,61 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuevo Registro</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Old+Uyghur&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../html/dist/bundle.js"></script>
+
+</head>
+<body class="dark-background">
+    <header class="global2">
+            <a href=index.html class="watermark">
+                <img src="../img/login/muc.png">
+            </a>
+    </header>
+
+    <main class="register-container">
+        <div class="register">
+            <h1 class="titleLog">Únete a nosotros</h1>
+            <form>
+                <div class="form-group">
+                    <label for="newUsername">Nombre y apellidos</label>
+                </div>
+                <div class="field">
+                    <input type="text" id="newUsername" name="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="newMail">Correo electrónico</label>
+                </div>
+                <div class="field">
+                    <input type="text" id="newMail" name="mail" required>
+                </div>
+                <div class="form-group">
+                    <label for="newPassword">Establece una contraseña</label>
+                </div>
+                <div class="field">  
+                    <input type="password" id="newPassword" name="password" required>
+
+                </div>
+                <div class="form-group">
+                    <label for="confirmP">Confírmanos tu contraseña</label>
+                </div>
+                <div class="field">    
+                    <input type="password" id="confirmP" name="password" required>
+
+                </div>
+                <div class="input">
+                    <p class="confirmReg"><button type="submit" id="register" style="all: unset">Confirmar registro</button></p>
+                </div>
+            </form>
+        </div>    
+    </main>
+
+    <script src="../html/dist/bundle.js"></script>
+</body>
+</html>
+

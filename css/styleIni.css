@@ -1,3 +1,6 @@
+/*estilos aplicados a las paginas
+de inicion de sesión 
+y resgistro de usuario*/
 
 body, html {
     width: 100%;
@@ -5,7 +8,6 @@ body, html {
     padding: 0;
 }
 
-/*ENCABEZADO*/
 .global {
     position: sticky; 
     top: 0;
@@ -34,6 +36,18 @@ body, html {
     text-align: right;
     padding-top: 20px;
     margin-right: 20px;
+
+}
+.logIcon {
+    width: 50px;
+    height: 70px;
+    padding-right: 10px; 
+    transition: opacity 0.3s ease, transform 0.1s ease;
+}
+
+.logIcon:hover{
+    opacity: 0.3;
+    transform: scale(0.95);
 }
 
 .ach {
@@ -94,6 +108,7 @@ body, html {
 .scrolled .menu {
     transform: translate(0%, -173px) scale(1.1);
 }
+
 .menu ul li{
     display: inline-block;
 
@@ -110,25 +125,10 @@ body, html {
 
 }
 
-
 .menu ul li a:hover {
     transform: scale(1.1);
     color:rgb(233, 195, 185);
 }
-/* /* 
-#inicio {
-    width: 500px;
-    height: 300px;
-    background-image: url('../img/inicio/violin.jpeg');
-    background-size: cover;
-    background-position: center;
-    opacity: 0.7;
-    border-radius: 20px;
-    overflow: hidden;
-    filter: blur(10px);
-    margin-top: 200px;
-    z-index: 0;
-} */
 
 #acercade {
     padding-top: 400px;
@@ -162,7 +162,7 @@ body, html {
     padding-top: 400px;
     width: 500px;
     height: 300px;
-background-color: transparent;    
+    background-color: transparent;    
     background-position: center;
     opacity: 0.7;
     border-radius: 20px;
