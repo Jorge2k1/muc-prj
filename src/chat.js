@@ -165,4 +165,4 @@ function openChatWindow(friendUsername, friendUserId) {
   });
 }
 
-export { displayFriendList, openChatWindow, sendMessageToFirestore };
+export { displayFriendList, openChatWindow, sendMessageToFirestore, generateChatId};

@@ -13,9 +13,12 @@ import { getFirestore,
   arrayUnion, 
   serverTimestamp,
   updateDoc,
-  onSnapshot
+  onSnapshot,
+  runTransaction,
+  deleteField
  } from "firebase/firestore";
- import { showFriendRequests } from "./index";
+ import { showFriendRequests } from "./index.js";
+ import { generateChatId } from "./chat.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyBpI0Dfq56oUexIsDu8Jn3yya5TyTcVL94",
@@ -133,36 +136,37 @@ const getFriendRequests = (userId, callback) => {
 };
 
 // Función para aceptar una solicitud de amistad
+// Asegúrate de que has importado `deleteField` de Firestore si lo necesitas.
 const acceptFriendRequest = (currentUserId, requestingUserId) => {
   // Generar el chatId común para ambos usuarios
   const chatId = generateChatId(currentUserId, requestingUserId);
   
   // Crear el chat común en la colección de chats si aún no existe
   const chatRef = doc(db, "chats", chatId);
-  setDoc(chatRef, {}, { merge: true });
-
-  // Agregar el chatId a ambos usuarios y configurar como amigos mutuos
   const currentUserRef = doc(db, "users", currentUserId);
   const requestingUserRef = doc(db, "users", requestingUserId);
 
-  return getFirestore().runTransaction((transaction) => {
-    transaction.update(currentUserRef, {
-      friends: arrayUnion(requestingUserId),
-      chats: arrayUnion(chatId)
-    });
-    transaction.update(requestingUserRef, {
-      friends: arrayUnion(currentUserId),
-      chats: arrayUnion(chatId)
-    });
+  return db.runTransaction((transaction) => {
+    return transaction.get(currentUserRef).then((currentUserDoc) => {
+      if (!currentUserDoc.exists) {
+        throw new Error("Document does not exist!");
+      }
 
-    // Eliminar la solicitud de amistad pendiente
-    const friendRequestsRef = doc(db, "friendRequests", currentUserId);
-    transaction.update(friendRequestsRef, {
-      [requestingUserId]: deleteField()
+      transaction.set(chatRef, {}, { merge: true });
+      transaction.update(currentUserRef, {
+        friends: arrayUnion(requestingUserId),
+        chats: arrayUnion(chatId),
+        // Este es un cambio crítico: debes quitar el ID del amigo de las solicitudes pendientes.
+        friendRequests: arrayRemove(requestingUserId) 
+      });
+      transaction.update(requestingUserRef, {
+        friends: arrayUnion(currentUserId),
+        chats: arrayUnion(chatId)
+      });
     });
-    return Promise.resolve("Done");
   });
 };
+
 
 // ...
 
