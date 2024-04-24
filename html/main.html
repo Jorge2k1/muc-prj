@@ -1,49 +1,75 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menú principal</title>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Old+Uyghur&display=swap" rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
- <!-- CSS de Bootstrap -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-<!--siempre mi css por delane para que tenga prioridad-->
-    <link rel="stylesheet" href="../css/styleApp.css">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Menú principal</title>
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Old+Uyghur&display=swap" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <!-- CSS de Bootstrap -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <!--siempre mi css por delane para que tenga prioridad-->
+        <link rel="stylesheet" href="../css/styleApp.css">
 
-    <!-- Añadir JS y Popper.js de Bootstrap -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.9.2/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <!-- Añadir JS y Popper.js de Bootstrap -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.9.2/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 
-</head>
-<body class="background">
-    <header class="global2">
-            <a href=main.html class="watermark">
-                <img src="../img/login/muc.png">
-            </a>
-    </header>
-    <main>
-        <div class="container-fluid">
-
-            <div class="row">
-                <div class="col-md-2">
-                    <div class="side-menu">
-                        <a href="#/index" class="list-group-item list-group-item-action" id="link1">Inicio</a>
-                        <a href="#/chats" class="list-group-item list-group-item-action" id="link2">Amistades y chats</a>
-                        <a href="#/" class="list-group-item list-group-item-action" id="link3">Recursos</a>
-                        <a href="#/" class="list-group-item list-group-item-action" id="link4">Contacto</a>
+    </head>
+    <body class="background">
+        
+        <header class="global2">
+                <a href=main.html class="watermark">
+                    <img src="../img/login/muc.png">
+                </a>
+                <div class="requestss">
+                    <button id="requests" class="btn btn-primary" type="button" data-toggle="collapse" data-target="#friendRequestsContainer" aria-expanded="false" aria-controls="friendRequestsContainer">
+                        Solicitudes de amistad <span class="badge badge-light">3</span> <!-- Esto muestra el número de solicitudes, puedes cambiarlo dinámicamente -->
+                    </button>
+                    <div class="collapse" id="friendRequestsContainer">
+                        <div class="card card-body">
+                            <!-- Aquí se mostrarán las solicitudes de amistad -->
+        
+                        </div>
                     </div>
                 </div>
-                <div class="col-md-2" id="content">
-                  hola
+        </header>
+        
+        <main>
+            
+            <div class="container-fluid">
+
+                <div class="row">
+                    <div class="col-md-2">
+                        <div class="side-menu">
+                            <a href="#/index" class="list-group-item list-group-item-action" id="link1">Inicio</a>
+                            <a href="#/chats" class="list-group-item list-group-item-action" id="link2">Amistades y chats</a>
+                            <a href="#/resources" class="list-group-item list-group-item-action" id="link3">Recursos</a>
+                            <a href="#/" class="list-group-item list-group-item-action" id="link4">Contacto</a>
+                        </div>
+                        
+                    </div>
+                    <div class="sendFriendRequest">
+                        <label for="sendFriendRequest">Introducir usuario</label>
+                        <input type="text" id="sendFriendRequest" name="sendFriendRequest" required>
+                        <button id="addFriendButton">Agregar Amigo</button>
+                
+                    </div>
+                    
+                    <div id="friendRequestsContainer"></div>
+
+                    <div class="col-md-2" id="content">
+                        hola
+                    </div>
                 </div>
             </div>
-        </div>
-    </main>
-    <script src="dist/bundle.js"></script>
-    <!-- <script src="../js/scriptsApp.js"></script> -->
- 
+        </main>
+        <script src="../dist/bundle.js"></script>
+    </body>
+</html>
 
-</body>
+
+
+

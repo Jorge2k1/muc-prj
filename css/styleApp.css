@@ -15,6 +15,16 @@ body, html {
     width: 12.5%;
 }
 
+.requests {
+    float: right;
+    margin-right: 6%;
+}
+#requests {
+    background-color:rgb(79, 84, 79);
+    border-radius: 9px;
+    
+}
+
 /* estilo cuerpo u otros estilos, ya definiré dentro de este */
 /* menú lateral */
 .side-menu {
@@ -90,6 +100,17 @@ body, html {
     max-width: 1040px;
 }
 
+/*estilos textos subida archivos*/
+
+#fileList {
+    padding-top:10px;
+    padding-bottom: 20px;
+    margin-left: 20px;
+    margin-right: -60px;
+}
+.uploadTxt, .file-text {
+    color: white;
+}
 
 
 

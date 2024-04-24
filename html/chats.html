@@ -9,7 +9,7 @@
 <!--siempre mi css por delante para que tenga prioridad-->
     <link rel="stylesheet" href="../css/styleApp.css">
 
-    <!-- Añadir JS y Popper.js de Bootstrap -->
+<!-- Añadir JS y Popper.js de Bootstrap -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
@@ -21,31 +21,30 @@
             
     </header>
 
-
-    <div class="addFriend">
-        <label for="addFriend">Introducir usuario</label>
-        <input type="text" id="addFriend" name="addFriend" required>
-        <button id="addFriendButton">Agregar Amigo</button>
-
-    </div>
     <main class="chatView">
         <div class="mainContainer"> 
             <div class="row">
                 <nav class="col-md-2" id="chatList">
-                    <!-- Contenido del menú lateral aquí -->
+                    <!-- colección de chats! -->
 
-                    <p>hola</p>
+
+            
                 </nav>
                 <div class="col-md-3" id="chat">
-                    HOLAA
+                    <div class="col-md-3" id="chatContainer">
+                        <!-- aqui quier que salga el chat!! -->
+                        
+                    </div>
+                    <div class="fixed-bottom">
+                        <input type="text" class="form-control" id="msg" placeholder= "  Escribe un mensaje..." required>
+                    </div>
                 </div>
-            </div>
-                <div class="fixed-bottom">
-                    <input type="text" class="form-control" id="msg" name="msg" required>
-                </div>
-            </div>
+            
+            <div></div>
         </div>
     </main>
-    <script src="dist/bundle.js"></script>
+    <script src="../dist/bundle.js"></script>
 
 </body>
+</html>
+
