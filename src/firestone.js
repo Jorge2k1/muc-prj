@@ -14,10 +14,11 @@ import { getFirestore,
   serverTimestamp,
   updateDoc,
   onSnapshot,
+  deleteField,
   runTransaction,
-  deleteField
+  arrayRemove
  } from "firebase/firestore";
- import { showFriendRequests } from "./index.js";
+   import { showFriendRequests } from "./index.js";
  import { generateChatId } from "./chat.js";
 
 const firebaseConfig = {
@@ -135,41 +136,38 @@ const getFriendRequests = (userId, callback) => {
     });
 };
 
-// Función para aceptar una solicitud de amistad
-// Asegúrate de que has importado `deleteField` de Firestore si lo necesitas.
 const acceptFriendRequest = (currentUserId, requestingUserId) => {
-  // Generar el chatId común para ambos usuarios
   const chatId = generateChatId(currentUserId, requestingUserId);
-  
-  // Crear el chat común en la colección de chats si aún no existe
   const chatRef = doc(db, "chats", chatId);
   const currentUserRef = doc(db, "users", currentUserId);
   const requestingUserRef = doc(db, "users", requestingUserId);
 
-  return db.runTransaction((transaction) => {
+  return runTransaction(db, (transaction) => {
     return transaction.get(currentUserRef).then((currentUserDoc) => {
       if (!currentUserDoc.exists) {
-        throw new Error("Document does not exist!");
+        throw "Document does not exist!";
       }
-
+      
       transaction.set(chatRef, {}, { merge: true });
       transaction.update(currentUserRef, {
         friends: arrayUnion(requestingUserId),
         chats: arrayUnion(chatId),
-        // Este es un cambio crítico: debes quitar el ID del amigo de las solicitudes pendientes.
-        friendRequests: arrayRemove(requestingUserId) 
+        friendRequests: arrayRemove(requestingUserId) // Asumiendo que arrayRemove es importado correctamente
       });
       transaction.update(requestingUserRef, {
         friends: arrayUnion(currentUserId),
         chats: arrayUnion(chatId)
       });
     });
+  }).then(() => {
+    console.log("Transaction successfully committed!");
+  }).catch((error) => {
+    console.log("Transaction failed: ", error);
   });
 };
 
 
 // ...
-
 
 // ...
 
