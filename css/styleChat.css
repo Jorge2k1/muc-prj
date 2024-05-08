@@ -1,0 +1,80 @@
+/* css CHAT */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.background {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; 
+}
+
+#chatList {
+    flex:1;
+    min-height: 88vh;
+    border-radius: 2px;
+    position: relative;
+    background-color:rgba(255, 255, 255, 0.553);
+    border-image-slice: 1 !important;
+    margin-left: 12px;
+
+}
+
+
+.mainContainer{
+    width: 1425px;
+    height: 88vh; 
+    border-radius: 1px;
+    background-color: rgba(255, 255, 255, 0.553) !important;
+    position: relative;
+    max-width: 1500px; 
+    margin: 0 auto; 
+    margin-left: -33px;
+}
+
+
+.chat-container {
+    width: 115%;
+    display: flex;
+    flex-direction:column;
+    height: 80vh; 
+}
+
+.chat-messages {
+    width: 100%; 
+    max-width: 100%; 
+    flex-grow: 1;
+    overflow-y: auto; 
+}
+
+.chat-input {
+    margin-top: auto; 
+}
+
+.row.align-items-end {
+    margin-left: 0;
+    margin-right: 0;
+}
+/*tema mensajes*/
+.message {
+    padding: 5px 10px;
+    border-radius: 10px;
+    margin: 5px 0px; /
+    max-width: fit-content;
+    background-color: #E5E5EA; 
+    word-wrap: break-word; 
+}
+  
+  .message-current-user {
+    background-color: #DCF8C6; 
+    margin-left: auto; 
+    margin-right: 10px;
+  }
+  
+  .message-other-user {
+    background-color: #FFFFFF; 
+    margin-right: auto; /*alinea a la izquierda en est caso*/
+    margin-left: 10px;
+  }

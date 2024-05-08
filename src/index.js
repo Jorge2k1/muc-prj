@@ -1,29 +1,13 @@
 // index.js
-import { registerUser, loginUser, sendFriendRequest, getFriendRequests, acceptFriendRequest, findUserByUsername, auth, db, storage } from '../src/firestone.js';
-import { deleteFile, loadAndDisplayFiles, showSelectedFile, confirmFileUpload} from '../src/storage.js';
+import { registerUser, loginUser, sendFriendRequest, getFriendRequests, acceptFriendRequest, findUserByUsername, auth } from '../src/firestone.js';
+import { loadAndDisplayFiles, showSelectedFile, confirmFileUpload} from '../src/storage.js';
 import { displayFriendList } from "../src/chat.js";
-import { serverTimestamp } from 'firebase/firestore'; 
-import { onAuthStateChanged } from "firebase/auth";
+import { checkUniversity, loadUniversityPage, saveUniversityToFavorites  } from "../src/unis.js";
+import { loadFavoriteUniversities } from "../src/inicio.js";
+window.appState = window.appState || {}; 
 
-
-window.appState = window.appState || {}; // Esto asegura que no sobreescribes el objeto si ya existe
-
-// onAuthStateChanged(auth, user => {
-//   if (user) {
-//     // User is signed in
-//     console.log("vamos a obtener las solis");
-//     getFriendRequests(user.uid, showFriendRequests);
-
-//   } else {
-//     // User is signed out
-//     console.log('No user is signed in.');
-//     // Handle what you want to do when there is no user signed in.
-//   }
-// });
-
-
+// Listener registro
 document.addEventListener('DOMContentLoaded', () => {
-  // Configura el listener de registro
   const registerForm = document.querySelector('.register form');
   if (registerForm) {
     registerForm.addEventListener('submit', function (event) {
@@ -37,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
         registerUser(email, password, username)
           .then(() => {
             console.log('Usuario registrado con éxito');
-            window.location.href = 'main.html'; // Redirección después del registro
+            window.location.href = 'main.html';
           })
           .catch(error => {
             console.error('Error al registrar el usuario:', error.message);
@@ -49,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Configura el listener de inicio de sesión
+  // listener de inicio de sesión
   const loginForm = document.querySelector('.login form');
   if (loginForm) {
     loginForm.addEventListener('submit', function (event) {
@@ -60,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
       loginUser(email, password)
         .then(() => {
           console.log('Inicio de sesión exitoso');
-          window.location.href = 'main.html'; // Redirección después del inicio de sesión
+          window.location.href = 'main.html';
         })
         .catch(error => {
           console.error('Error en el inicio de sesión:', error.message);
@@ -69,24 +53,28 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Configura el listener para agregar amigos
-  // const addFriendButton = document.getElementById('addFriendButton');
-  // if (addFriendButton) {
-  //   addFriendButton.addEventListener('click', () => {
-  //     const friendUsername = document.getElementById('addFriend').value;
-  //     if (friendUsername) {
-  //       findUserByUsername(friendUsername).then(username => {
-  //         if (username) {
-  //           addFriend(auth.currentUser.uid, username)
+  // const lookUp = document.getElementById('lookUp');
+  // if (lookUp) {
+  //   lookUp.addEventListener('click', () => {
+  //     const friendUsernameInput = document.getElementById('sendFriendRequest');
+
+
+  //     if (friendUsernameInput.value) {
+  //       findUserByUsername(friendUsernameInput.value).then(friendData => {
+  //         console.log("Resultado de la consulta:", friendData); // Agrega este console.log
+
+  //         if (friendData) {
+
+  //           sendFriendRequest(auth.currentUser.uid, friendData.userId)
   //             .then(() => {
-  //               console.log('Amigo añadido correctamente.');
+  //               console.log('solicitud enviada');
+  //               friendUsernameInput.value = ''; // Limpia el campo después de agregar
   //             })
   //             .catch(error => {
   //               console.error('Error al añadir amigo:', error);
   //               alert('Error al añadir amigo. Por favor, intente de nuevo.');
   //             });
   //         } else {
-  //           console.log('Usuario no encontrado.');
   //           alert('Usuario no encontrado.');
   //         }
   //       }).catch(error => {
@@ -99,52 +87,13 @@ document.addEventListener('DOMContentLoaded', () => {
   //   });
   // }
 
-    // Ajusta el listener para manejar el objeto de usuario
-  // Modificada para manejar el objeto con username y userId
-  const addFriendButton = document.getElementById('addFriendButton');
-  if (addFriendButton) {
-    addFriendButton.addEventListener('click', () => {
-      const friendUsernameInput = document.getElementById('sendFriendRequest');
-      if (friendUsernameInput.value) {
-        findUserByUsername(friendUsernameInput.value).then(friendData => {
-          console.log("Resultado de la consulta:", friendData); // Agrega este console.log
-
-          if (friendData) {
-
-            sendFriendRequest(auth.currentUser.uid, friendData.userId)
-              .then(() => {
-                console.log('solicitud enviada');
-                friendUsernameInput.value = ''; // Limpia el campo después de agregar
-              })
-              .catch(error => {
-                console.error('Error al añadir amigo:', error);
-                alert('Error al añadir amigo. Por favor, intente de nuevo.');
-              });
-          } else {
-            alert('Usuario no encontrado.');
-          }
-        }).catch(error => {
-          console.error('Error al buscar usuario:', error);
-          alert('Error al buscar usuario. Por favor, intente de nuevo.');
-        });
-      } else {
-        alert('Por favor, introduce un nombre de usuario.');
-      }
-    });
-  }
-
-  // Carga inicial de contenido
   chargeSite();
 });
 
-// Asegúrate de que la función chargeSite y otras funciones se manejen adecuadamente
 window.addEventListener('hashchange', chargeSite);
 window.addEventListener('load', chargeSite);
 
-// Continúa con el resto del código como se planeó originalmente
-
-
-// Carga dinámica de contenido
+// carga dinámica de contenido
 function chargeSite(callback) {
   const route = window.location.hash.substring(1) || 'chats';
   const routePath = `./${route}.html`;
@@ -158,7 +107,7 @@ function chargeSite(callback) {
       } else if (route === '/chats') {
         initializeChatListeners();
       }
-      if (callback) callback();  // Llama al callback después de cargar el contenido y inicializar lo necesario
+      if (callback) callback();
     })
     .catch(error => {
       console.error('Error al cargar la vista:', error);
@@ -168,7 +117,6 @@ function chargeSite(callback) {
     const requestsButton = document.getElementById('requests');
     if (requestsButton) {
         requestsButton.addEventListener('click', () => {
-            // Verifica si hay un usuario autenticado antes de hacer la llamada
             if (auth.currentUser) {
                 getFriendRequests(auth.currentUser.uid, showFriendRequests);
             } else {
@@ -178,163 +126,127 @@ function chargeSite(callback) {
     }
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-  // Asigna listener para agregar amigo
-//   
-  const addFriendButton = document.getElementById('addFriendButton');
-    if (addFriendButton) {
-      addFriendButton.addEventListener('click', () => {
-        const friendUsernameInput = document.getElementById('sendFriendRequest');
-        if (friendUsernameInput.value) {
-          findUserByUsername(friendUsernameInput.value).then(friendData => {
-            if (friendData) {
-              sendFriendRequest(auth.currentUser.uid, friendData.userId)
-                .then(() => {
-                  console.log('Solicitud de amistad enviada correctamente.');
-                  friendUsernameInput.value = ''; // Limpia el campo después de agregar
-                })
-                .catch(error => {
-                  console.error('Error al enviar solicitud de amistad:', error);
-                  alert('Error al enviar solicitud. Por favor, intente de nuevo.');
-                });
-            } else {
-              alert('Usuario no encontrado.');
-            }
-          }).catch(error => {
-            console.error('Error al buscar usuario:', error);
-            alert('Error al buscar usuario. Por favor, intente de nuevo.');
-          });
-        } else {
-          alert('Por favor, introduce un nombre de usuario.');
-        }
-      });
-    }
-  
-//    const addFriendButton = document.getElementById('addFriendButton');
-//   if (addFriendButton) {
-//       console.log("Por favor, introduce un nombre de usuario.");
-//       addFriendButton.addEventListener('click', function() {
-//           console.log("Por favor, introduce un nombre de usuario.");
-//           const friendUsername = document.getElementById('addFriend').value; // Asume que tienes este input en tu HTML
-//           console.log(friendUsername);
-//             if (friendUsername) {
-
-//               findUserByUsername(friendUsername).then((friendUsername) => {
-//                 console.log("llegamos aqui");
-//                 if (friendUsername) {
-
-//                   const currentUserId = auth.currentUser.uid;
-//                   addFriend(currentUserId, friendUsername); // Pasa el nombre de usuario directamente
-//                 } else {
-//                   console.log("Usuario no encontrado tete");
-//                 }
-//               });
+// document.addEventListener('DOMContentLoaded', () => {  
+//   const lookUp = document.getElementById('lookUp');
+//     if (lookUp) {
+//       lookUp.addEventListener('click', () => {
+//         const friendUsernameInput = document.getElementById('sendFriendRequest');
+//         if (friendUsernameInput.value) {
+//           findUserByUsername(friendUsernameInput.value).then(friendData => {
+//             if (friendData) {
+//               sendFriendRequest(auth.currentUser.uid, friendData.userId)
+//                 .then(() => {
+//                   console.log('Solicitud de amistad enviada correctamente.');
+//                   friendUsernameInput.value = ''; // Limpia el campo después de agregar
+//                 })
+//                 .catch(error => {
+//                   console.error('Error al enviar solicitud de amistad:', error);
+//                   alert('Error al enviar solicitud. Por favor, intente de nuevo.');
+//                 });
 //             } else {
-//                 console.log("nop");
+//               alert('Usuario no encontrado.');
 //             }
+//           }).catch(error => {
+//             console.error('Error al buscar usuario:', error);
+//             alert('Error al buscar usuario. Por favor, intente de nuevo.');
+//           });
+//         } else {
+//           alert('Por favor, introduce un nombre de usuario.');
+//         }
 //       });
+//     }
+// });
+
+// document.addEventListener('DOMContentLoaded', () => {  
+//   const lookUp = document.getElementById('lookUp');
+//   if (lookUp) {
+//     lookUp.addEventListener('click', () => {
+//       const inputElement = document.getElementById('sendFriendRequest');
+//       const searchValue = inputElement.value.trim();
+
+//       checkUniversity(searchValue).then(result => {
+//         if (result.exists) {
+//           // Carga la información de la universidad si el documento existe
+//           loadUniversityPage(searchValue);
+//         } else {
+//           // Procede a buscar un nombre de usuario si no se encuentra la universidad
+//           findUserByUsername(searchValue).then(friendData => {
+//             if (friendData) {
+//               sendFriendRequest(auth.currentUser.uid, friendData.userId)
+//                 .then(() => {
+//                   console.log('Solicitud de amistad enviada correctamente.');
+//                   inputElement.value = ''; // Limpia el campo después de enviar
+//                 })
+//                 .catch(error => {
+//                   console.error('Error al enviar solicitud de amistad:', error);
+//                   alert('Error al enviar solicitud. Por favor, intente de nuevo.');
+//                 });
+//             } else {
+//               alert('Usuario no encontrado.');
+//             }
+//           }).catch(error => {
+//             console.error('Error al buscar usuario:', error);
+//             alert('Error al buscar usuario. Por favor, intente de nuevo.');
+//           });
+//         }
+//       });
+//     });
 //   }
 // });
-  
-  // Añadiría aquí el código para manejar las solicitudes de amistad entrantes
-  // Esto podría ser mostrar un modal o una sección en la interfaz de usuario con las solicitudes pendientes
+document.addEventListener('DOMContentLoaded', () => {
+  const lookUp = document.getElementById('lookUp');
+  const inputElement = document.getElementById('sendFriendRequest');
+
+  // Función para manejar la lógica de búsqueda
+  function handleSearch() {
+      const searchValue = inputElement.value.trim();
+
+      checkUniversity(searchValue).then(result => {
+          if (result.exists) {
+              // Carga la información de la universidad si el documento existe
+              loadUniversityPage(searchValue);
+          } else {
+              // Procede a buscar un nombre de usuario si no se encuentra la universidad
+              findUserByUsername(searchValue).then(friendData => {
+                  if (friendData) {
+                      sendFriendRequest(auth.currentUser.uid, friendData.userId)
+                          .then(() => {
+                              console.log('Solicitud de amistad enviada correctamente.');
+                              inputElement.value = ''; // Limpia el campo después de enviar
+                          })
+                          .catch(error => {
+                              console.error('Error al enviar solicitud de amistad:', error);
+                              alert('Error al enviar solicitud. Por favor, intente de nuevo.');
+                          });
+                  } else {
+                      alert('Usuario no encontrado.');
+                  }
+              }).catch(error => {
+                  console.error('Error al buscar usuario:', error);
+                  alert('Error al buscar usuario. Por favor, intente de nuevo.');
+              });
+          }
+      });
+  }
+
+  // Evento click para el botón
+  if (lookUp) {
+      lookUp.addEventListener('click', handleSearch);
+  }
+
+  // Evento keypress para el campo de entrada
+  if (inputElement) {
+      inputElement.addEventListener('keypress', function(event) {
+          if (event.key === "Enter") {
+              event.preventDefault(); // Prevenir cualquier acción predeterminada
+              handleSearch(); // Llama a la función de manejo de búsqueda
+          }
+      });
+  }
 });
 
 
 
-// Función para mostrar las solicitudes en la UI
-// const showFriendRequests = (requests) => {
-//   const requestsContainer = document.getElementById('friendRequestsContainer');
-//   requestsContainer.innerHTML = ''; // Limpiamos contenedor actual
-
-//   requests.forEach((request) => {
-//     const requestElement = document.createElement('div');
-//     requestElement.classList.add('friendRequest');
-
-//     const acceptButton = document.createElement('button');
-//     acceptButton.textContent = 'Aceptar';
-//     acceptButton.onclick = () => {
-//       acceptFriendRequest(auth.currentUser.uid, request.id)
-//         .then(() => {
-//           alert('¡Amigo agregado correctamente!');
-//           // Actualizar UI aquí si es necesario
-//         }).catch(console.error);
-//     };
-
-//     const rejectButton = document.createElement('button');
-//     rejectButton.textContent = 'Rechazar';
-//     rejectButton.onclick = () => {
-//       // Implementa rechazar solicitud aquí
-//     };
-
-//     requestElement.appendChild(document.createTextNode(request.username));
-//     requestElement.appendChild(acceptButton);
-//     requestElement.appendChild(rejectButton);
-
-//     requestsContainer.appendChild(requestElement);
-//   });
-// };
-
-// Función para mostrar las solicitudes en la UI
-// Función para mostrar las solicitudes de amistad en la interfaz de usuario
-// const showFriendRequests = (requestsDetails) => {
-//   console.log("Showing friend requests with details:", requestsDetails);
-//   const requestsContainer = document.getElementById('friendRequestsContainer');
-//   const requestsBadge = document.querySelector('#requests .badge');
-
-//   if (!requestsContainer || !requestsBadge) {
-//     console.error('DOM elements for displaying friend requests not found.');
-//     return; // Salir de la función si no se encuentran los elementos
-//   }
-
-//   // Limpiar contenedor actual
-//   requestsContainer.innerHTML = '';
-  
-//   // Actualizar el número de solicitudes de amistad en el badge
-//   requestsBadge.textContent = requestsDetails.length;
-
-//   // Generar la UI para cada solicitud de amistad
-//   requestsDetails.forEach((requestDetail) => {
-//     const requestElement = document.createElement('div');
-//     requestElement.classList.add('friendRequest');
-
-//     // Botón para aceptar la solicitud
-//     const acceptButton = document.createElement('button');
-//     acceptButton.textContent = 'Aceptar';
-//     acceptButton.classList.add('btn', 'btn-success', 'btn-sm', 'mr-2');
-//     acceptButton.onclick = () => {
-//       acceptFriendRequest(auth.currentUser.uid, requestDetail.id)
-//         .then(() => {
-//           alert('¡Amigo agregado correctamente!');
-//           // Eliminar solicitud de la UI
-//           requestElement.remove();
-//           // Decrementar contador en el badge
-//           requestsBadge.textContent = parseInt(requestsBadge.textContent) - 1;
-//         })
-//         .catch(console.error);
-//     };
-
-//     // Botón para rechaza
-//     const rejectButton = document.createElement('button');
-//     rejectButton.textContent = 'Rechazar';
-//     rejectButton.classList.add('btn', 'btn-danger', 'btn-sm'); // Agregar clases de estilo
-//     rejectButton.onclick = () => {
-//       // Implementa la lógica para rechazar la solicitud aquí
-//       // Por ejemplo, eliminar la solicitud de Firestore y actualizar la UI similarmente a como se hace en acceptButton.onclick
-//     };
-
-//     requestElement.appendChild(document.createTextNode(`Solicitud de: ${request.username}`));
-//     requestElement.appendChild(acceptButton);
-//     requestElement.appendChild(rejectButton);
-
-//     requestsContainer.appendChild(requestElement);
-//   });
-
-//   // Si no hay solicitudes, muestra un mensaje
-//   if (requests.length === 0) {
-//     requestsContainer.innerHTML = '<div class="p-2">No hay solicitudes de amistad pendientes.</div>';
-//   }
-// };
 
 // Función para mostrar las solicitudes de amistad en la interfaz de usuario
 const showFriendRequests = (requestsDetails) => {
@@ -344,21 +256,25 @@ const showFriendRequests = (requestsDetails) => {
 
   if (!requestsContainer || !requestsBadge) {
     console.error('DOM elements for displaying friend requests not found.');
-    return; // Salir de la función si no se encuentran los elementos
+    return; 
   }
-
-  // Limpiar contenedor actual
   requestsContainer.innerHTML = '';
-  
-  // Actualizar el número de solicitudes de amistad en el badge
   requestsBadge.textContent = requestsDetails.length;
-
-  // Generar la UI para cada solicitud de amistad
   requestsDetails.forEach((requestDetail) => {
     const requestElement = document.createElement('div');
     requestElement.classList.add('friendRequest');
 
-    // Botón para aceptar la solicitud
+    // muestra de la solicitud
+    const requestText = document.createElement('div');
+    requestText.textContent = `${requestDetail.username} ha solicitado seguirte`;
+    requestText.classList.add('friendRequest-text'); // Asigna una clase para el texto
+    requestElement.appendChild(requestText);
+
+    // div para botones
+    const buttonContainer = document.createElement('div');
+    buttonContainer.classList.add('button-container');
+
+    // Botón para aceptar la solicitud y elminarla de la ui
     const acceptButton = document.createElement('button');
     acceptButton.textContent = 'Aceptar';
     acceptButton.classList.add('btn', 'btn-success', 'btn-sm', 'mr-2');
@@ -366,33 +282,35 @@ const showFriendRequests = (requestsDetails) => {
       acceptFriendRequest(auth.currentUser.uid, requestDetail.id)
         .then(() => {
           alert('¡Amigo agregado correctamente!');
-          // Eliminar solicitud de la UI
           requestElement.remove();
-          // Decrementar contador en el badge
           requestsBadge.textContent = parseInt(requestsBadge.textContent) - 1;
         })
         .catch(console.error);
     };
 
-    // Botón para rechazar
+    // Botón para rechazar la solicitud
     const rejectButton = document.createElement('button');
     rejectButton.textContent = 'Rechazar';
     rejectButton.classList.add('btn', 'btn-danger', 'btn-sm');
     rejectButton.onclick = () => {
-      // Aquí agregarías la lógica para rechazar la solicitud
+      // aun tengo q gestionar el rechazo de la soli
     };
 
-    // Asegúrate de usar el objeto correcto para obtener el nombre de usuario
-    requestElement.appendChild(document.createTextNode(`Solicitud de: ${requestDetail.username}`));
+    // añadimos los botones al contenedor de botones
+    buttonContainer.appendChild(acceptButton);
+    buttonContainer.appendChild(rejectButton);
+
+    requestElement.appendChild(requestText);
+
     requestElement.appendChild(acceptButton);
     requestElement.appendChild(rejectButton);
+    requestElement.appendChild(buttonContainer);
 
     requestsContainer.appendChild(requestElement);
   });
 
-  // Si no hay solicitudes, muestra un mensaje
   if (requestsDetails.length === 0) {
-    requestsContainer.innerHTML = '<div class="p-2">No hay solicitudes de amistad pendientes.</div>';
+    requestsContainer.innerHTML = '<div class="p-2">¡Esto está algo solitario!</div>';
   }
 };
 
@@ -400,9 +318,9 @@ const showFriendRequests = (requestsDetails) => {
 // Inicialización de la página de recursos
 function initResourcesPage() {
   console.log("Página de recursos cargada.");
-  // Listener para seleccionar archivos y mostrarlos
+  //listener para mostrar la subida de recursos
   const fileUploader = document.getElementById('fileUploader');
-
+  loadAndDisplayFiles(auth.currentUser.uid);
   if (fileUploader) {
       fileUploader.addEventListener('change', function(e) {
           if (!auth.currentUser) {
@@ -422,22 +340,56 @@ function initResourcesPage() {
           const fileName = event.target.getAttribute('data-name');
           const button = event.target;
           confirmFileUpload(auth.currentUser.uid, fileName, button, loadAndDisplayFiles);
-          // Esta función manejará la subida del archivo
       }
   });
 }
 
-// Inicialización de los listeners de chat
+// Asegurarse de que cuando se carga la sección de inicio se ejecutan estas funciones
+// document.addEventListener('DOMContentLoaded', () => {
+//   console.log("oleeee");
+
+//     if (window.location.hash === '#/inicio') {
+//       console.log("no se crea el dom");
+//         loadFavoriteUniversities(); // Llamada a la función para cargar las universidades guardadas
+//     }
+
+// });
+document.addEventListener('DOMContentLoaded', () => {
+  console.log("DOM completamente cargado");
+  
+  // Verifica y carga universidades si ya estamos en "inicio" al cargar la página
+  if (window.location.hash === '#/inicio') {
+      console.log("Cargando universidades favoritas desde DOMContentLoaded...");
+      loadFavoriteUniversities();
+  }
+
+  // Añade un listener para hashchange dentro de DOMContentLoaded para manejar cambios futuros
+  window.addEventListener('hashchange', () => {
+      console.log("Cambio de hash detectado:", window.location.hash);
+      if (window.location.hash === '#/inicio') {
+          console.log("Cargando universidades favoritas desde hashchange...");
+          loadFavoriteUniversities();
+      }
+  });
+});
+
+
+
+// Suponiendo que 'content' es un contenedor que ya existe cuando se carga la página
+document.getElementById('content').addEventListener('click', function(event) {
+  if (event.target.id === 'saveUniversityButton') {
+      const universityId = document.getElementById('uniName').textContent; // Asumimos que el ID es el nombre de la universidad
+      saveUniversityToFavorites(universityId);
+  }
+});
+
 function initializeChatListeners() {
   console.log("Chat inicializado.");
-  displayFriendList(); // Llamar a la función para mostrar la lista de amigos
-  // Aquí puedes añadir más listeners según sea necesario
+  displayFriendList(); 
 }
 
-// Disparar un evento cuando todo el JS haya cargado
 window.onload = () => {
   window.dispatchEvent(new Event('firebase-loaded'));
 };
 
-// Exportamos funciones si es necesario para que puedan ser usadas en otros scripts
 export { chargeSite, initResourcesPage, initializeChatListeners, showFriendRequests };

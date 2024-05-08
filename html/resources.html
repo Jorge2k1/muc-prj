@@ -14,45 +14,46 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
         
         <!--siempre mi css por delante para que tenga prioridad-->
-        <link rel="stylesheet" href="../css/styleApp.css">
+        <link rel="stylesheet" href="../css/styleResources.css">
 
     </head>
     <body class="background">
-
-        <header class="global2">
-            <p>Recursos compartidos por ti</p> 
+        <header class="row">
+            <div class="welcome">
+                <p>Recursos compartidos por ti</p> 
+            </div>
         </header>
-    <main>
-        <div>
-            <nav class="navbar navbar-expand-sm bg-light">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                <a class="nav-link" href="#">Recursos compartidos</a>
-                </li>
-                <li class="nav-item">
-                <a class="nav-link" href="#">Recursos guardados</a>
-                </li>
-            </ul>
-            </nav>
-        </div>
+        <main>
+            <div>
+                <nav class="navbar navbar-expand-sm bg-light">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                    <a class="nav-link" href="#">Recursos compartidos</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="#">Recursos guardados</a>
+                    </li>
+                </ul>
+                </nav>
+            </div>
+            
+            <div style="display: none;"><button id="confirmUploadButton">Confirma la subida</button></div>
+            <div>
+                
+                <input type="file" id="fileUploader" multiple>
+            </div>
+
+            <div id="fileList">
+                <!-- aqui veremos los recursos a confirmar para subir -->
+
+            </div>
+            <div id="yourFilesList">
+                                <!-- y aqui veremos lo subidos totales -->
+            </div>
+        </main>
         
-        
-        <div id="fileList">
-            <p class="uploadTxt">Estás a punto de subir: </p>
 
-
-        </div>
-        <div style="display: none;"><button id="confirmUploadButton">Confirma la subida</button></div>
-        <div id="yourFilesList"></div>
-
-
-
-    </main>
-    <div>
-        <input type="file" id="fileUploader" multiple>
-    </div>
-
-    <script src="../dist/bundle.js"></script>
+        <script src="../dist/bundle.js"></script>
     </body>
     
 

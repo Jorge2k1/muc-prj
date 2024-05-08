@@ -1,0 +1,26 @@
+/*estilos recursos*/
+header {
+    display: flex;
+    justify-content: center; 
+    width: 100%;
+}
+.welcome {
+    text-align: center;
+    color: white; 
+    font-family: 'Noto Serif Old Uyghur';
+
+}
+#fileList {
+    padding-top:10px;
+    padding-bottom: 20px;
+    margin-left: 20px;
+    margin-right: -60px;
+}
+.uploadTxt, .file-text {
+    color: white;
+}
+
+.file-entry {
+    margin-bottom: 20px;
+}
+ 

@@ -1,0 +1,66 @@
+/* Estilos generales y de la tarjeta */
+.container {
+    max-width: 1200px; /* Ajusta esto según el ancho máximo deseado */
+    margin: auto;
+}
+
+.card {
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: 0.3s;
+    width: 300px; /* Ancho de cada tarjeta */
+    margin: 20px; /* Espaciado entre tarjetas */
+}
+
+.card:hover {
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+
+.card img {
+    width: 100%;
+    height: 180px; /* Altura fija para imágenes */
+    object-fit: cover; /* Asegura que la imagen cubra el espacio sin deformarse */
+}
+
+.card-body {
+    padding: 15px;
+}
+
+.card-title {
+    font-size: 18px; /* Tamaño del título */
+    margin-bottom: 5px;
+}
+
+.card-text {
+    font-size: 14px; /* Tamaño del texto */
+    color: #555; /* Color del texto */
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #004080;
+}
+
+/* Clase para el corazón de "favoritos" */
+.favorite-heart {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px; /* Tamaño del icono de corazón */
+    color: #fff; /* Color del icono de corazón */
+    background-color: #ff4081; /* Fondo rosa */
+    padding: 5px;
+    border-radius: 50%;
+}
+
+/* Respuestas responsivas */
+@media (max-width: 992px) {
+    .card {
+        width: 100%; /* Ajuste para dispositivos móviles */
+        margin: 10px 0; /* Reducción del margen entre tarjetas en móviles */
+    }
+}

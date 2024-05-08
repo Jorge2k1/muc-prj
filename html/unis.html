@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>University Course Viewer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Old+Uyghur&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- CSS de Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!--siempre mi css por delane para que tenga prioridad-->
+   
+    <link rel="stylesheet" href="../css/styleUnis.css">
+
+    <!-- Añadir JS y Popper.js de Bootstrap -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- Header Section with University Name and Logo -->
+        <div class="row my-3">
+            <div class="col-sm-8">
+                <h1 id="uniName">Bangor University</h1>
+            </div>
+            <div class="col-sm-4 text-right">
+                <img src="../img/main/inicio/bangorLogo.jpeg" alt="University Logo" style="width: 100px;">
+            </div>
+        </div>
+
+        <!-- Image Header -->
+        <div class="row">
+            <div class="col-12">
+                <img src="header_image_url.jpg" alt="University Campus" class="img-fluid">
+            </div>
+        </div>
+
+        <!-- Course Details and Like Button -->
+        <div class="row my-3 align-items-center">
+            <div class="col-md-9">
+                <h2>Accounting (Taught)</h2>
+                <p>Postgraduate - MSc</p>
+            </div>
+            <div class="col-md-3 text-right">
+                <button id="saveUniversityButton" class="btn btn-outline-primary">
+                    <span>&hearts;</span> Save
+                </button>
+            </div>
+        </div>
+
+        <!-- Course Options and Apply Button -->
+        <div class="row">
+            <div class="col-md-4">
+                <p>Start Date: September 2023</p>
+                <p>Duration: 12 months</p>
+                <p>Full-time</p>
+            </div>
+            <div class="col-md-8 text-right">
+                <button class="btn btn-primary">Apply</button>
+            </div>
+        </div>
+
+        <!-- Additional Information -->
+        <div class="row">
+            <div class="col-md-12">
+                <p>Course summary and application details here...</p>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="../dist/bundle.js"></script>
+
+</html>

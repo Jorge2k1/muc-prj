@@ -47,10 +47,9 @@ function confirmFileUpload(userId, fileName, button) {
           if (button) {
             button.style.display = 'none';
           }
-          // Limpiar la vista previa del archivo y el estado global
           window.appState.selectedFile = null;
           fileList.innerHTML = '';
-          // Llamar a loadAndDisplayFiles para mostrar los archivos actualizados
+          // llamaré a loadAndDisplayFiles para mostrar los archivos actualizados
           loadAndDisplayFiles(userId);
         }).catch((error) => {
           console.error("Error al actualizar Firestore con la información del archivo:", error);
@@ -72,6 +71,7 @@ function loadAndDisplayFiles(userId) {
 
       files.forEach(file => {
         const fileElement = document.createElement('div');
+        fileElement.classList.add('file-entry');
         fileElement.innerHTML = `
           <input type="checkbox" class="delete-checkbox" data-name="${file.name}" />
           <img src="../img/main/pdf.png" alt="PDF Icon" style="width: 27px; height: 27px;">
@@ -80,7 +80,7 @@ function loadAndDisplayFiles(userId) {
         filesList.appendChild(fileElement);
       });
 
-      // Añadir event listener a los checkboxes para manejar la eliminación
+      // Event listener poara los checkboxes para manejar la eliminación
       document.querySelectorAll('.delete-checkbox').forEach(checkbox => {
         checkbox.addEventListener('change', function(event) {
           if (event.target.checked) {
@@ -98,7 +98,7 @@ function loadAndDisplayFiles(userId) {
   });
 }
 
-// Función para manejar la eliminación de archivos
+// función para manejar la eliminación de archivos
 function deleteFile(fileName, userId, checkboxElement) {
   if (!confirm(`¿Estás seguro de que deseas eliminar el archivo ${fileName}?`)) {
     checkboxElement.checked = false;
@@ -125,6 +125,4 @@ function deleteFile(fileName, userId, checkboxElement) {
     console.error("Error al eliminar el archivo de Firebase Storage:", error);
   });
 }
-
-// Exportaciones
 export { deleteFile, loadAndDisplayFiles, showSelectedFile, confirmFileUpload };

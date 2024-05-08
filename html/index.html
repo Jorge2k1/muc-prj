@@ -7,19 +7,22 @@
     <title>MUC</title>
     <link rel="stylesheet" href="../css/styleIni.css">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Old+Uyghur&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Old+Uyghur&display=swap" rel="stylesheet">
+    <link href="https://db.onlinewebfonts.com/c/b9583eae10a51eee606cae74cf802753?family=Citadel+Script" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="dist/bundle.js"></script>
 
 
 </head>
-<body>
-    <header class = "global">
+<body class="background">
+    <header class="global">
         <div class="front">
             <div class="top">
                 <p class="log"><a href="login.html"><img src="../img/inicio/logIcon.png" class="logIcon"></a></p>
             </div>
             <div class="head">  
-                <p class="ach">MCU</p>
+                <p class="ach">MUC</p>
                 <p class="slogan">Music University Coaching</p>
                 <nav class="menu">
                     <ul>
@@ -30,61 +33,73 @@
                     </ul>
                 </nav>
             </div>
-
         </div>
-        
     </header>
-    <div id="inicio">
-            
 
+    <div class="container"> 
+        <section id="inicio" class="row align-items-end">
+            <div class="imgAlice col-md-4 .offset-md-3">
+                <img src="/img/inicio/DSC_0974.jpg" class="rounded img-fluid" alt="mi pequeñota">
+            </div>
+            <div class="who col-md-8 .offset-md-8">
+                <h2 class="quienesSomos">¿Quiénes somos?</h2>
+                <p>    
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit...
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit...
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit...Lorem ipsum dolor sit amet,
+                    consectetur adipiscing elit...Lorem ipsum dolor sit 
+                    amet, consectetur adipiscing elit...Lorem ipsum dolor sit amet, c
+                    onsectetur adipiscing elit...
+                </p>
+            </div>
+        </section>
     </div>
-    <div id="acercade">
-            
-
-    </div>
-    <div id="servicio">
-            
-
-    </div>
-    <div id="contacto">
-        <div id="inicio">
-            
-
-        </div>
-        <div id="acercade">
-                
     
+    <!-- <section id="inicio" class="row">
+        <div class="alice col-md-4 float-left">
+            <img src="/img/inicio/DSC_0974.jpg" class="rounded" alt="mi pequeñota" width="400px" height="auto">
         </div>
-        <div id="servicio">
-                
-    
+        <div class="who col-md-8 float-right">  
+
+            <p class="quienesSomos">¿Quiénes somos?</p>
+            <p>    
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit...
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit...
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit...Lorem ipsum dolor sit amet,
+                consectetur adipiscing elit...Lorem ipsum dolor sit 
+                amet, consectetur adipiscing elit...Lorem ipsum dolor sit amet, c
+                onsectetur adipiscing elit...
+            </p>
         </div>
-        <div id="contacto">
-                <div id="inicio">
-            
+    </section> -->
 
-    </div>
-    <div id="acercade">
-            
+    <section id="acercade">
+        <!-- Contenido de Acerca de -->
+        <div class="container">
+            <div class="row">
+              <div class="col-md-4">.col-md-4</div>
+              <div class="col-md-4 ms-auto">.col-md-4 .ms-auto</div>
+            </div>
+            <div class="row">
+              <div class="col-md-3 ms-md-auto">.col-md-3 .ms-md-auto</div>
+              <div class="col-md-3 ms-md-auto">.col-md-3 .ms-md-auto</div>
+            </div>
+            <div class="row">
+              <div class="col-auto me-auto">.col-auto .me-auto</div>
+              <div class="col-auto">.col-auto</div>
+            </div>
+          </div>
+    </section>
 
-    </div>
-    <div id="servicio">
-            
+    <section id="servicio">
+        <!-- Contenido de Servicios -->
+    </section>
 
-    </div>
-    <div id="contacto">
-        <p>
-        </p>
+    <section id="contacto">
+        <!-- Contenido de Contacto -->
+    </section>
 
-    </div>
     <script type="module" src="../js/scripts.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            scrollSuave();
-            gatherTop();
-            scroll();
-        });
-    </script>
 </body>
 
 </html>

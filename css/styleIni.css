@@ -9,19 +9,19 @@ body, html {
 }
 
 .global {
-    position: sticky; 
+    position: sticky;
     top: 0;
+    z-index: 1000;
+    width: 100%;
     color: white;
     background-image: linear-gradient(to top, transparent 77%, white 60%);
-    height: 100vh; 
-    z-index: 1000; 
-    transition: background-image 0.5s ease;
+    transition: height 0.5s ease; /* Suaviza la transición de la altura */
+    height: 100vh; /* Altura inicial completa */
 }
 
 .scrolled .global {
-        /* Estilos cuando se desplaza hacia abajo */
-    background-image: linear-gradient(to bottom, transparent 60%, white 50%); 
-    height: 50%; /* Reduce el tamaño del div */
+    background-image: linear-gradient(to bottom, transparent 60%, white 50%);
+    height: 400px; /* Altura reducida cuando se hace scroll */
 }
 
 
@@ -30,6 +30,7 @@ body, html {
     left: 0;
     width: 100%;
     z-index: 999; 
+    position: sticky;
 }
 .log {
     font-size: large;
@@ -39,8 +40,8 @@ body, html {
 
 }
 .logIcon {
-    width: 50px;
-    height: 70px;
+    width: 60px;
+    height:auto;
     padding-right: 10px; 
     transition: opacity 0.3s ease, transform 0.1s ease;
 }
@@ -60,26 +61,30 @@ body, html {
 
 .ach, .slogan {
    top: -50;
-   transition: transform 0.7s ease; /* Agregar una transición suave */
+   transition: transform 0.7s ease;
+
 }
+
 
 .scrolled .ach {
     transform: translate(-43%, -50%) scale(0.5);
 }
 
 .slogan {
+    font-family: 'Noto Serif Old Uyghur';
+    font-size:larger;
     text-align: center;
     font-style: italic;
-    font-size: 22px;
+    font-size: 25px;
 }
 .scrolled .slogan {
-    transform: translate(-41%, -440%) scale(0.7);
+    transform: translate(-41%, -280%) scale(0.7);
 }
 
 .log a {
     color:inherit;
     text-decoration: none;
-    transition: color 1s ease; /* Cambia 0.5s a la duración que prefieras */
+    transition: color 1s ease; 
 }
 
 .white-text,
@@ -95,13 +100,13 @@ body, html {
 }
 
 
-
 /*CUERPO*/
 .menu {
     width: max-content; 
     background-color: transparent;
     margin: auto;
     transition: transform 0.7s ease; 
+    font-family: 'Noto Serif Old Uyghur';
 
 }
 
@@ -115,7 +120,7 @@ body, html {
 }
 
 .menu ul li a {
-    font-size: large;
+    font-size: medium;
     display: block;
     color: white;
     text-decoration: none;
@@ -124,11 +129,12 @@ body, html {
 
 
 }
-
 .menu ul li a:hover {
     transform: scale(1.1);
     color:rgb(233, 195, 185);
 }
+
+
 
 #acercade {
     padding-top: 400px;
@@ -169,4 +175,22 @@ body, html {
     overflow: hidden;
     filter: blur(10px);
     z-index: 1;
+}
+
+/* estilos cuerpo de la pagina de presentacion */
+.background {
+    background-color: #013220;
+}
+
+/* /estilo lo q es cuerpo de la pagina/ */
+
+#inicio {
+    color:whitesmoke;
+    margin-right: 50px;
+    
+}
+.quienesSomos {
+    font-family: 'Noto Serif Old Uyghur';
+    font-size: 70px;
+
 }
