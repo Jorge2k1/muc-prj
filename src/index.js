@@ -5,6 +5,8 @@ import { displayFriendList } from "../src/chat.js";
 import { checkUniversity, loadUniversityPage, saveUniversityToFavorites  } from "../src/unis.js";
 import { loadFavoriteUniversities } from "../src/inicio.js";
 window.appState = window.appState || {}; 
+import { saveUserProfile } from '../src/profileConf.js';
+
 
 // Listener registro
 document.addEventListener('DOMContentLoaded', () => {
@@ -16,9 +18,10 @@ document.addEventListener('DOMContentLoaded', () => {
       const password = document.getElementById('newPassword').value;
       const confirmPassword = document.getElementById('confirmP').value;
       const username = document.getElementById('newUsername').value;
+      const userType = document.getElementById('userType').value;
 
       if (password === confirmPassword) {
-        registerUser(email, password, username)
+        registerUser(email, password, username, userType)
           .then(() => {
             console.log('Usuario registrado con éxito');
             window.location.href = 'main.html';
@@ -245,6 +248,20 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 
+document.addEventListener('DOMContentLoaded', function () {
+  const profileConfigButton = document.querySelector('.profileConfig');
+  const profileModal = document.getElementById('profileModal');
+
+  profileConfigButton.addEventListener('click', function () {
+      profileModal.style.display = 'flex';
+  });
+
+  profileModal.addEventListener('click', function (event) {
+      if (event.target === profileModal) {
+          profileModal.style.display = 'none';
+      }
+  });
+});
 
 
 
@@ -387,6 +404,30 @@ function initializeChatListeners() {
   console.log("Chat inicializado.");
   displayFriendList(); 
 }
+//listeners relacionados con la configuracion del perfil
+
+document.addEventListener('DOMContentLoaded', () => {
+  const applyChangesButton = document.getElementById('applyChanges');
+  
+  if (applyChangesButton) {
+      applyChangesButton.addEventListener('click', () => {
+          const name = document.getElementById('nombre').value;
+          const bio = document.getElementById('biografia').value;
+          const skills = document.getElementById('aptitudes').value;
+
+          saveUserProfile(name, bio, skills);
+      });
+  }
+
+  // Cargar datos del perfil al iniciar
+  onAuthStateChanged(auth, (user) => {
+      if (user) {
+          loadUserProfile(user.uid);
+      } else {
+          console.log('El usuario no está autenticado');
+      }
+  });
+});
 
 window.onload = () => {
   window.dispatchEvent(new Event('firebase-loaded'));

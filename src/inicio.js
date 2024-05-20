@@ -33,12 +33,12 @@ function createUniversityCard(universityId) {
     const imageUrl = getUniversityImageUrl(universityId);
     
     const cardHtml = `
-        <div class="card m-2" style="width: 18rem;">
-            <img src="${imageUrl}" class="card-img-top" alt="${universityId}">
+        <div class="card align-items-start" style="width:100%;">
             <div class="card-body">
+            <img src="../img/main/inicio/Bangor University.png" class="card-img-top" alt="${universityId}" style="width:15%; height:auto;">
                 <h5 class="card-title">${universityId}</h5>
-                <p class="card-text">Some details about the university or the course could go here.</p>
-                <button onclick="removeUniversityFromFavorites('${universityId}')" class="btn btn-danger">Remove</button>
+                <p class="card-text">Pusla para revisar la información de la universidad</p>
+                <button onclick="removeUniversityFromFavorites('${universityId}')" class="btn btn-danger">Eliminar</button>
             </div>
         </div>
     `;
@@ -51,7 +51,9 @@ function createUniversityCard(universityId) {
 function getUniversityImageUrl(universityId) {
     // Aquí puedes añadir lógica para devolver una URL de imagen basada en el ID
     // Ejemplo estático, deberías ajustarlo a tu estructura o base de datos
-    return `../img/universities/${universityId.replace(/\s+/g, '').toLowerCase()}.jpg`;
+    //return `../img/main/inicio/${universityId.replace(/\s+/g, '').toLowerCase()}.png`;
+    return `../img/main/inicio/Bangor University.png`;
+
 }
 
 // Función para eliminar una universidad de los favoritos

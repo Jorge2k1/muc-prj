@@ -48,21 +48,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 $(document).ready(function() {
-    // Función para animación suave de scroll
-    // function scrollSuave() {
-    //     $('.menu a').click(function(event) {
-    //         event.preventDefault();
-    //         var target = $(this.hash);
-    //         if (target.length) {
-    //             $('html, body').animate({
-    //                 scrollTop: target.offset().top
-    //             }, 1000);
-    //         }
-    //     });
-    // }
-
-    // var isScrolled = false;
-    // Función para cambiar clases en scroll
     function gatherTop() {
         $(window).scroll(function() {
             if ($(this).scrollTop() > 100) {
@@ -72,44 +57,6 @@ $(document).ready(function() {
             }
         });
     }
-
-    // function adjustHeader() {
-    //     $(window).scroll(function() {
-    //         var scrollPos = $(this).scrollTop();
-    //         if (scrollPos > 100 && !isScrolled) {
-    //             $('.head, .menu, .global').addClass('scrolled');
-    //             $('.global').css('height', '350px'); // Reducción de la altura
-    //             isScrolled = true;
-    //         } else if (scrollPos <= 100 && isScrolled) {
-    //             $('.head, .menu, .global').removeClass('scrolled');
-    //             $('.global').css('height', '100vh'); // Restaura la altura original
-    //             isScrolled = false;
-    //         }
-    //     });
-    // }
-    // Función para modificar el gradiente de fondo en scroll
-    // function scroll() {
-    //     $(window).scroll(function() {
-    //         var scrollPosition = $(this).scrollTop();
-    //         var windowHeight = $(window).height();
-    //         var transparentEnd = 38;
-    //         var blackEnd = 100;
-
-    //         var blackEndPercentage = blackEnd - ((scrollPosition / windowHeight) * (blackEnd - transparentEnd));
-    //         var transparentStartPercentage = Math.max(0, transparentEnd - ((scrollPosition / windowHeight) * transparentEnd));
-
-    //         blackEndPercentage = Math.max(blackEndPercentage, 0);
-    //         transparentStartPercentage = Math.min(transparentStartPercentage, transparentEnd);
-
-    //         $('.global').css('background-image', `linear-gradient(to bottom, black ${transparentStartPercentage}%,  #013220 ${blackEndPercentage}%)`);
-
-    //         if (blackEndPercentage <= transparentEnd - 19) {
-    //             $('.front').addClass('white-text');
-    //         } else {
-    //             $('.front').removeClass('white-text');
-    //         }
-    //     });
-    // }
     function scroll() {
         $(window).scroll(function() {
             var scrollPosition = $(this).scrollTop();

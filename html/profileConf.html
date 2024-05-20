@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configuración de Perfil</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/styleProfileConf.css">
+</head>
+<body data-bs-spy="scroll" data-bs-target="#sideMenu" data-bs-offset="0">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3 side-menu" id="sideMenu">
+                <h2>Configuración</h2>
+                <ul class="nav flex-column">
+                    <li class="nav-item"><a class="nav-link" href="#personalizacion">Personalización</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#apariencia">Interfaz</a></li>
+                </ul>
+            </div>
+            <div class="col-md-9 content">
+                <!-- Sección Personalización -->
+                <section id="personalizacion">
+                    <h3>Datos personales</h3>
+                    <div class="container">
+                        <!-- Row 1: Imagen y Nombre -->
+                        <div class="row mb-4">
+                            <div class="col-md-4">
+                                <img src="https://via.placeholder.com/110" alt="Imagen Predeterminada" class="img-fluid rounded-circle">
+                            </div>
+                            <div class="col-md-8">
+                                <label for="nombre">Nombre:</label>
+                                <input type="text" id="nombre" class="form-control" placeholder="Introduce tu nombre">
+                            </div>
+                        </div>
+                        <!-- Row 2: Biografía -->
+                        <div class="row mb-4">
+                            <div class="col-12">
+                                <label for="biografia">Biografía:</label>
+                                <textarea id="biografia" class="form-control" rows="4" maxlength="300" placeholder="Escribe tu biografía aquí..."></textarea>
+                            </div>
+                        </div>
+                        <!-- Row 3: Aptitudes -->
+                        <div class="row mb-4">
+                            <div class="col-12">
+                                <label for="aptitudes">Aptitudes:</label>
+                                <textarea id="aptitudes" class="form-control" rows="4" maxlength="300" placeholder="Escribe tus aptitudes aquí..."></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input">
+                        <p class="save"><button type="submit" id="applyChanges">Aplicar</button></p>
+                    </div>
+                </section>
+                <!-- Sección Apariencia -->
+                <section id="apariencia" class="mt-5">
+                    <h3>Apariencia</h3>
+                    <p>Configuración de la apariencia del perfil...</p>
+                    <p>Configuración de la apariencia del perfil...</p>
+                    <p>Configuración de la apariencia del perfil...</p>
+                    <p>Configuración de la apariencia del perfil...</p>
+                    <p>Configuración de la apariencia del perfil...</p>
+                    <p>Configuración de la apariencia del perfil...</p>
+                </section>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="../src/profileConf.js"></script>
+    <script>
+        var scrollSpy = new bootstrap.ScrollSpy(document.body, {
+            target: '#sideMenu',
+            offset: 0
+        });
+    </script>
+</body>
+</html>

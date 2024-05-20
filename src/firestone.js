@@ -36,7 +36,7 @@ const auth = getAuth(app);
 const db = getFirestore(app);
 const storage = getStorage(app);
 // Función para registrar usuarios
-const registerUser = (email, password, username) => {
+const registerUser = (email, password, username, userType) => {
   return createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       const uid = userCredential.user.uid;
@@ -44,11 +44,14 @@ const registerUser = (email, password, username) => {
       const userDocRef = doc(db, "users", uid);
       const userDocData = {
         username: username,
+        userType: userType,
         friends: [],
+        bio: bio,
+        skills: skills,
         friendRequests: []
       };
       setDoc(userDocRef, userDocData);
-      // también cro un documento en la colección uploadedFiles con el mismo UID
+      // también creo un documento en la colección uploadedFiles con el mismo UID
       const uploadedFilesDocRef = doc(db, "uploadedFiles", uid);
       const uploadedFilesDocData = {
         files: [] 

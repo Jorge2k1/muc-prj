@@ -73,10 +73,12 @@ function loadAndDisplayFiles(userId) {
         const fileElement = document.createElement('div');
         fileElement.classList.add('file-entry');
         fileElement.innerHTML = `
+        <div id="each">
           <input type="checkbox" class="delete-checkbox" data-name="${file.name}" />
-          <img src="../img/main/pdf.png" alt="PDF Icon" style="width: 27px; height: 27px;">
+          <img src="../img/main/pdf.png" alt="PDF Icon" style="width: 30px; height: auto;">
           <a href="${file.url}" target="_blank" class="file-text">${file.name}</a>
-        `;
+          </div>
+          `;
         filesList.appendChild(fileElement);
       });
 

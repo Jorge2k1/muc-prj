@@ -1,81 +1,153 @@
 <!DOCTYPE html>
 <html lang="es">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Menú principal</title>
-        <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Old+Uyghur&display=swap" rel="stylesheet">
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <!-- CSS de Bootstrap -->
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-        <!--siempre mi css por delane para que tenga prioridad-->
-       
-        <link rel="stylesheet" href="../css/styleApp.css">
-
-        <!-- Añadir JS y Popper.js de Bootstrap -->
-        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.9.2/dist/umd/popper.min.js"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
-
-    </head>
-        <body class="background">
-            <div id="overlay">
-
-                <header class="row">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menú principal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Old+Uyghur&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <!-- CSS de Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Tu CSS personalizado -->
+    <link rel="stylesheet" href="../css/styleApp.css">
+    <link rel="stylesheet" href="../css/styleProfileConf.css">
+</head>
+<body class="background">
+    <div id="overlay">
+        <header class="row">
+            <div class="col-md-2">
+                <a href="main.html" class="watermark">
+                    <img src="../img/login/muc.png">
+                </a>
+            </div>
+            <div class="col-md-4 sendFriendRequest">
+                <label for="sendFriendRequest"></label>
+                <input type="text" id="sendFriendRequest" name="sendFriendRequest" placeholder="Escribe y presiona la tecla Intro">
+            </div>
+            <div class="offset-md-4 requests">
+                <button id="requests" class="btn btn-primary" type="button" data-target="#friendRequestsContainer" aria-controls="friendRequestsContainer">
+                    <div class="d-flex align-items-center">
+                        <img class="notifImage" src="../img/main/notiVacia.png" alt="">
+                        <span class="badge badge-light ml-2"></span>
+                    </div>
+                </button>  
+                <button id="profileConfig" class="btn btn-primary" type="button">
+                    <div class="d-flex align-items-center">
+                        <img class="profileConfig" src="../img/main/profileConf.png" alt="">
+                        <span class="badge badge-light ml-2"></span>
+                    </div>
+                </button> 
+            </div>
+        </header>
+        <main>
+            <div class="side-menu2" id="friendRequestsContainer">
+                <div class="card card-body">
+                    <button class="close-btn" style="display:block;">&times;</button> <!-- Botón de cierre inicialmente oculto -->
+                </div> 
+            </div>
+            <div class="container-fluid">
+                <div class="row">
                     <div class="col-md-2">
-                        <a href=main.html class="watermark">
-                            <img src="../img/login/muc.png">
-                        </a>
+                        <div class="side-mainMenu">
+                            <a href="#/inicio" class="list-group-item list-group-item-action" id="link1">Marcadores</a>
+                            <a href="#/chats" class="list-group-item list-group-item-action" id="link2">Amistades y chats</a>
+                            <a href="#/resources" class="list-group-item list-group-item-action" id="link3">Recursos</a>
+                            <a href=" " class="list-group-item list-group-item-action" id="link4">Universidades</a>
+                        </div>
                     </div>
-                    <div class="col-md-4 sendFriendRequest">
-                        <label for="sendFriendRequest"></label>
-                        <input type="text" id="sendFriendRequest" name="sendFriendRequest" placeholder="Escribe y presiona la tecla Intro">
+                    <div id="contentwrapper">
+                        <div class="col-md-10" id="content">
+                            <!-- AQUI VA EL CONTENIDO DINAMICO, CHAT, RECURSOS, BUSQUEDA DE UNIVERSIDADES... -->
+                        </div>
                     </div>
-                    
-                    <div id class="offset-md-4 requests">
-                        <button id="requests" class="btn btn-primary" type="button" data-target="#friendRequestsContainer"  aria-controls="friendRequestsContainer">
-                            <div class="d-flex align-items-center">
-                                <img class="notifImage" src="../img/main/notiVacia.png" alt="">
-                                <span class="badge badge-light ml-2"></span>
-                            </div>
-                        </button>   
-                    </div>
-                </header>
-                <main>
-                    <div class="side-menu2" id="friendRequestsContainer">
-                        <div class="card card-body">
-                            <button class="close-btn" style="display:block;">&times;</button> <!-- Botón de cierre inicialmente oculto -->
-                        </div> 
-                    </div>
-
+                </div>
+            </div>
+        </main>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="profileModal" tabindex="-1" aria-labelledby="profileModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="profileModalLabel">Configuración de Perfil</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="profileModalBody">
                     <div class="container-fluid">
-
                         <div class="row">
-                            <div class="col-md-2">
-                                <div class="side-menu">
-                                    <a href="#/inicio" class="list-group-item list-group-item-action" id="link1">Inicio</a>
-                                    <a href="#/chats" class="list-group-item list-group-item-action" id="link2">Amistades y chats</a>
-                                    <a href="#/resources" class="list-group-item list-group-item-action" id="link3">Recursos</a>
-                                    <a href=" " class="list-group-item list-group-item-action" id="link4">Contacto</a>
-                                </div>
-                                
+                            <div class="col-md-3 side-menu" id="sideMenu">
+                                <h2>Configuración</h2>
+                                <ul class="nav flex-column">
+                                    <li class="nav-item"><a class="nav-link" href="#personalizacion">Personalización</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="#apariencia">Interfaz</a></li>
+                                </ul>
                             </div>
-                            
-                    
-                            <div class="col-md-10" id="content">
-                                <!-- AQUI VA EL CONTENIDO DINAMICO, CHAT, RECURSOS, BUSQUEDA DE UNIVERSIDADES... -->
+                            <div class="col-md-9 content">
+                                <!-- Sección Personalización -->
+                                <section id="personalizacion">
+                                    <h3>Datos personales</h3>
+                                    <div class="container">
+                                        <!-- Row 1: Imagen y Nombre -->
+                                        <div class="row mb-4">
+                                            <div class="col-md-4">
+                                                <img src="https://via.placeholder.com/110" alt="Imagen Predeterminada" class="img-fluid rounded-circle">
+                                            </div>
+                                            <div class="col-md-8">
+                                                <label for="nombre">Nombre:</label>
+                                                <input type="text" id="nombre" class="form-control" placeholder="Introduce tu nombre">
+                                            </div>
+                                        </div>
+                                        <!-- Row 2: Biografía -->
+                                        <div class="row mb-4">
+                                            <div class="col-12">
+                                                <label for="biografia">Biografía:</label>
+                                                <textarea id="biografia" class="form-control" rows="4" maxlength="300" placeholder="Escribe tu biografía aquí..."></textarea>
+                                            </div>
+                                        </div>
+                                        <!-- Row 3: Aptitudes -->
+                                        <div class="row mb-4">
+                                            <div class="col-12">
+                                                <label for="aptitudes">Aptitudes:</label>
+                                                <textarea id="aptitudes" class="form-control" rows="4" maxlength="300" placeholder="Escribe tus aptitudes aquí..."></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="input">
+                                        <p class="save"><button type="submit" id="applyChanges">Aplicar</button></p>
+                                    </div>
+                                </section>
+                                <!-- Sección Apariencia -->
+                                <section id="apariencia" class="mt-5">
+                                    <h3>Apariencia</h3>
+                                    <p>Configuración de la apariencia del perfil...</p>
+                                    <p>Configuración de la apariencia del perfil...</p>
+                                    <p>Configuración de la apariencia del perfil...</p>
+                                    <p>Configuración de la apariencia del perfil...</p>
+                                    <p>Configuración de la apariencia del perfil...</p>
+                                    <p>Configuración de la apariencia del perfil...</p>
+                                </section>
                             </div>
                         </div>
                     </div>
-                </main>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                </div>
             </div>
-        <script src="../dist/bundle.js"></script>
-        <script src="../js/scripts.js"></script>
-        </body>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="../dist/bundle.js"></script>
+    <script src="../js/scripts.js"></script>
+    <script src="../src/profileConf.js"></script>
+    <script>
+        // Cargar el contenido del modal cuando se hace clic en el botón
+        document.getElementById('profileConfig').addEventListener('click', function() {
+            $('#profileModal').modal('show');
+        });
+    </script>
+</body>
 </html>
-
-
-
-

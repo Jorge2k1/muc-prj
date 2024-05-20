@@ -1,9 +1,15 @@
 /*estilos recursos*/
-header {
+.background {
+    color:white;
+}
+.titleResources {
     display: flex;
     justify-content: center; 
     width: 100%;
+    font-size: 30px;
+    font-family: 'Noto Serif Old Uyghur';
 }
+
 .welcome {
     text-align: center;
     color: white; 
@@ -17,10 +23,32 @@ header {
     margin-right: -60px;
 }
 .uploadTxt, .file-text {
-    color: white;
+    color: black;
+}
+
+#yourFilesList {
+    background-color:#668066;
+    border-radius:2px;
+
+    
+}
+
+#each{
+    padding: 7px;
+    border-width: 2px;
+    border-style: solid;
+    border-top:whitesmoke;
+    border-left:whitesmoke;
+    border-right:whitesmoke;
 }
 
 .file-entry {
-    margin-bottom: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
- 
+
+.file-text {
+
+    font-size: 22px;
+    margin-left: 15px;
+}

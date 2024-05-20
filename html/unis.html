@@ -18,36 +18,42 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
-<body>
-    <div class="container">
+<body class="cuerpoUni">
         <!-- Header Section with University Name and Logo -->
-        <div class="row my-3">
-            <div class="col-sm-8">
+        <div class="headerSection">
+            <div class="cabeceraUni row my-3">
+                <div class="col-sm-2">
+                    <img id="BangorUniversity" src="../img/main/inicio/Bangor University.png" alt="University Logo" style="width: 80%; height: auto; border-radius: 2px;">
+                </div>
                 <h1 id="uniName">Bangor University</h1>
             </div>
-            <div class="col-sm-4 text-right">
-                <img src="../img/main/inicio/bangorLogo.jpeg" alt="University Logo" style="width: 100px;">
+            <div class="backgrounHeader col-12">
+                <img src="../img/main/inicio/bangg.png" alt="University Campus" class="img-fluid">
             </div>
-        </div>
 
-        <!-- Image Header -->
-        <div class="row">
-            <div class="col-12">
-                <img src="header_image_url.jpg" alt="University Campus" class="img-fluid">
-            </div>
         </div>
-
+        
         <!-- Course Details and Like Button -->
         <div class="row my-3 align-items-center">
-            <div class="col-md-9">
-                <h2>Accounting (Taught)</h2>
-                <p>Postgraduate - MSc</p>
-            </div>
-            <div class="col-md-3 text-right">
+            <div class="saveButton col-md-3 text-right">
                 <button id="saveUniversityButton" class="btn btn-outline-primary">
                     <span>&hearts;</span> Save
                 </button>
             </div>
+            <div class="col-md-8">
+                <button class="btn btn-primary">Apply</button>
+            </div>
+            <div class="info col-md-9">
+                <div id="saveAndApply">
+                    <button id="saveUniversityButton" class="btn btn-outline-primary">
+                        <span>&hearts;</span> Save
+                    </button>
+                    <button class="btn btn-primary">Apply</button>
+                </div>
+                <h2>Accounting (Taught)</h2>
+                <p>Postgraduate - MSc</p>
+            </div>
+            
         </div>
 
         <!-- Course Options and Apply Button -->
@@ -57,18 +63,36 @@
                 <p>Duration: 12 months</p>
                 <p>Full-time</p>
             </div>
-            <div class="col-md-8 text-right">
-                <button class="btn btn-primary">Apply</button>
-            </div>
+
         </div>
 
         <!-- Additional Information -->
         <div class="row">
             <div class="col-md-12">
-                <p>Course summary and application details here...</p>
+                <p>About us
+                    There are many reasons to study at Bangor. Offering academic excellence, a friendly study environment and stunning surroundings, Bangor has something for everyone.
+                    
+                    We offer the highest quality teaching in a supportive learning environment, and you can be assured that you will be taught by lecturers who want to see you thrive.
+                    
+                    Bangor University’s research has been ranked highly in the Government’s most recent Research Excellence Framework (REF2021), with 85% judged to be world-leading (4*) or internationally excellent (3*).
+                    
+                    Our courses will help to set you on the right path for a successful career. You can choose to study from courses across the sciences, arts, business, law and humanities. We offer foundation degrees in many subjects and most undergraduate courses offer the option of studying for an additional year as part of the ‘International Year’ or ‘Placement Year’ scheme. 
+                    
+                    What makes us different
+                    Student support is our priority
+                    From Peer Guides to help you settle during your first weeks here, to help with managing your budget and mental health advice - you’ll be given as much help and support you need.  
+                    
+                    Guaranteed Accommodation
+                    Both our student villages are within easy walking distance of most University buildings and the city centre. We guarantee a place in halls for full-time, first-year students who apply within the given timeframe (conditions apply). 
+                    
+                    Stunning surroundings 
+                    Situated between the mountains of Snowdonia and the sea, the many attractions of the area for sports enthusiasts are obvious. Even if you’re not the outward-bound type there’s still plenty to explore in the surrounding area.
+                    
+                    Free Membership of Clubs and Societies
+                    Joining in with clubs, societies and volunteering is a great way for you to try new things and meet new people. Our Students’ Union has over 150 different ones that you can join for free, so you can sign-up for as many as you like..</p>
             </div>
         </div>
-    </div>
+
 </body>
 <script src="../dist/bundle.js"></script>
 

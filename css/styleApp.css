@@ -5,6 +5,17 @@
     height: 1px;
 }
 
+#contentwrapper{
+    width: 100vh;
+    height: 100vh;
+    height: auto;
+    border-style: solid;
+    border-width: 5px ;
+    border-color: white;
+    border-bottom:none;
+    border-top:none;
+
+}
 
 html, body {
     height: 100%; 
@@ -80,15 +91,26 @@ i.fas.fa-search {
     margin-top:40px;
     outline: none;
 }
+#profileConfig {
+    margin-top:40px;
+    background: none;
+    border-color: transparent;
+}
+.notifImage{
+    width: 35px;
+    height: auto; 
 
-.notifImage {
-    width: 30px;
+}
+.profileConfig{
+    width: 50px;
     height: auto; 
 
 }
 .notifImage:hover {
     content: url('../img/main/notiLlena.png');
 }
+
+
 .badge {
     margin-left:30px;
 }
@@ -120,7 +142,7 @@ i.fas.fa-search {
 
 /* estilo cuerpo u otros estilos, ya definiré dentro de este */
 /* menú lateral */
-.side-menu {
+.side-mainMenu {
     position: fixed;
     padding-top: 50px;
     border-right: 0px solid;

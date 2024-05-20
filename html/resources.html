@@ -18,14 +18,11 @@
 
     </head>
     <body class="background">
-        <header class="row">
-            <div class="welcome">
-                <p>Recursos compartidos por ti</p> 
-            </div>
-        </header>
+
         <main>
-            <div>
-                <nav class="navbar navbar-expand-sm bg-light">
+
+            <div class="titleResources">Tus recursos</div>
+                <nav class="navbar navbar-expand-sm"></nav>
                 <ul class="navbar-nav">
                     <li class="nav-item">
                     <a class="nav-link" href="#">Recursos compartidos</a>
@@ -35,12 +32,13 @@
                     </li>
                 </ul>
                 </nav>
-            </div>
             
             <div style="display: none;"><button id="confirmUploadButton">Confirma la subida</button></div>
-            <div>
-                
-                <input type="file" id="fileUploader" multiple>
+            <div class="file-upload-wrapper">
+                <input type="file" id="fileUploader" multiple style="display: none;">
+                <label for="fileUploader" class="file-upload-button">
+                    <img src="../img/main/upload.png" alt="Upload Icon" style="width: 7%;">
+                </label>
             </div>
 
             <div id="fileList">
@@ -48,7 +46,7 @@
 
             </div>
             <div id="yourFilesList">
-                                <!-- y aqui veremos lo subidos totales -->
+
             </div>
         </main>
         

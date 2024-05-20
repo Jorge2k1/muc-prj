@@ -184,6 +184,18 @@ body, html {
 
 /* /estilo lo q es cuerpo de la pagina/ */
 
+ 
+.imgQuienes {
+    position: relative;
+    display: inline-block;
+}
+
+.imgQuienes img {
+    display: block; /* Asegura que no haya espacio extra alrededor de la imagen */
+    width: 100%;
+    height: auto;
+}
+
 #inicio {
     color:whitesmoke;
     margin-right: 50px;
@@ -192,5 +204,4 @@ body, html {
 .quienesSomos {
     font-family: 'Noto Serif Old Uyghur';
     font-size: 70px;
-
 }

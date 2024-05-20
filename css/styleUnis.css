@@ -1,3 +1,52 @@
-.container {
+.row {
     color: white;
+}
+/* Header styling */
+.headerSection {
+    position: relative;
+}
+
+.cabeceraUni {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1001; /* Ensures the logo and title are above the background */
+}
+
+.backgrounHeader {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000; /* Ensures this is behind the logo and title */
+    
+}
+#uniName {
+    color:whitesmoke;
+
+}
+.backgrounHeader::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        to bottom, 
+        rgba(1, 50, 32, 0.8) 40%, /* Color de inicio más oscuro */
+        rgba(1, 50, 32, 0) 60% /* Transición a transparente */
+    );
+    z-index: 2; /* Asegúrate de que esto está sobre la imagen, pero debajo del texto */
+}
+
+.saveAndApply {
+    margin-left: 10px;
+    
+}
+.info {
+    margin-top: 295px;
+    z-index: 1000;
+
 }
