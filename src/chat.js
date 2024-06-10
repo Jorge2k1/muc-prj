@@ -11,47 +11,90 @@ function generateChatId(userId1, userId2) {
 }
 
 
+// function displayFriendList() {
+//   const userId = auth.currentUser.uid;
+//   const userRef = doc(db, "users", userId);
+
+//   getDoc(userRef)
+//       .then(docSnapshot => {
+//           if (docSnapshot.exists()) {
+//               console.log("existe el documento del usuario");
+//               const userData = docSnapshot.data();
+//               const friendIds = userData.friends || []; 
+//               console.log("cargamos el id del amigo",friendIds);
+
+//               const friendDetailsPromises = friendIds.map(friendId => 
+//                   getDoc(doc(db, "users", friendId))
+//               );
+
+//               Promise.all(friendDetailsPromises).then(friendDocs => {
+//                   const friendsListElement = document.getElementById('chatList');
+//                   friendsListElement.innerHTML =' <div class="chatsCol">Chats</div>'
+//                   ;
+                
+//                   friendDocs.forEach(doc => {
+//                       const friendData = doc.data();
+//                       const friendElement = document.createElement('div');
+//                       friendElement.classList.add('friend');
+//                       friendElement.textContent = friendData.username;
+//                       friendElement.addEventListener('click', () => {
+//                           openChatWindow(friendData.username, doc.id);
+//                       });
+//                       friendsListElement.appendChild(friendElement);
+//                   });
+//               });
+//           } else {
+//               console.log("Documento del usuario no encontrado.");
+//           }
+//       })
+//       .catch(error => {
+//           console.error("Error al cargar la lista de amigos:", error);
+//       });
+// }
 function displayFriendList() {
-  if (!auth.currentUser) {
-      console.error("No se puede mostrar la lista de amigos: usuario no autenticado.");
-      return;
-  }
+    const userId = auth.currentUser.uid;
+    const userRef = doc(db, "users", userId);
 
-  const userId = auth.currentUser.uid;
-  const userRef = doc(db, "users", userId);
-  getDoc(userRef)
-      .then(docSnapshot => {
-          if (docSnapshot.exists()) {
-              const userData = docSnapshot.data();
-              const friendIds = userData.friends || []; 
-              const friendDetailsPromises = friendIds.map(friendId => 
-                  getDoc(doc(db, "users", friendId))
-              );
+    getDoc(userRef)
+        .then(docSnapshot => {
+            if (docSnapshot.exists()) {
+                console.log("existe el documento del usuario");
+                const userData = docSnapshot.data();
+                const friendIds = userData.friends || []; 
+                console.log("cargamos el id del amigo", friendIds);
 
-              Promise.all(friendDetailsPromises).then(friendDocs => {
-                  const friendsListElement = document.getElementById('chatList');
-                  friendsListElement.innerHTML = '';
+                const friendDetailsPromises = friendIds.map(friendId => 
+                    getDoc(doc(db, "users", friendId))
+                );
 
-                  friendDocs.forEach(doc => {
-                      const friendData = doc.data();
-                      const friendElement = document.createElement('div');
-                      friendElement.classList.add('friend');
-                      friendElement.textContent = friendData.username;
-                      friendElement.addEventListener('click', () => {
-                          openChatWindow(friendData.username, doc.id);
-                      });
-                      friendsListElement.appendChild(friendElement);
-                  });
-              });
-          } else {
-              console.log("Documento del usuario no encontrado.");
-          }
-      })
-      .catch(error => {
-          console.error("Error al cargar la lista de amigos:", error);
-      });
+                Promise.all(friendDetailsPromises).then(friendDocs => {
+                    const friendsListElement = document.getElementById('chatList');
+                    friendsListElement.innerHTML =' <div class="chatsCol">Chats</div>';
+
+                    friendDocs.forEach(doc => {
+                        const friendData = doc.data();
+                        const friendElement = document.createElement('div');
+                        friendElement.classList.add('friend');
+                        friendElement.textContent = friendData.username;
+                        friendElement.addEventListener('click', () => {
+                            openChatWindow(friendData.username, doc.id);
+                        });
+                        friendsListElement.appendChild(friendElement);
+                    });
+                });
+            } else {
+                console.log("Documento del usuario no encontrado.");
+            }
+        })
+        .catch(error => {
+            console.error("Error al cargar la lista de amigos:", error);
+        });
 }
 
+
+function toggleBackgroundColor(element) {
+    element.classList.toggle("clicked");
+}
 
 
 
@@ -109,49 +152,102 @@ function displayMessage(message, isCurrentUser) {
 }
 
 
-function openChatWindow(friendUsername, friendUserId) {
-  const currentUserId = auth.currentUser.uid;
-  const chatId = generateChatId(currentUserId, friendUserId);
+// function openChatWindow(friendUsername, friendUserId) {
+//   const currentUserId = auth.currentUser.uid;
+//   const chatId = generateChatId(currentUserId, friendUserId);
 
-  const chatContainer = document.getElementById('chatContainer');
-  chatContainer.innerHTML = `
-    <div class="chat-container">
-    <div class="chat-header">
-        <h5>Chat con ${friendUsername}</h5>
-        <button class="close-chat">Cerrar</button>
-    </div>
-        <div class="chat-messages">
+//   const chatContainer = document.getElementById('chatContainer');
+//   chatContainer.innerHTML = `
+//     <div class="chat-container">
+//     <div class="chat-header">
+//         <button class="close-chat">x</button>
+//         <h5>${friendUsername}</h5>
+//     </div>
+//         <div class="chat-messages">
         
-            <!-- Los mensajes del chat se insertarán aquí -->
+//             <!-- Los mensajes del chat se insertarán aquí -->
+//         </div>
+//     <div class="chat-input row no-gutters align-items-center">
+//         <div class="col-9">
+//             <input type="text" id="chatMessageInput" class="form-control" placeholder="Escribe un mensaje...">
+//         </div>
+//         <div class="col-3">
+//             <button id="sendChatMessage" class="btn btn-primary w-100">Enviar</button>
+//         </div>
+//     </div>
+//     </div>
+//     `;
+
+//   document.getElementById('sendChatMessage').addEventListener('click', () => {
+//       const messageText = document.getElementById('chatMessageInput').value;
+//       if (messageText.trim()) {
+//           sendMessageToFirestore(currentUserId, friendUserId, messageText);
+//           document.getElementById('chatMessageInput').value = '';
+//       }
+//   });
+
+//   listenForMessages(chatId);
+
+//   document.querySelector('.close-chat').addEventListener('click', () => {
+//       chatContainer.innerHTML = '';
+//       if (unsubscribeFromCurrentChat) {
+//           unsubscribeFromCurrentChat();
+//       }
+//   });
+// }
+function openChatWindow(friendUsername, friendUserId) {
+    const currentUserId = auth.currentUser.uid;
+    const chatId = generateChatId(currentUserId, friendUserId);
+
+    const chatContainer = document.getElementById('chatContainer');
+    chatContainer.innerHTML = `
+        <div class="chat-container">
+        <div class="chat-header">
+            <button class="close-chat">x</button>
+            <h5>${friendUsername}</h5>
         </div>
-    <div class="chat-input row no-gutters align-items-center">
-        <div class="col-9">
-            <input type="text" id="chatMessageInput" class="form-control" placeholder="Escribe un mensaje...">
+            <div class="chat-messages">
+            
+                <!-- Los mensajes del chat se insertarán aquí -->
+            </div>
+        <div class="chat-input row no-gutters align-items-center">
+            <div class="col-9">
+                <input type="text" id="chatMessageInput" class="form-control" placeholder="Escribe un mensaje...">
+            </div>
+            <div class="col-3">
+                <button id="sendChatMessage" class="btn btn-primary w-100">Enviar</button>
+            </div>
         </div>
-        <div class="col-3">
-            <button id="sendChatMessage" class="btn btn-primary w-100">Enviar</button>
         </div>
-    </div>
-    </div>
     `;
 
-  document.getElementById('sendChatMessage').addEventListener('click', () => {
-      const messageText = document.getElementById('chatMessageInput').value;
-      if (messageText.trim()) {
-          sendMessageToFirestore(currentUserId, friendUserId, messageText);
-          document.getElementById('chatMessageInput').value = '';
-      }
-  });
+    // Ocultar la imagen de fondo predeterminada
+    const defaultBackground = document.getElementById('defaultBackground');
+    if (defaultBackground) {
+        defaultBackground.style.display = 'none';
+    }
 
-  listenForMessages(chatId);
+    document.getElementById('sendChatMessage').addEventListener('click', () => {
+        const messageText = document.getElementById('chatMessageInput').value;
+        if (messageText.trim()) {
+            sendMessageToFirestore(currentUserId, friendUserId, messageText);
+            document.getElementById('chatMessageInput').value = '';
+        }
+    });
 
-  document.querySelector('.close-chat').addEventListener('click', () => {
-      chatContainer.innerHTML = '';
-      if (unsubscribeFromCurrentChat) {
-          unsubscribeFromCurrentChat();
-      }
-  });
+    listenForMessages(chatId);
+
+    document.querySelector('.close-chat').addEventListener('click', () => {
+        chatContainer.innerHTML = '';
+        if (unsubscribeFromCurrentChat) {
+            unsubscribeFromCurrentChat();
+        }
+        // Mostrar la imagen de fondo predeterminada nuevamente
+        if (defaultBackground) {
+            defaultBackground.style.display = 'block';
+        }
+    });
 }
 
-export { displayFriendList, openChatWindow, sendMessageToFirestore, generateChatId};
+export { displayFriendList, openChatWindow, sendMessageToFirestore, generateChatId, toggleBackgroundColor};
   

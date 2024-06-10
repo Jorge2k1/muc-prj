@@ -1,0 +1,105 @@
+
+.mainContainer1 {
+    z-index: 0;
+    width: 85vw; /* Asegura que el contenedor ocupa todo el ancho de la ventana gráfica */
+    min-height: 88vh; 
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 2px;
+    border-color: #26473b;    
+    background-color: #013220;
+    margin: 0 auto; /* Centra el contenedor horizontalmente */
+    padding: 0 20px; /* Añade padding para evitar que el contenido toque los bordes */
+}
+
+.uniCard {
+    align-items: center;
+    margin-left: 90px;
+    border-radius: 10px;
+}
+
+#uniCard {
+    position: relative;
+    min-width: 90%;
+    max-height: 400px; /* Ajusta la altura mínima según sea necesario */
+    margin-top: 60px;
+    background: linear-gradient(rgba(255, 255, 255, 0.892), rgba(0, 0, 0, 0.423)), url('../img/main/inicio/bangg.png'); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 10px;
+}
+
+.card {
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: 0.3s;
+    padding: 40px;
+    margin: 20px; 
+    border-radius: 10px;
+
+}
+
+.card:hover {
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+
+.card img {
+    width: 110%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+#cardImg {
+    width: 10%;
+    height: inherit;
+    border-radius: 10px;
+}
+
+.card-body {
+    padding: 15px;
+    border-radius: 10px;
+
+}
+
+.card-title {
+    font-size: 22px; /* Tamaño del título */
+    margin-top:10px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.card-text {
+    font-size: 17px; /* Tamaño del texto */
+    color: #000000; /* Color del texto */
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #004080;
+}
+
+/* Clase para el corazón de "favoritos" */
+.favorite-heart {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px; /* Tamaño del icono de corazón */
+    color: #fff; /* Color del icono de corazón */
+    background-color: #ff4081; /* Fondo rosa */
+    padding: 5px;
+    border-radius: 50%;
+}
+
+/* Respuestas responsivas */
+@media (max-width: 992px) {
+    .card {
+        width: 100%; /* Ajuste para dispositivos móviles */
+        margin: 10px 0; /* Reducción del margen entre tarjetas en móviles */
+    }
+}

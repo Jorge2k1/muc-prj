@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-
-<html>
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,12 +7,8 @@
     <link rel="stylesheet" href="../css/styleIni.css">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Old+Uyghur&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Old+Uyghur&display=swap" rel="stylesheet">
     <link href="https://db.onlinewebfonts.com/c/b9583eae10a51eee606cae74cf802753?family=Citadel+Script" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="dist/bundle.js"></script>
-
-
 </head>
 <body class="background">
     <header class="global">
@@ -21,87 +16,78 @@
             <div class="top">
                 <p class="log"><a href="login.html"><img src="../img/inicio/logIcon.png" class="logIcon"></a></p>
             </div>
-            <div class="head">  
-                <p class="ach">MUC</p>
-                <p class="slogan">Music University Coaching</p>
+            <div class="head"> 
+                <div class="useless">
+                    <p>¨</p>
+                </div>
+                <div>
+                    <img class="ach" src="/img/inicio/mucIni.png" alt="">
+                </div>
                 <nav class="menu">
                     <ul>
                         <li><a href="#inicio">Inicio</a></li>
-                        <li><a href="#acercade">Acerca de</a></li>
-                        <li><a href="#servicio">Servicios</a></li>
-                        <li><a href="#contacto">Contacto</a></li>
+                        <li><a href="#servicio">Acerca de</a></li>
+                        <li><a href="#contacto">Servicios</a></li>
+                        <li><a href="#contactanos">Contacto</a></li>
                     </ul>
                 </nav>
+                <video id="defaultBackground1" autoplay muted loop>
+                    <source src="/img/main/inicio/videoBg.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
             </div>
         </div>
     </header>
 
-    <div class="container-fluid">
-        <section id="inicio" class="row align-items-center">
-            <!-- Columna para la imagen -->
-            <div class="imgQuienes col-md-4">
-                <img src="/img/inicio/DSC_0974.jpg" class="rounded img-fluid" alt="mi pequeñota">
-            </div>
-            <!-- Columna para el texto -->
-            <div class="col-md-8">
-                <h2 class="quienesSomos">¿Quiénes somos?</h2>
-                <p>    
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit...
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit...
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit...Lorem ipsum dolor sit amet,
-                    consectetur adipiscing elit...Lorem ipsum dolor sit 
-                    amet, consectetur adipiscing elit...Lorem ipsum dolor sit amet, consectetur adipiscing elit...
-                </p>
-            </div>
-        </section>
-    </div>
-    
-    
-    <!-- <section id="inicio" class="row">
-        <div class="alice col-md-4 float-left">
-            <img src="/img/inicio/DSC_0974.jpg" class="rounded" alt="mi pequeñota" width="400px" height="auto">
+    <section id="acercade" class="row">
+        <!-- Columna para la imagen -->
+        <div class="imgQuienes col-md-4">
         </div>
-        <div class="who col-md-8 float-right">  
-
-            <p class="quienesSomos">¿Quiénes somos?</p>
-            <p>    
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit...
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit...
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit...Lorem ipsum dolor sit amet,
-                consectetur adipiscing elit...Lorem ipsum dolor sit 
-                amet, consectetur adipiscing elit...Lorem ipsum dolor sit amet, c
-                onsectetur adipiscing elit...
-            </p>
+        <!-- Columna para el texto -->
+        <div class="col-md-8">
+            <h2 id="miPequeñota2" class="acercaDe"></h2>
+            <p></p>
         </div>
-    </section> -->
-
-    <section id="acercade">
-        <!-- Contenido de Acerca de -->
-        <div class="container">
-            <div class="row">
-              <div class="col-md-4">.col-md-4</div>
-              <div class="col-md-4 ms-auto">.col-md-4 .ms-auto</div>
-            </div>
-            <div class="row">
-              <div class="col-md-3 ms-md-auto">.col-md-3 .ms-md-auto</div>
-              <div class="col-md-3 ms-md-auto">.col-md-3 .ms-md-auto</div>
-            </div>
-            <div class="row">
-              <div class="col-auto me-auto">.col-auto .me-auto</div>
-              <div class="col-auto">.col-auto</div>
-            </div>
-          </div>
     </section>
 
-    <section id="servicio">
-        <!-- Contenido de Servicios -->
+
+
+
+    <section id="servicio" class="section-contacto row smooth-transform-section">
+        <div class="col-md-8">
+            <div class="quienesSomosDiv">
+                <h2 id="miPequeñota" class="quienesSomos"><b>¿Quiénes somos?</b></h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
+            </div>
+        </div>
+        <div class="imgQuienes col-md-4">
+            <img class="imgIndex" src="/img/inicio/DSC_0974.jpg" alt="mi pequeñota">
+        </div>
     </section>
 
-    <section id="contacto">
-        <!-- Contenido de Contacto -->
+    <section id="contacto" class="row smooth-transform-section">
+        <!-- Columna para la imagen -->
+        <div class="imgQuienes col-md-4">
+            <img src="/img/inicio/DSC_0974.jpg" alt="mi pequeñota">
+        </div>
+        <!-- Columna para el texto -->
+        <div class="loqquepretendemos">
+            <h2 id="miPequeñota" class="quienesSomos"><b>Lo que pretendemos</b></h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
+        </div>
     </section>
 
-    <script type="module" src="../js/scripts.js"></script>
+    <section id="contactanos" class="row smooth-transform-section">
+        <!-- Columna para el texto -->
+        <div class="conocenos">
+            <h2 id="miPequeñota2" class="quienesSomos"><b>¡Conócenos!</b></h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
+        </div>
+        <!-- Columna para la imagen -->
+        <div class="imgQuienes col-md-4">
+            <img src="/img/inicio/DSC_0974.jpg" alt="mi pequeñota">
+        </div>    
+    </section> 
+    <script src="../js/scripts.js"></script>
 </body>
-
 </html>

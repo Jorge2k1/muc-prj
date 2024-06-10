@@ -1,52 +1,342 @@
-.row {
-    color: white;
-}
-/* Header styling */
-.headerSection {
-    position: relative;
-}
+html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden; /* Evita el desplazamiento horizontal */
+        }
 
-.cabeceraUni {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1001; /* Ensures the logo and title are above the background */
-}
+        .mainContainer2 {
+            z-index: 0;
+            width: 85vw; /* Asegura que el contenedor ocupa todo el ancho de la ventana gráfica */
+            min-height: 88vh; 
+            border-style: solid;
+            border-width: 2px;
+            border-radius: 2px;
+            border-color: #26473b;    
+            background-color: #013220;
+            margin: 0 auto; /* Centra el contenedor horizontalmente */
+            padding: 0 20px; /* Añade padding para evitar que el contenido toque los bordes */
+        }
 
-.backgrounHeader {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000; /* Ensures this is behind the logo and title */
+        /* Centrar y espaciar los botones */
+        .row.my-3.justify-content-center .col-md-6 {
+            display: flex;
+            justify-content: center;
+            gap: 20px; /* Espacio entre los botones */
+        }
+
+        /* Otros estilos existentes */
+        .row {
+            color: white;
+            /* background-image:; */
+        }
+
+        /* Header styling */
+        .headerSection {
+            margin-left:-35px;
+            position: relative;
+            width: 100vw; /* Asegura que el encabezado ocupa todo el ancho de la ventana gráfica */
+        }
+
+        .headerSection2 {
+            margin-left:-36px;
+            margin-top:-5px;
+            position: relative;
+            width: 110vw; /* Asegura que el encabezado ocupa todo el ancho de la ventana gráfica */
+        }
+
+        .cabeceraUni {
+            margin-left:30px;
+
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 90%;
+            z-index: 1001; /* Ensures the logo and title are above the background */
+        }
+        .cabeceraUni2 {
+            margin-left:30px;
+
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 90%;
+            z-index: 1001; /* Ensures the logo and title are above the background */
+        }
+
+        .backgrounHeader {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 1500px;
+            z-index: 1000; /* Ensures this is behind the logo and title */
+        }
+        .backgrounHeader2 {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 1500px;
+            z-index: 1000; /* Ensures this is behind the logo and title */
+        }
+
+
+        #uniName {
+            margin-top: 190px;
+            margin-left: -239px;
+            color: whitesmoke;
+        }
+        #uniName2 {
+            margin-top: 190px;
+            margin-left: -239px;
+            color: whitesmoke;
+        }
+
+        .backgrounHeader::after {
+            content: '';
+            position: absolute;
+            margin-left: 15px;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: 100vw; /* Asegura que el gradiente ocupa todo el ancho de la ventana gráfica */
+            background: linear-gradient(
+                to top, 
+                rgba(1, 50, 32, 0.8) 10%, /* Color de inicio más oscuro */
+                rgba(1, 50, 32, 0) 90% /* Transición a transparente */
+            );
+            z-index: 2; /* Asegúrate de que esto está sobre la imagen, pero debajo del texto */
+        }
+
+        .backgrounHeader2::after {
+            content: '';
+            position: absolute;
+            margin-left: 15px;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: 100vw; /* Asegura que el gradiente ocupa todo el ancho de la ventana gráfica */
+            background: linear-gradient(
+                to top, 
+                rgba(1, 50, 32, 0.8) 10%, /* Color de inicio más oscuro */
+                rgba(1, 50, 32, 0) 90% /* Transición a transparente */
+            );
+            z-index: 2; /* Asegúrate de que esto está sobre la imagen, pero debajo del texto */
+        }
+        .row my-3 align-items-center {
+            text-align: left;
+        }
     
-}
-#uniName {
-    color:whitesmoke;
+        #saveAndApply {
+            margin-top:50px;
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
 
-}
-.backgrounHeader::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(
-        to bottom, 
-        rgba(1, 50, 32, 0.8) 40%, /* Color de inicio más oscuro */
-        rgba(1, 50, 32, 0) 60% /* Transición a transparente */
-    );
-    z-index: 2; /* Asegúrate de que esto está sobre la imagen, pero debajo del texto */
+        .info {
+            padding: 6px;
+            padding-left: 20px;
+            margin-left: 35px;
+            margin-top: 307px;
+            z-index: 1000;
+            background-color: rgba(255, 255, 255, 0.297);
+            border-radius: 20px;
+            width: 91%;
+        }
+
+        #coachLabel {
+            margin-left: 10px;
+            background-color: black;
+            border-style: none;
+            font-style: oblique;
+            font-size: 15px;
+            border-radius: 10px;
+            padding-left: 10px;
+            padding-right: 10px;
+            padding-top: 5px;
+            padding-bottom: 5px;
+        }
+
+        .courseType {
+            margin-left: 20px;
+        }
+     
+
+        .context {
+            text-align: justify;
+            margin-left: 70px;
+        }
+
+        #content-block1 {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+            position: relative; 
+            padding: 20px; /* Añade padding para dar espacio al contenido */
+            color: white; /* Asegura que el texto sea visible sobre la imagen */
+        }
+
+        #content-block1::before {
+            margin-left:30px;
+            border-radius: 30px;
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.848); /* Fondo semitransparente para mejorar la legibilidad del texto */
+            z-index: 1; /* Asegura que el fondo semitransparente esté detrás del contenido */
+        }
+
+        #content-block1 > * {
+            margin-left:30px;
+            position: relative;
+            z-index: 2; /* Asegura que el contenido esté sobre el fondo semitransparente */
+        }
+
+        #content-block2 {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+            position: relative; 
+            padding: 20px; /* Añade padding para dar espacio al contenido */
+            color: white; /* Asegura que el texto sea visible sobre la imagen */
+        }
+
+        #content-block2::before {
+            margin-left: -30px;
+            border-radius: 30px;
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(169, 228, 205, 0.592); /* Fondo semitransparente para mejorar la legibilidad del texto */
+            z-index: 1; /* Asegura que el fondo semitransparente esté detrás del contenido */
+        }
+
+        #content-block2 > * {
+            margin-left: -30px;
+            position: relative;
+            z-index: 2; /* Asegura que el contenido esté sobre el fondo semitransparente */
+        }
+
+        #content-block3 {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+            position: relative; 
+            padding: 20px; /* Añade padding para dar espacio al contenido */
+            color: white; /* Asegura que el texto sea visible sobre la imagen */
+        }
+
+        #content-block3::before {
+            margin-left: 30px;
+            border-radius: 30px;
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(182, 205, 140, 0.614); /* Fondo semitransparente para mejorar la legibilidad del texto */
+            z-index: 1; /* Asegura que el fondo semitransparente esté detrás del contenido */
+        }
+
+        #content-block3 > * {
+            margin-left: 30px;
+            position: relative;
+            z-index: 2; /* Asegura que el contenido esté sobre el fondo semitransparente */
+        }
+        #content-block4 {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+            position: relative; 
+            padding: 20px; /* Añade padding para dar espacio al contenido */
+            color: white; /* Asegura que el texto sea visible sobre la imagen */
+        }
+
+        #content-block4::before {
+            margin-left: -30px;
+            border-radius: 30px;
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(109, 110, 109, 0.55); /* Fondo semitransparente para mejorar la legibilidad del texto */
+            z-index: 1; /* Asegura que el fondo semitransparente esté detrás del contenido */
+        }
+
+        #content-block4 > * {
+            margin-left: -30px;
+            position: relative;
+            z-index: 2; /* Asegura que el contenido esté sobre el fondo semitransparente */
+        }
+        .img-left {
+            order: -1;
+            margin-right: 20px;
+            margin-left: 0;
+        }
+
+        .img-right {
+            margin-left: 20px;
+            margin-right: 0;
+        }
+
+        /* .h1, .h3, .p1, .p3 {
+            margin-right: 0px;
+
+        } */
+
+        .h2, .h4, .p2, .p4 {
+            text-align: right;
+            margin-left: 100px;
+            padding-left: 40px;
+            padding-right: 50px;
+            margin-right: 0;
+        }
+
+        .h1,.h2,.h3,.h4 {
+            margin-top:30px;
+        }
+        /* Estilos para las tablas */
+table {
+    width: 100%;
+    border-collapse: collapse; /* Elimina el espacio entre celdas */
+    margin-bottom: 20px; /* Espacio inferior */
+    background-color: #f9f9f9; /* Fondo de la tabla */
+    color: #333; /* Color del texto */
 }
 
-.saveAndApply {
-    margin-left: 10px;
-    
+th, td {
+    border: 1px solid #ddd; /* Bordes de las celdas */
+    padding: 12px; /* Espacio interno */
+    text-align: left; /* Alineación del texto */
 }
-.info {
-    margin-top: 295px;
-    z-index: 1000;
 
+th {
+    background-color: #26473b; /* Fondo de los encabezados */
+    color: white; /* Color del texto de los encabezados */
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2; /* Fondo de las filas pares */
+}
+
+tr:hover {
+    background-color: #ddd; /* Fondo de las filas al pasar el mouse */
+}
+
+/* Ajuste de las imágenes dentro de las celdas */
+table img {
+    max-width: 100px; /* Ancho máximo de las imágenes */
+    height: auto; /* Ajuste proporcional de la altura */
+    display: block;
+    margin: 0 auto; /* Centra las imágenes */
 }

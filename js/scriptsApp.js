@@ -1,3 +1,21 @@
+document.addEventListener('DOMContentLoaded', function() {
+    // Función para detener y ocultar el video
+    // function stopAndHideVideo() {
+    //     var video = document.getElementById('defaultBackground2');
+    //     video.style.opacity = '0';
+    //     setTimeout(function() {
+    //         video.pause();
+    //         video.style.display = 'none';
+    //     }, 1000); // Espera 1 segundo para q la opacidad se reduzca a 0
+    // }
+
+    // // Agregar eventos a los botones del menú lateral
+    // var menuButtons = document.querySelectorAll('.side-mainMenu .list-group-item');
+    //     menuButtons.forEach(function(button) {
+    //     button.addEventListener('click', stopAndHideVideo);
+    // });
+});
+
 
 function setupChatEventListeners() {
 
@@ -22,27 +40,26 @@ function setupChatEventListeners() {
         console.error("El botón 'Agregar Amigo' no se encontró en el DOM.");
     }
 }
-function chargeSite() {
+// function chargeSite() {
+//     const ruta = window.location.hash.substring(1) || 'inicio';
+//     const rutaPath = `./${ruta}.html`; 
 
-    const ruta = window.location.hash.substring(1) || 'inicio';
-    const rutaPath = `./${ruta}.html`; 
-
-    fetch(rutaPath)
-        .then(response => response.text())
-        .then(html => {
-            document.getElementById('content').innerHTML = html;
-            if (ruta === 'chats') {
-                // Espera hasta que Firebase esté cargado antes de configurar los event listeners
-                if (window.firebaseLoaded) {
-                    console.log("Botón encontrado.");
-                    setupChatEventListeners();
-                } else {
-                    window.addEventListener('firebase-loaded', setupChatEventListeners, { once: true });
-                }
-            }
-        })
-        .catch(error => console.error('Error al cargar la vista', error));
-}
+//     fetch(rutaPath)
+//         .then(response => response.text())
+//         .then(html => {
+//             document.getElementById('content').innerHTML = html;
+//             if (ruta === 'chats') {
+//                 // Espera hasta que Firebase esté cargado antes de configurar los event listeners
+//                 if (window.firebaseLoaded) {
+//                     console.log("Botón encontrado.");
+//                     setupChatEventListeners();
+//                 } else {
+//                     window.addEventListener('firebase-loaded', setupChatEventListeners, { once: true });
+//                 }
+//             }
+//         })
+//         .catch(error => console.error('Error al cargar la vista', error));
+// }
 
 window.addEventListener('hashchange', chargeSite);
 window.addEventListener('load', chargeSite);

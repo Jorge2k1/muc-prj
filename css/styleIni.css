@@ -1,29 +1,55 @@
-/*estilos aplicados a las paginas
-de inicion de sesión 
-y resgistro de usuario*/
-
 body, html {
     width: 100%;
     margin: 0;
     padding: 0;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
+.background {
+    background-image: url('/img/main/inicio/videoBg.mp4');
+}
+
+header.global {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    /* background-image: linear-gradient(to bottom, black 10%, transparent 100%); */
+    height: 150px; /* Ajusta según la altura de tu cabecera */
+    transition: height 0.5s ease, background-color 0.5s ease;
+}
+
+.scrolled {
+    height: 10px; /* Altura reducida de la cabecera cuando se hace scroll */
+}
+
 .global {
     position: sticky;
     top: 0;
     z-index: 1000;
-    width: 100%;
+    width: auto;
     color: white;
     background-image: linear-gradient(to top, transparent 77%, white 60%);
-    transition: height 0.5s ease; /* Suaviza la transición de la altura */
-    height: 100vh; /* Altura inicial completa */
+    height: 100vh;
+    margin-bottom: 500px;
 }
 
-.scrolled .global {
-    background-image: linear-gradient(to bottom, transparent 60%, white 50%);
-    height: 400px; /* Altura reducida cuando se hace scroll */
+#defaultBackground1 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    opacity: 0.7;
+    pointer-events: none;
+    transition: opacity 1s ease-out; 
+    transition: opacity 1s ease-in; 
 }
-
 
 .front {
     top: 0;
@@ -31,14 +57,16 @@ body, html {
     width: 100%;
     z-index: 999; 
     position: sticky;
+    background-image: linear-gradient(to bottom, black 3%, transparent 57%);
 }
+
 .log {
     font-size: large;
     text-align: right;
     padding-top: 20px;
     margin-right: 20px;
-
 }
+
 .logIcon {
     width: 60px;
     height:auto;
@@ -46,43 +74,44 @@ body, html {
     transition: opacity 0.3s ease, transform 0.1s ease;
 }
 
-.logIcon:hover{
+.logIcon:hover {
     opacity: 0.3;
     transform: scale(0.95);
 }
 
 .ach {
-    text-align: center;
-    font-family: 'Noto Serif Old Uyghur';
-    font-size: 80px;
-    margin-bottom: 0%;
+    margin-left: 200px;
+    margin-bottom: -200px;
+    margin-top: -400px;
+    width: 80%;
+    height: auto;
+    transition: transform 0.7s ease;
+}
 
+.useless {
+    color: transparent;
 }
 
 .ach, .slogan {
    top: -50;
    transition: transform 0.7s ease;
-
-}
-
-
-.scrolled .ach {
-    transform: translate(-43%, -50%) scale(0.5);
 }
 
 .slogan {
-    font-family: 'Noto Serif Old Uyghur';
-    font-size:larger;
-    text-align: center;
-    font-style: italic;
-    font-size: 25px;
+    margin-left: 200px;
+    margin-bottom: -200px;
+    margin-top: -400px;
+    width: 80%;
+    height: auto;
+    transition: transform 0.7s ease;
 }
-.scrolled .slogan {
-    transform: translate(-41%, -280%) scale(0.7);
+
+.scrolled .ach {
+    transform: translate(-52%, -7%) scale(0.7);
 }
 
 .log a {
-    color:inherit;
+    color: inherit;
     text-decoration: none;
     transition: color 1s ease; 
 }
@@ -96,85 +125,114 @@ body, html {
 }
 
 .white-text .menu ul li a:hover {
-    color: grey; 
+    color: rgb(233, 195, 185);
 }
-
 
 /*CUERPO*/
 .menu {
+    font-size: 40px;
     width: max-content; 
     background-color: transparent;
     margin: auto;
     transition: transform 0.7s ease; 
     font-family: 'Noto Serif Old Uyghur';
-
 }
 
 .scrolled .menu {
-    transform: translate(0%, -173px) scale(1.1);
+    transform: translate(0%, -230px) scale(1.1);
+}
+.menu ul {
+    font-size: 40px;
 }
 
-.menu ul li{
+.menu ul li {
     display: inline-block;
-
 }
 
 .menu ul li a {
-    font-size: medium;
+    font-size: 20px;
     display: block;
     color: white;
     text-decoration: none;
-    padding:15px 40px; 
+    padding: 10px 40px; 
     transition: transform 0.4s ease; 
-
-
 }
+
 .menu ul li a:hover {
     transform: scale(1.1);
-    color:rgb(233, 195, 185);
+    color: rgb(233, 195, 185);
 }
 
+.conocenos {
+    margin-left: 200px;
+    margin-right: 500px;
+    margin-top: -80px;
+    color:rgb(94, 54, 54);
 
+}
 
-#acercade {
-    padding-top: 400px;
-    width: 500px;
-    height: 300px;
-    background-color: transparent;    
+#acercade{
+    margin-top: 200px;
+    padding-top: 300px; /* Ajusta según la altura de tu cabecera */
+    margin-bottom: 370px;
+    height: auto;
+    color: whitesmoke;
     background-size: cover;
     background-position: center;
     opacity: 0.7;
     border-radius: 20px;
-    overflow: hidden;
-    filter: blur(10px);
+    z-index: 1;}
+
+#contactanos {
+    padding-top: 300px; /* Ajusta según la altura de tu cabecera */
+    margin-bottom: 150px;
+    height: auto;
+    color: whitesmoke;
+    background-size: cover;
+    background-position: center;
+    opacity: 0.7;
+    border-radius: 20px;
     z-index: 1;
+}
+
+#servicio, #contacto, #contactanos {
+    padding-top: 300px; /* Ajusta según la altura de tu cabecera */
+    margin-bottom: 150px;
+    height: auto;
+    color: whitesmoke;
+    background-size: cover;
+    background-position: center;
+    opacity: 0.7;
+    border-radius: 20px;
+    z-index: 1;
+}
+
+.section-background {
+    transition: background-color 0.5s ease;
 }
 
 #servicio {
-    padding-top: 400px;
-    width: 500px;
-    height: 300px;
-    background-color: transparent;    
-    background-size: cover;
-    background-position: center;
-    opacity: 0.7;
-    border-radius: 20px;
-    overflow: hidden;
-    filter: blur(10px);
-    z-index: 1;
+    margin-top: -200px;
+    background-color: #ffffccbd;
+    /* background: linear-gradient(to bottom, rgb(27, 47, 35) 30%, #5266aa 70%);  */
+    color:rgb(35, 90, 24);
+    height: 868px;
+}
+
+.section-contacto {
+    padding-top:0px ;
 }
 
 #contacto {
-    padding-top: 400px;
-    width: 500px;
-    height: 300px;
-    background-color: transparent;    
-    background-position: center;
-    opacity: 0.7;
-    border-radius: 20px;
-    overflow: hidden;
-    filter: blur(10px);
-    z-index: 1;
+    background-color: #5267aab9; /* Color de fondo para la sección "contacto" */
+    height: 868px;
+    color: rgb(255, 255, 255);
+
+}
+
+#contactanos {
+    background-color: #ffffcc; /* Color de fondo para la sección "contactanos" */
+    height: 868px;
 }
 
 /* estilos cuerpo de la pagina de presentacion */
@@ -182,26 +240,59 @@ body, html {
     background-color: #013220;
 }
 
-/* /estilo lo q es cuerpo de la pagina/ */
-
- 
-.imgQuienes {
-    position: relative;
-    display: inline-block;
+.container-fluid {
+    background: 
+        linear-gradient(to bottom, 
+            #013220 20%,        /* Inicio con verde sólido */
+            rgba(1, 50, 32, 0.8) 20%,   /* Verde con 80% opacidad al 20% */
+            rgba(1, 50, 32, 0.2) 20%,   /* Verde con 60% opacidad al 40% */
+            rgba(1, 50, 32, 0.4) 60%,   /* Verde con 40% opacidad al 60% */
+            rgba(0, 0, 0, 0) 100%      /* Completamente transparente al 100% */
+        ),
+        url(/img/main/inicio/fondo.png);
+    background-size: cover;
+    background-position: center; 
+    opacity: 1;
+    width: 50%;
+    height: auto;
 }
 
 .imgQuienes img {
     display: block; /* Asegura que no haya espacio extra alrededor de la imagen */
     width: 100%;
     height: auto;
+    position: relative;
+    z-index: 2;
+    top: -50px; /* Ajusta para sobresalir por la parte superior */
+    right: -50px; /* Ajusta para sobresalir por la parte derecha */
+    transition: transform 0.5s ease;
+}
+
+.imgQuienes img:hover {
+    transform: scale(1.1) translate(-100px, -70px);
 }
 
 #inicio {
-    color:whitesmoke;
+    color: whitesmoke;
     margin-right: 50px;
-    
 }
+
 .quienesSomos {
     font-family: 'Noto Serif Old Uyghur';
     font-size: 70px;
 }
+
+.quienesSomosDiv {
+    position: relative;
+    padding: 0px;
+    height: 100%;
+    margin-top: -70px;
+    margin-left: 70px;
+    z-index: 1;
+}
+
+.loqquepretendemos {
+    margin-left: 180px;
+    margin-top: -30px;
+}
+

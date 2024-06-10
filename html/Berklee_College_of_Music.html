@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>University Course Viewer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Old+Uyghur&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- CSS de Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Mi CSS personalizado -->
+    <link rel="stylesheet" href="../css/styleUnis.css">
+    <!-- Añadir JS y Popper.js de Bootstrap -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body class="cuerpoUni">
+    <div class="mainContainer2">
+        <!-- Header Section with University Name and Logo -->
+        <div class="headerSection">
+            <div class="cabeceraUni row my-3">
+                <div class="col-sm-2">
+                    <img id="newUniversity" src="../img/main/inicio/berkleecollegeofmusicLogo.png" alt="University Logo" style="width: 70%; height: auto; border-radius: 2px;">
+                </div>
+                <h1 id="uniName">Berklee College of Music</h1>
+            </div>
+            <div class="backgrounHeader col-12">
+                <img src="../img/main/inicio/berkleecollegeofmusicHeader.png" alt="University Campus" class="img-fluid">
+            </div>
+        </div>
+        
+        <!-- Course Details and Like Button -->
+        <div class="row my-3 align-items-center">
+            <div class="info col-md-9">
+                <div id="saveAndApply">
+                    <button id="saveUniversityButton" class="btn btn-outline-primary">
+                        <span>&hearts;</span> Save
+                    </button>
+                    <button class="btn btn-primary">Apply</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Course Options and Apply Button -->
+        <div class="courseType row">
+            <div>
+                <h2>Music Performance (Taught)</h2>
+                <p>Undergraduate - B.M.</p>
+            </div>
+            <div class="dates col-md-4">
+                <p>Start Date: September 2024</p>
+                <p>Duration: 4 years</p>
+                <p>Full-time</p>
+            </div>
+        </div>
+
+        <!-- Additional Information -->
+        <div class="row">
+            <div class="context col-md-11">
+                <div class="content-block" id="content-block1">
+                    <h1 class="h1">About us</h1>
+                    <p class="p1">
+                        Berklee College of Music is a premier institution for music education, known for its diverse and innovative programs. Located in the heart of Boston, Berklee offers a dynamic environment where students can develop their musical skills and prepare for a career in the music industry. The college provides a wide range of programs in music performance, composition, production, and music business, with a focus on contemporary music and a commitment to nurturing creativity and excellence.
+                    </p>
+                    <img src="https://via.placeholder.com/150" alt="Placeholder image" class="img-right">
+                </div>
+        
+                <div class="content-block" id="content-block2">
+                    <h1 class="h2">Tuition Fees</h1>
+                    <p class="p2">
+                        Below are the tuition fees for undergraduate programs at Berklee College of Music:
+                    </p>
+                    <table>
+                        <tr>
+                            <th>Degree Program</th>
+                            <th>Full-Time Tuition (Per Semester)</th>
+                            <th>Full-Time Credit Range</th>
+                            <th>Per-Credit Tuition</th>
+                        </tr>
+                        <tr>
+                            <td>Undergraduate Programs</td>
+                            <td>$25,790</td>
+                            <td>12-18</td>
+                            <td>$2,070</td>
+                        </tr>
+                        <tr>
+                            <td>Boston Conservatory at Berklee</td>
+                            <td>$25,790</td>
+                            <td>12-18</td>
+                            <td>$2,070</td>
+                        </tr>
+                        <tr>
+                            <td>Valencia Campus (Degree Program)</td>
+                            <td>$25,270</td>
+                            <td>12-16</td>
+                            <td>$1,840</td>
+                        </tr>
+                        <tr>
+                            <td>Valencia Campus (Diploma Program)</td>
+                            <td>$21,770</td>
+                            <td>12-13</td>
+                            <td>$1,840</td>
+                        </tr>
+                    </table>
+                    <img src="https://via.placeholder.com/150" alt="Placeholder image" class="img-left">
+                </div>
+        
+                <div class="content-block" id="content-block3">
+                    <h1 class="h3">Scholarships and Financial Aid</h1>
+                    <p class="p3">
+                        Berklee College of Music offers a variety of scholarships and financial aid options to help students fund their education. Here are some of the key financial aid opportunities available:
+                    </p>
+                    <table>
+                        <tr>
+                            <th>Type of Aid</th>
+                            <th>Eligibility</th>
+                            <th>Amount</th>
+                        </tr>
+                        <tr>
+                            <td>Merit-Based Scholarships</td>
+                            <td>Outstanding academic and musical achievement</td>
+                            <td>Up to full tuition</td>
+                        </tr>
+                        <tr>
+                            <td>Presidential Scholarships</td>
+                            <td>Exceptional talent and financial need</td>
+                            <td>Full tuition, housing, meal plan, laptop, and fees</td>
+                        </tr>
+                        <tr>
+                            <td>Need-Based Financial Aid</td>
+                            <td>Demonstrated financial need</td>
+                            <td>Varies based on need</td>
+                        </tr>
+                        <tr>
+                            <td>Thrive Scholarship</td>
+                            <td>Continuing undergraduate students with academic achievement and financial need</td>
+                            <td>Varies</td>
+                        </tr>
+                        <tr>
+                            <td>Division Awards</td>
+                            <td>High academic and artistic achievement within academic divisions</td>
+                            <td>Varies</td>
+                        </tr>
+                    </table>
+                    <img src="https://via.placeholder.com/150" alt="Placeholder image" class="img-right">
+                </div>
+        
+                <div class="content-block" id="content-block4">
+                    <h1 class="h4">Stunning surroundings</h1>
+                    <p class="p4">
+                        Berklee College of Music is located in the vibrant city of Boston, which offers a rich cultural and artistic environment. The campus is situated in the Back Bay neighborhood, close to numerous music venues, museums, and cultural landmarks. This dynamic setting provides students with countless opportunities for live performance, collaboration, and inspiration, making it an ideal place to study music and grow as an artist.
+                    </p>
+                    <img src="https://via.placeholder.com/150" alt="Placeholder image" class="img-left">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="../dist/bundle.js"></script>
+</html>

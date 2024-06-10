@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil del Usuario</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Old+Uyghur&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/styleProfileConf.css">
+</head>
+<body class="background">
+    <div id="overlay">
+        <header class="row">
+            <div class="col-md-2">
+                <button onclick="window.history.back()" class="btn btn-secondary">&larr; Volver</button>
+            </div>
+        </header>
+        <main class="profile-card ">
+
+            <div class="row">
+                <div class="col-md-4 d-flex justify-content-center align-items-center">
+                    <img id="profilePic" src="https://via.placeholder.com/110" alt="Foto de Perfil" class="img-fluid rounded-circle profile-pic">
+                </div>
+                <div class="col-md-8 d-flex justify-content-sm-start align-items-start">
+                    <h2 id="profileName" class="mt-3">Nombre del Usuario</h2>
+                    <button id="followButton" class="btn btn-primary mt-3">Seguir</button>
+
+                </div>
+            </div>
+            
+            <div class="align-items-start justify-content-start">
+                <div class=" text-start">
+
+                    <p id="profileBio" class="mt-3">Esta es la biografía del usuario...</p>
+                    <h4 class="profileSkills mt-4">Aptitudes</h4>
+                    <ul id="profileSkills" class="list-unstyled">
+                        <!-- Lista de aptitudes -->
+                    </ul>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="../src/profileConf.js"></script>
+    <script src="../dist/bundle.js"></script>
+    <script src="../js/scripts.js"></script>
+</body>
+</html>

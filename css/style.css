@@ -7,7 +7,24 @@ body, html {
 body.dark-background {
     background: radial-gradient(circle at center, black 10%, #013220 100%);
 
+
 }
+#defaultBackground3 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    opacity: 1;
+    pointer-events: none;
+    transition: opacity 1s ease-out; 
+    transition: opacity 1s ease-in; 
+
+
+}
+
 
 .global2 {
     position: sticky; 
@@ -16,16 +33,6 @@ body.dark-background {
     background-color: transparent
 }
 
-/* 
-.ach2 {
-    text-align: center;
-    font-family: 'Noto Serif Old Uyghur';
-    font-size: 80px;
-    margin-bottom: 0%;
-    color: white; 
-}
-*/
-
 .watermark img {
     color: white;
     padding-left: 30px;
@@ -33,15 +40,66 @@ body.dark-background {
     width: 16%;
 
 }
+.access-container {
+    position: relative;
+    border: 2px solid rgba(53, 91, 53, 0.376); 
+    max-width: 700px;
+    max-height: 720px;
+    margin: 0 auto;
+    padding: 20px; 
+    border-radius: 10px; 
+    background-color: rgba(71, 94, 71, 0.376); 
+    box-sizing: border-box; 
+    overflow: hidden;
+    transition: background-color 0.7s ease;
+}
 
-.login-container .register-container {    
+ .access-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, black 10%, rgba(103, 247, 167, 0.257) 100%);
+    transition: opacity 0.7s ease;
+    opacity: 0;
+    z-index: -1; /* Coloca el pseudo-elemento detrás del contenido */
+    border-radius: 10px; /* Asegúrate de que el pseudo-elemento siga la forma del contenedor */
+}
+
+.access-container:hover::before {
+    opacity: 1;
+}
+
+.login-container .access-container {    
     margin-left: 200px;
     margin-right: 200px;
-    margin-top: 120px;
     margin-bottom: 200px;
     flex-direction: column; 
     border-radius: 100px; 
     
+}
+
+.userTypeSelector {
+    margin-left:19%;
+    margin-bottom: 15px;
+}
+
+#userType {
+    font-size: 15px;
+    font-family: 'Noto Serif Old Uyghur';
+
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    align-self: center;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    padding-right: 10px;
+    border-radius: 10px;
+    width: 250px;
+
 }
 
 .register, .login  {
@@ -50,6 +108,7 @@ body.dark-background {
     justify-content: center;
     align-items: center; 
     color: white;
+    /* border: 2px solid rgba(53, 91, 53, 0.376);  */
     font-family: 'Noto Serif Old Uyghur';
     width: 100%; 
     max-width: 400px;
@@ -59,19 +118,20 @@ body.dark-background {
 
 .titleLog {
     text-align: center;
-    padding-bottom: 70px;
+    padding-bottom: 50px;
 
 }
 
 .form-group, .field {
     font-family: 'Noto Serif Old Uyghur';
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     text-align: center;
 }
 
  .input {
-    margin-left: 350px;
-    padding-top: 40px;
+    margin-top: 70px;
+
+    margin-left: 320px;
     width: 40%;
     
 } 
@@ -79,7 +139,7 @@ body.dark-background {
 
 .field input {
     background: none;
-    border: 2px solid rgba(53, 91, 53, 0.376); 
+    border: 2px solid rgba(97, 145, 97, 0.376); 
     outline: none; 
     color: white;
     width: 70%; 

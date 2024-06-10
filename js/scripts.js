@@ -1,11 +1,13 @@
 document.addEventListener('DOMContentLoaded', function() {
     const header = document.querySelector('.global');
-    const sections = document.querySelectorAll('section'); // Asegúrate de que tus secciones tengan este tag o ajusta el selector.
+    const sections = document.querySelectorAll('section');
+    const video = document.getElementById('defaultBackground1');
+    const body = document.querySelector('body');
 
     function adjustSectionsPadding() {
         const headerHeight = header.offsetHeight;
         sections.forEach(section => {
-            section.style.paddingTop = `${headerHeight * 4}px`;
+            section.style.paddingTop = `${headerHeight}px`;
             section.style.marginTop = `-${headerHeight}px`;
         });
     }
@@ -15,52 +17,65 @@ document.addEventListener('DOMContentLoaded', function() {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
                 const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
                 const headerHeight = header.offsetHeight;
-                
-                if (targetElement) {
+
+                if (targetId === '#inicio') {
                     window.scrollTo({
-                        top: targetElement.offsetTop - headerHeight,
+                        top: 0,
+                        behavior: 'smooth'
                     });
+                    changeBackgroundColor('default');
+                } else {
+                    const targetElement = document.querySelector(targetId);
+
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - headerHeight,
+                            behavior: 'smooth'
+                        });
+                        changeBackgroundColor(targetId);
+                    }
                 }
             });
         });
     }
 
+    function changeBackgroundColor(sectionId) {
+        body.classList.remove('section-acercade', 'section-servicio', 'section-contacto', 'section-contactanos');
+        switch (sectionId) {
+            case '#acercade':
+                body.classList.add('section-acercade');
+                break;
+            case '#servicio':
+                body.classList.add('section-servicio');
+                break;
+            case '#contacto':
+                body.classList.add('section-contacto');
+                break;
+            case '#contactanos':
+                body.classList.add('section-contactanos');
+                break;
+            default:
+                break;
+        }
+    }
+
     function adjustHeader() {
         window.addEventListener('scroll', function() {
             const scrollPos = window.scrollY;
-            const headMenuElements = document.querySelectorAll('.head, .menu, .global');
-            
-            if (scrollPos > 200) {
-                headMenuElements.forEach(el => el.classList.add('scrolled'));
+            if (scrollPos > 0) {
+                header.classList.add('scrolled');
             } else {
-                headMenuElements.forEach(el => el.classList.remove('scrolled'));
+                header.classList.remove('scrolled');
             }
             adjustSectionsPadding(); // Ajusta el padding cada vez que el header cambia de tamaño
         });
     }
 
-    adjustSectionsPadding(); // Inicial ajuste cuando la página carga
-    scrollSuave();
-    adjustHeader();
-});
-
-
-$(document).ready(function() {
-    function gatherTop() {
-        $(window).scroll(function() {
-            if ($(this).scrollTop() > 100) {
-                $('.head, .menu, .global').addClass('scrolled');
-            } else {
-                $('.head, .menu, .global').removeClass('scrolled');
-            }
-        });
-    }
     function scroll() {
-        $(window).scroll(function() {
-            var scrollPosition = $(this).scrollTop();
-            var windowHeight = $(window).height();
+        window.addEventListener('scroll', function() {
+            var scrollPosition = window.scrollY;
+            var windowHeight = window.innerHeight;
 
             // Ajuste de fondo existente
             var transparentEnd = 38;
@@ -70,26 +85,53 @@ $(document).ready(function() {
             blackEndPercentage = Math.max(blackEndPercentage, 0);
             transparentStartPercentage = Math.min(transparentStartPercentage, transparentEnd);
 
-            $('.global').css('background-image', `linear-gradient(to bottom, black ${transparentStartPercentage}%,  #013220 ${blackEndPercentage}%)`);
+            header.style.backgroundImage = `linear-gradient(to bottom, black ${transparentStartPercentage}%,  #013220 ${blackEndPercentage}%)`;
 
-            // Ajuste de la altura de .global
-            if (scrollPosition > 100) {
-                $('.global').css('height', '200px');
-            } else {
-                $('.global').css('height', '100vh');
-            }
+            // Cambio de opacidad del video
+            var reductionSpeed = 9999999999; // Factor de rapidez de reducción de opacidad, mayor que 1 para una reducción más rápida
+            var videoOpacity = 1 - (reductionSpeed * (scrollPosition / windowHeight));
+            videoOpacity = Math.max(videoOpacity, 0); // Asegura que no sea negativo
+            video.style.opacity = videoOpacity;
 
             // Cambio de color del texto
             if (blackEndPercentage <= transparentEnd - 19) {
-                $('.front').addClass('white-text');
+                document.querySelector('.front').classList.add('white-text');
             } else {
-                $('.front').removeClass('white-text');
+                document.querySelector('.front').classList.remove('white-text');
             }
+
+            // Cambio de fondo según la sección visible
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - header.offsetHeight;
+                const sectionHeight = section.offsetHeight;
+                if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                    changeBackgroundColor(`#${section.id}`);
+                }
+            });
         });
     }
 
+    function applySmoothTransformations() {
+        document.querySelectorAll('.smooth-transform-section').forEach(section => {
+            const img = section.querySelector('img');
+            
+            section.addEventListener('mouseenter', () => {
+                if (img) {
+                    img.style.transition = 'transform 0.5s ease';
+                    img.style.transform = 'scale(1.1) translate(10px, -10px)';
+                }
+            });
+    
+            section.addEventListener('mouseleave', () => {
+                if (img) {
+                    img.style.transform = 'scale(1) translate(0, 0)';
+                }
+            });
+        });
+    }
     // Función para Mostrar y ocultar el menú lateral
     function toggleSideMenu() {
+        console.log("de mometno funcion");
         var $friendRequestsContainer = $('#friendRequestsContainer');
         var $overlay = $('#overlay');
         var isMenuVisible = $friendRequestsContainer.css('right') === '0px';
@@ -117,6 +159,9 @@ $(document).ready(function() {
             $overlay.css('background-color', 'transparent'); 
         }
     });
-    gatherTop();
+    scrollSuave();
+    adjustHeader();
     scroll();
+    adjustSectionsPadding(); // Asegúrate de llamar a esta función al inicio
+    applySmoothTransformations(); // Llama a la función para aplicar transformaciones suaves
 });

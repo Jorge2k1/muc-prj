@@ -45,9 +45,10 @@ const registerUser = (email, password, username, userType) => {
       const userDocData = {
         username: username,
         userType: userType,
+        imageUrl: 'https://via.placeholder.com/110',
         friends: [],
-        bio: bio,
-        skills: skills,
+        bio: '',
+        skills: '',
         friendRequests: []
       };
       setDoc(userDocRef, userDocData);
@@ -72,6 +73,17 @@ const sendFriendRequest = (currentUserId, friendUserId) => {
     // Añadir el ID del usuario actual al array de solicitudes de amistad del usuario amigo
     friendRequests: arrayUnion(currentUserId)
   });
+};
+//cargamos la informacion de la persona q queremos agregar
+export const loadUserProfile = async (uid) => {
+  const userRef = doc(db, "users", uid);
+  const docSnap = await getDoc(userRef);
+  if (docSnap.exists()) {
+      return docSnap.data();
+  } else {
+      console.error("No se encontraron datos del usuario");
+      return null;
+  }
 };
 
 // Función para obtener las solicitudes de amistad
@@ -176,4 +188,4 @@ const observerOptions = {
 
 observer.observe(document.body, observerOptions);
 
-export { auth, db, storage, registerUser, loginUser, sendFriendRequest, getFriendRequests, acceptFriendRequest, findUserByUsername };
+export { auth, db, storage, registerUser, loginUser, sendFriendRequest, getFriendRequests, acceptFriendRequest, findUserByUsername};

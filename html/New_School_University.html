@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>University Course Viewer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Old+Uyghur&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- CSS de Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Mi CSS personalizado -->
+    <link rel="stylesheet" href="../css/styleUnis.css">
+    <!-- Añadir JS y Popper.js de Bootstrap -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body class="cuerpoUni">
+    <div class="mainContainer2">
+        <!-- Header Section with University Name and Logo -->
+        <div class="headerSection2">
+            <div class="cabeceraUni2 row my-3">
+                <div class="col-sm-2">
+                    <img id="newUniversity" src="../img/main/inicio/newschooluniversityLogo.png" alt="University Logo" style="width: 80%; height: auto; border-radius: 2px;">
+                </div>
+                <h1 id="uniName">New School University</h1>
+            </div>
+            <div class="backgrounHeader2 col-12">
+                <img src="../img/main/inicio/newschooluniversityHeader.png" alt="University Campus" class="img-fluid">
+            </div>
+        </div>
+        
+        <!-- Course Details and Like Button -->
+        <div class="row align-items-start">
+            <div class="info ">
+                
+            </div>
+        </div>
+        <div id="saveAndApply">
+            <button id="saveUniversityButton" class="btn btn-outline-primary">
+                <span>&hearts;</span> Save
+            </button>
+            <button class="btn btn-primary">Apply</button>
+        </div>
+        <!-- Course Options and Apply Button -->
+        <div class="courseType row">
+            
+            <div>
+                
+                <h2>Accounting (Taught)</h2>
+                <p>Postgraduate - MSc</p>
+            </div>
+
+            <div class="dates col-md-4">
+                <p>Start Date: September 2023</p>
+                <p>Duration: 12 months</p>
+                <p>Full-time</p>
+            </div>
+        </div>
+
+        <!-- Additional Information -->
+        <div class="row">
+            <div class="context col-md-11">
+                <div class="content-block" id="content-block1">
+                    <h1 class="h1">About us</h1>
+                    <p class="p1">
+                        The New School offers a vibrant academic environment, fostering innovation and creativity. Located in the heart of New York City, it combines rigorous academics with a commitment to social justice and sustainability. The university features distinguished faculty and offers a wide range of programs in design, social sciences, liberal arts, management, and the performing arts. It emphasizes hands-on learning and critical thinking, preparing students to make meaningful contributions to society.
+                    </p>
+                    <img src="https://via.placeholder.com/150" alt="Placeholder image" class="img-right">
+                </div>
+        
+                <div class="content-block" id="content-block2">
+                    <h1 class="h2">Tuition Fees</h1>
+                    <p class="p2">
+                        Below are the tuition fees for undergraduate programs at The New School:
+                    </p>
+                    <table>
+                        <tr>
+                            <th>Degree Program</th>
+                            <th>Full-Time Tuition (Per Semester)</th>
+                            <th>Full-Time Credit Range</th>
+                            <th>Per-Credit Tuition</th>
+                        </tr>
+                        <tr>
+                            <td>AAS, BBA, BFA, BS (Parsons)</td>
+                            <td>$28,989</td>
+                            <td>12-18</td>
+                            <td>$2,416</td>
+                        </tr>
+                        <tr>
+                            <td>BA, BS, BM, BFA (Lang, School of Performing Arts)</td>
+                            <td>$28,013</td>
+                            <td>12-18*</td>
+                            <td>$2,334</td>
+                        </tr>
+                        <tr>
+                            <td>BA/BFA Dual Degree (Lang/Jazz, Lang/Parsons)</td>
+                            <td>$28,013</td>
+                            <td>12-21</td>
+                            <td>$2,334</td>
+                        </tr>
+                        <tr>
+                            <td>AAS, BA, BFA, BS (SPE)</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                            <td>$1,533</td>
+                        </tr>
+                        <tr>
+                            <td>Parsons Paris</td>
+                            <td>$19,814</td>
+                            <td>12-18</td>
+                            <td>$1,651</td>
+                        </tr>
+                    </table>
+                    <img src="https://via.placeholder.com/150" alt="Placeholder image" class="img-left">
+                </div>
+        
+                <div class="content-block" id="content-block3">
+                    <h1 class="h3">Scholarships and Financial Aid</h1>
+                    <p class="p3">
+                        The New School offers a variety of scholarships and financial aid options to help students fund their education. Here are some of the key financial aid opportunities available:
+                    </p>
+                    <table>
+                        <tr>
+                            <th>Type of Aid</th>
+                            <th>Eligibility</th>
+                            <th>Amount</th>
+                        </tr>
+                        <tr>
+                            <td>Merit-Based Scholarships</td>
+                            <td>Outstanding academic achievement and, if applicable, audition or portfolio</td>
+                            <td>$5,000 to full tuition</td>
+                        </tr>
+                        <tr>
+                            <td>Need-Based Financial Aid</td>
+                            <td>Demonstrated financial need</td>
+                            <td>Up to $20,000</td>
+                        </tr>
+                        <tr>
+                            <td>Specialized Scholarships</td>
+                            <td>Specific programs and demographics</td>
+                            <td>Varies by scholarship</td>
+                        </tr>
+                        <tr>
+                            <td>Work-Study Programs</td>
+                            <td>Enrolled students</td>
+                            <td>Varies, typically around $2,000 to $3,000 per year</td>
+                        </tr>
+                        <tr>
+                            <td>Financial Aid Guarantee</td>
+                            <td>Recipients of institutional scholarships and grants</td>
+                            <td>Guarantees no reduction in aid even if financial circumstances change</td>
+                        </tr>
+                    </table>
+                    <img src="https://via.placeholder.com/150" alt="Placeholder image" class="img-right">
+                </div>
+        
+                <div class="content-block" id="content-block4">
+                    <h1 class="h4">Stunning surroundings</h1>
+                    <p class="p4">
+                        Situated in the vibrant and dynamic environment of New York City, The New School offers students an unparalleled urban experience. The city's cultural diversity, artistic heritage, and intellectual atmosphere provide a rich backdrop for academic and personal growth. Students have access to numerous museums, galleries, theaters, and other cultural institutions, enhancing their educational experience. The New School's location in Greenwich Village further adds to its appeal, offering a unique blend of history and modernity.
+                    </p>
+                    <img src="https://via.placeholder.com/150" alt="Placeholder image" class="img-left">
+                </div>
+            </div>
+        </div>
+        
+
+                <p>
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="../dist/bundle.js"></script>
+</html>

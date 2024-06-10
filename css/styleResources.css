@@ -1,10 +1,63 @@
 /*estilos recursos*/
 .background {
-    color:white;
+    color:whitesmoke;
 }
+
+.mainContainer2 {
+    z-index: 0;
+    width: 85vw; /* Asegura que el contenedor ocupa todo el ancho de la ventana gráfica */
+    min-height: 88vh; 
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 2px;
+    border-color: #26473b;    
+    background-color: #013220;
+    margin: 0 auto; /* Centra el contenedor horizontalmente */
+    padding: 0 20px; /* Añade padding para evitar que el contenido toque los bordes */
+}
+
+.file-entry {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.file-text {
+    margin-left: 15px;
+}
+
+.file-upload-button {
+    margin-left: 45px;
+    margin-top: 10px;
+    display: inline-flex;
+    align-items: center;
+    /* background-color: #f7f3ef; */
+    background-color: transparent;
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 8px;
+    border-color: whitesmoke;
+    padding: 5px 15px;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    cursor: pointer;
+    text-decoration: none;
+    color: whitesmoke;
+    transition: all 0.2s ease;
+}
+
+.file-upload-button:hover {
+    background-color: white;
+    color: black;
+
+}
+
 .titleResources {
+
+    z-index: 2;
     display: flex;
-    justify-content: center; 
+    justify-content: left; 
+    margin-left: 3%;
+    margin-top: 1.5%;
     width: 100%;
     font-size: 30px;
     font-family: 'Noto Serif Old Uyghur';
@@ -17,38 +70,68 @@
 
 }
 #fileList {
-    padding-top:10px;
     padding-bottom: 20px;
     margin-left: 20px;
     margin-right: -60px;
+    background-color:transparent
+
 }
 .uploadTxt, .file-text {
-    color: black;
+    color: rgb(29, 46, 33);
+    font-size: 20px;
+
 }
 
 #yourFilesList {
-    background-color:#668066;
-    border-radius:2px;
-
-    
+    background-color:transparent;
 }
 
 #each{
     padding: 7px;
-    border-width: 2px;
-    border-style: solid;
-    border-top:whitesmoke;
-    border-left:whitesmoke;
-    border-right:whitesmoke;
+    margin-left:20px;
+    margin-right:20px;
+    border-radius: 5px;
+    background-color: rgb(226, 238, 226)
+
 }
 
-.file-entry {
-    margin-top: 10px;
-    margin-bottom: 10px;
+
+
+/* Estilos para el modal *//* Estilos para el modal */
+.modal {
+    margin-left: 1146px;
+    margin-top: 720px;
+    position: fixed;
+    width: 500px;
+    height: 180px;
+    /* max-height: 120px; */
+    border: 1px solid #888;
+    border-radius: 4px;
+    background-color: #cadccf; /* Blanco roto */
 }
 
-.file-text {
+.modal-content {
+    padding: 20px;
+    border:none;
+    background-color: transparent; /* Blanco roto */
+    width: inherit;
+    border-radius: 10px;
 
-    font-size: 22px;
-    margin-left: 15px;
+    position: relative; /* Asegura que los elementos dentro del modal se posicionen correctamente */
+}
+
+.modal .close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.modal .close:hover,
+.modal .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
 }

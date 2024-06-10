@@ -1,66 +1,236 @@
-/* Estilos generales y de la tarjeta */
-.container {
-    max-width: 1200px; /* Ajusta esto según el ancho máximo deseado */
-    margin: auto;
-}
-
-.card {
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    transition: 0.3s;
-    padding: 40px;
-    margin: 20px; /* Espaciado entre tarjetas */
-}
-
-.card:hover {
-    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-}
-
-.card img {
+body, html {
     width: 100%;
-    height: 180px; /* Altura fija para imágenes */
-    object-fit: cover; /* Asegura que la imagen cubra el espacio sin deformarse */
+    margin: 0;
+    padding: 0;
 }
 
-.card-body {
-    padding: 15px;
+html {
+    scroll-behavior: smooth;
 }
 
-.card-title {
-    font-size: 18px; /* Tamaño del título */
-    margin-bottom: 5px;
+.background {
+    background-image: url('/img/main/inicio/videoBg.mp4');
 }
 
-.card-text {
-    font-size: 14px; /* Tamaño del texto */
-    color: #555; /* Color del texto */
+header.global {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: #fff; /* O el color de tu cabecera */
+    height: 100px; /* Ajusta según la altura de tu cabecera */
+    transition: height 0.5s ease; /* Suaviza la transición de la altura */
 }
 
-.btn-primary {
-    background-color: #007bff;
-    border-color: #007bff;
+.scrolled header.global {
+    height: 60px; /* Altura reducida de la cabecera cuando se hace scroll */
 }
 
-.btn-primary:hover {
-    background-color: #0056b3;
-    border-color: #004080;
+.global {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: auto;
+    color: white;
+    background-image: linear-gradient(to top, transparent 77%, white 60%);
+    height: 100vh;
+    margin-bottom: 500px;
 }
 
-/* Clase para el corazón de "favoritos" */
-.favorite-heart {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    font-size: 20px; /* Tamaño del icono de corazón */
-    color: #fff; /* Color del icono de corazón */
-    background-color: #ff4081; /* Fondo rosa */
-    padding: 5px;
-    border-radius: 50%;
+#defaultBackground1 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    opacity: 0.7;
+    pointer-events: none;
+    transition: opacity 1s ease-out; 
+    transition: opacity 1s ease-in; 
 }
 
-/* Respuestas responsivas */
-@media (max-width: 992px) {
-    .card {
-        width: 100%; /* Ajuste para dispositivos móviles */
-        margin: 10px 0; /* Reducción del margen entre tarjetas en móviles */
-    }
+.front {
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999; 
+    position: sticky;
+}
+
+.log {
+    font-size: large;
+    text-align: right;
+    padding-top: 20px;
+    margin-right: 20px;
+}
+
+.logIcon {
+    width: 60px;
+    height:auto;
+    padding-right: 10px; 
+    transition: opacity 0.3s ease, transform 0.1s ease;
+}
+
+.logIcon:hover {
+    opacity: 0.3;
+    transform: scale(0.95);
+}
+
+.ach {
+    margin-left: 200px;
+    margin-bottom: -200px;
+    margin-top: -400px;
+    width: 80%;
+    height: auto;
+    transition: transform 0.7s ease;
+}
+
+.useless {
+    color: transparent;
+}
+
+.ach, .slogan {
+   top: -50;
+   transition: transform 0.7s ease;
+}
+
+.slogan {
+    margin-left: 200px;
+    margin-bottom: -200px;
+    margin-top: -400px;
+    width: 80%;
+    height: auto;
+    transition: transform 0.7s ease;
+}
+
+.scrolled .ach {
+    transform: translate(-52%, -5%) scale(0.7);
+}
+
+.log a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 1s ease; 
+}
+
+.white-text,
+.white-text .log a,
+.white-text .ach,
+.white-text .slogan,
+.white-text .menu ul li a {
+    color: white;
+}
+
+.white-text .menu ul li a:hover {
+    color: grey; 
+}
+
+/*CUERPO*/
+.menu {
+    font-size: 40px;
+    width: max-content; 
+    background-color: transparent;
+    margin: auto;
+    transition: transform 0.7s ease; 
+    font-family: 'Noto Serif Old Uyghur';
+}
+
+.scrolled .menu {
+    transform: translate(0%, -173px) scale(1.1);
+}
+.menu ul {
+    font-size: 40px;
+}
+
+.menu ul li {
+    display: inline-block;
+}
+
+.menu ul li a {
+    font-size: 20px;
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 10px 40px; 
+    transition: transform 0.4s ease; 
+}
+
+.menu ul li a:hover {
+    transform: scale(1.1);
+    color: rgb(233, 195, 185);
+}
+
+#acercade, #servicio, #contacto, #contactanos {
+    padding-top: 300px; /* Ajusta según la altura de tu cabecera */
+    margin-bottom: 300px;
+    height: auto;
+    background-color: transparent;    
+    background-size: cover;
+    background-position: center;
+    opacity: 0.7;
+    border-radius: 20px;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.section-background {
+    transition: background-color 0.5s ease;
+}
+
+.section-servicio {
+    background-color: #ffffff; /* Color de fondo para la sección "servicio" */
+}
+
+.section-contacto {
+    background-color: #ccccff; /* Color de fondo para la sección "contacto" */
+}
+
+.section-contactanos {
+    background-color: #ffffcc; /* Color de fondo para la sección "contactanos" */
+}
+
+/* estilos cuerpo de la pagina de presentacion */
+.background {
+    
+    background-color: #013220;
+}
+
+.container-fluid {
+    background: 
+        linear-gradient(to bottom, 
+            #013220 20%,        /* Inicio con verde sólido */
+            rgba(1, 50, 32, 0.8) 20%,   /* Verde con 80% opacidad al 20% */
+            rgba(1, 50, 32, 0.2) 20%,   /* Verde con 60% opacidad al 40% */
+            rgba(1, 50, 32, 0.4) 60%,   /* Verde con 40% opacidad al 60% */
+            rgba(0, 0, 0, 0) 100%      /* Completamente transparente al 100% */
+        ),
+        url(/img/main/inicio/fondo.png);
+    background-size: cover;
+    background-position: center; 
+    opacity: 1;
+    width: 50%;
+    height: auto;
+}
+
+.imgQuienes {
+    position: relative;
+    display: inline-block;
+}
+
+.imgQuienes img {
+    display: block; /* Asegura que no haya espacio extra alrededor de la imagen */
+    width: 100%;
+    height: auto;
+}
+
+#inicio {
+    color: whitesmoke;
+    margin-right: 50px;
+}
+
+.quienesSomos {
+    font-family: 'Noto Serif Old Uyghur';
+    font-size: 70px;
 }

@@ -6,53 +6,51 @@
         <title>Tus recursos</title>
         <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Old+Uyghur&display=swap" rel="stylesheet">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
-
-        <!-- Añadir JS y Popper.js de Bootstrap -->
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.9.2/dist/umd/popper.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-        
-        <!--siempre mi css por delante para que tenga prioridad-->
         <link rel="stylesheet" href="../css/styleResources.css">
-
     </head>
-    <body class="background">
-
+    <body>
         <main>
-
-            <div class="titleResources">Tus recursos</div>
+            <div class="mainContainer2">
+                <div class="titleResources">Tus recursos</div>
+                <div class="file-upload-wrapper">
+                    <input type="file" id="fileUploader" multiple style="display: none;">
+                    <!-- <label for="fileUploader" class="file-upload-button">
+                        <img src="../img/main/upload.png" alt="Upload Icon" style="width: 7%;">
+                    </label> -->
+                    <label for="fileUploader" class="file-upload-button">
+                        Subir archivos
+                    </label>
+                    
+                </div>
                 <nav class="navbar navbar-expand-sm"></nav>
-                <ul class="navbar-nav">
+                <!-- <ul class="navbar-nav">
                     <li class="nav-item">
-                    <a class="nav-link" href="#">Recursos compartidos</a>
+                        <a class="nav-link" href="#">Recursos compartidos</a>
                     </li>
                     <li class="nav-item">
-                    <a class="nav-link" href="#">Recursos guardados</a>
+                        <a class="nav-link" href="#">Recursos guardados</a>
                     </li>
-                </ul>
-                </nav>
-            
-            <div style="display: none;"><button id="confirmUploadButton">Confirma la subida</button></div>
-            <div class="file-upload-wrapper">
-                <input type="file" id="fileUploader" multiple style="display: none;">
-                <label for="fileUploader" class="file-upload-button">
-                    <img src="../img/main/upload.png" alt="Upload Icon" style="width: 7%;">
-                </label>
-            </div>
+                </ul> -->            
 
-            <div id="fileList">
-                <!-- aqui veremos los recursos a confirmar para subir -->
-
-            </div>
-            <div id="yourFilesList">
-
+                <div id="fileModal" class="modal">
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+                        <div id="fileModalContent">
+                            <!-- El contenido del archivo se agregará aquí dinámicamente -->
+                        </div>
+                    </div>
+                </div>
+                <div id="fileList">
+                    <!-- Aquí se agregará la lista de archivos seleccionados -->
+                </div>
+                <div id="yourFilesList">
+                    <!-- Aquí se agregarán los archivos del usuario -->
+                </div>
             </div>
         </main>
-        
-
         <script src="../dist/bundle.js"></script>
     </body>
-    
-
 </html>

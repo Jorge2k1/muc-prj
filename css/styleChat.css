@@ -11,29 +11,82 @@ html, body {
     min-height: 100vh; 
 }
 
-#chatList {
-    flex:1;
-    min-height: 88vh;
-    border-radius: 2px;
-    position: relative;
-    background-color:rgba(255, 255, 255, 0.553);
-    border-image-slice: 1 !important;
-    margin-left: 12px;
-
+.chatsCol {
+    margin-left: 10px;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    font-size: 26px;
+    text-align: center;
+    font-weight:bold;
 }
 
+#chatList {
+    text-align: center;
+    font-size: 20px;
+    font-family: 'Noto Serif Old Uyghur';
+    flex:1;
+    min-height: 88vh;
+    border-style: solid;
+    border-width: 5px;
+    border-radius: 2px;
+    border-color: #26472f;
+    border-top: none;
+    border-left:none;
+    position: relative;
+    background-color:#0f4d363b;
+    border-image-slice: 1 !important;
+}
+/* dentro del cahtlist tenemos los amigos */
+.friend {
+    background-color: #032015af;
+    align-content: center;
+    width: 220px;
+    height: 50px;
+    text-align: center;
+    margin-left: 1px;
+
+    border-style: solid;
+    border-radius: 2px;
+    border-width: 2px;
+    border-color: #26472f;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+
+    transition: ease 0.3s;
+}
+
+.friend:hover,
+.friend:active, 
+.friend:focus {
+    background-color: #01100a;
+}
 
 .mainContainer{
     width: 1425px;
     height: 88vh; 
-    border-radius: 1px;
-    background-color: rgba(255, 255, 255, 0.553) !important;
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 2px;
+    border-color: #26473b;    
+    background-color:#013220;
     position: relative;
     max-width: 1500px; 
     margin: 0 auto; 
-    margin-left: -33px;
 }
-
+.chat-header {
+    background-color: #0f4d363b;
+    margin-left:-20px;
+    width: 108%;
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 2px;
+    border-color: #26472f;
+    text-align: center;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+}
 
 .chat-container {
     width: 115%;
@@ -42,15 +95,56 @@ html, body {
     height: 80vh; 
 }
 
+h5 {
+    font-family: 'Noto Serif Old Uyghur';
+    margin-top: 15px;
+
+}
+
+.close-chat {
+    margin-left:95% ;
+    margin-top: 10px;
+    border-style: none;
+    background-color: transparent;
+    font-family: 'Noto Serif Old Uyghur';
+    font-weight: bold;
+    font-size: 25px;
+    color: rgb(212, 28, 28);
+}
+
 .chat-messages {
     width: 100%; 
     max-width: 100%; 
     flex-grow: 1;
+    margin-top: 10px;
+
     overflow-y: auto; 
 }
 
-.chat-input {
-    margin-top: auto; 
+#chatMessageInput {
+    color:white;
+    width:116%;
+    background-color: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.767); 
+    font-family: 'Noto Serif Old Uyghur';
+    border-radius: 3px;
+    transition: all 0.2s ease;
+}
+
+#chatMessageInput:hover, #chatMessageInput:focus {
+    outline: none;
+    background-color: rgba(85, 115, 95, 0.61);
+    border-radius: 10px;
+}
+
+#sendChatMessage {
+    background-color: #355b4d;
+    max-width: 100px;
+    
+    border-radius: 10px;
+    border-style: none;
+    margin-left: 150px;
+    text-align: center;
 }
 
 .row.align-items-end {
@@ -59,22 +153,26 @@ html, body {
 }
 /*tema mensajes*/
 .message {
+    font-size: 17px;
     padding: 5px 10px;
     border-radius: 10px;
-    margin: 5px 0px; /
+    margin: 5px 0px;
     max-width: fit-content;
-    background-color: #E5E5EA; 
+    background-color: black; 
     word-wrap: break-word; 
 }
-  
-  .message-current-user {
+
+.message-current-user {
+    color: black;
     background-color: #DCF8C6; 
     margin-left: auto; 
     margin-right: 10px;
-  }
-  
-  .message-other-user {
+    text-align: end;
+}
+
+.message-other-user {
+    color: black;
     background-color: #FFFFFF; 
     margin-right: auto; /*alinea a la izquierda en est caso*/
     margin-left: 10px;
-  }
+}

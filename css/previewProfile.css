@@ -1,0 +1,71 @@
+
+
+
+.profile-card {
+    background-color: #ffffff;
+    margin-left: 200px;
+    padding: 15%;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 800px;
+}
+
+#profilePic {
+    width: 150px;
+    height: 150px;
+    margin-top: -70px;
+    margin-left: -100px;
+    border: 5px solid #0f0d0d;
+}
+
+#profileName {
+    font-size: 30px;
+    font-family:'Noto Serif Old Uyghur' ;
+    color: black;
+    margin-left: -50px;
+    position: relative; /* Añadido */
+    top: -50px; /* Ajustado */
+}
+
+#profileBio {
+    font-size: 17px;
+    font-family:'Noto Serif Old Uyghur' ;
+    padding-top:20px;
+    color: #000000;
+    margin-left: -20px;
+
+}
+
+.profileSkills {
+    font-size: 20px;
+    font-family:'Noto Serif Old Uyghur' ;
+    font-weight:bolder;
+    color: #4a6856;
+    margin-left: -20px;
+    
+}
+
+#profileSkills {
+    font-size: 17px;
+    font-family:'Noto Serif Old Uyghur' ;
+    color: #4a6856;
+    margin-left: -20px;
+    margin-top: 0px;
+    
+}
+
+button#followButton {
+
+    font-size: 15px;
+    padding: 10px 20px;
+    margin-top: 20px;
+    margin-left: -77px;
+    border-radius: 20px;
+    transform: 1s ease;
+}
+
+#followButton:hover {
+    background-color: rgb(2, 46, 74);
+
+}
+

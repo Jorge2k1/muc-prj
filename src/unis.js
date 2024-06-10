@@ -21,29 +21,30 @@ function checkUniversity(name) {
 
 // Función para cargar la página de la universidad
 function loadUniversityPage(uniId) {
-    const routePath = `./unis.html`;
-    console.log(`Cargando información de la universidad: ${uniId}`);
+    const formattedUniId = uniId.replace(/\s+/g, '_');
+    const routePath = `./${formattedUniId}.html`;
+    console.log(`Cargando información de la universidad: ${formattedUniId}`);
     fetch(routePath)
       .then(response => response.text())
       .then(html => {
         document.getElementById('content').innerHTML = html;
-        console.log(`Universidad ${uniId} cargada con éxito.`);
-
+        console.log(`Universidad ${formattedUniId} cargada con éxito.`);
         // Mostrar el botón de adjuntar perfil si el usuario es un coach
         auth.onAuthStateChanged(user => {
           if (user) {
             const userRef = doc(db, "users", user.uid);
             getDoc(userRef).then(docSnapshot => {
-              if (docSnapshot.exists() && docSnapshot.data().userType === "coach") {
-                const attachProfileButton = document.createElement('button');
-                attachProfileButton.textContent = 'Adjuntar Perfil';
-                attachProfileButton.classList.add('btn', 'btn-secondary');
-                attachProfileButton.onclick = () => {
-                  attachProfileToUniversity(user.uid, uniId);
-                };
-                document.querySelector('.info').appendChild(attachProfileButton);
-              }
-              loadCoachLabels(uniId);
+                if (docSnapshot.exists() && docSnapshot.data().userType === "coach") {
+                    const attachProfileButton = document.createElement('button');
+                    attachProfileButton.textContent = 'Adjuntar Perfil';
+                    attachProfileButton.classList.add('btn', 'btn-secondary');
+                    attachProfileButton.id = 'attachProfileButton'; // Asignar ID
+                    attachProfileButton.onclick = () => {
+                        attachProfileToUniversity(user.uid, uniId);
+                    };
+                    document.querySelector('.info').appendChild(attachProfileButton);
+                }
+                loadCoachLabels(uniId);
             }).catch(error => {
               console.error('Error al obtener datos del usuario:', error);
               loadCoachLabels(uniId);
@@ -97,9 +98,9 @@ function displayCoachLabel(coachId, uniId) {
         if (docSnapshot.exists()) {
             const coachName = docSnapshot.data().username;
             const coachLabel = document.createElement('span');
-            coachLabel.textContent = `Coach: ${coachName}`;
-            coachLabel.classList.add('badge', 'badge-info');
-            coachLabel.id = `coach-${coachId}`;
+            coachLabel.textContent = `#${coachName}`;
+            coachLabel.classList.add('badge', 'badge-info', 'etiqueta');
+            coachLabel.id = `coachLabel`;
             coachLabel.onclick = () => {
                 window.location.href = `./profile.html?uid=${coachId}`;
             };
@@ -136,6 +137,7 @@ function loadCoachLabels(uniId) {
 // Función para añadir una universidad a la lista de favoritos del usuario
 function saveUniversityToFavorites(universityId) {
     const userRef = doc(db, "users", auth.currentUser.uid);
+    console.log("culiao")
     return updateDoc(userRef, {
         universities: arrayUnion(universityId)
     }).then(() => {

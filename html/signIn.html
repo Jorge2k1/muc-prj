@@ -17,15 +17,18 @@
                 <img src="../img/login/muc.png">
             </a>
     </header>
-
-    <main class="register-container">
+    <video id="defaultBackground3" autoplay muted loop>
+        <source src="/img/login/videoBg.mp4" type="video/mp4" >
+        Your browser does not support the video tag.
+    </video>
+    <main class="access-container">
         <div class="register">
             <h1 class="titleLog">Únete a nosotros</h1>
             <form>
                 <div class="form-group">
                     <label for="userType">¿Coach o alumno?</label>
                 </div>
-                <div>
+                <div class="userTypeSelector">
                     <select id="userType" name="userType" class="form-control" required>
                         <option value="coach">Coach</option>
                         <option value="alumno">Alumno</option>
