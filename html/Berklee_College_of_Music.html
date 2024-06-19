@@ -22,7 +22,7 @@
         <div class="headerSection">
             <div class="cabeceraUni row my-3">
                 <div class="col-sm-2">
-                    <img id="newUniversity" src="../img/main/inicio/berkleecollegeofmusicLogo.png" alt="University Logo" style="width: 70%; height: auto; border-radius: 2px;">
+                    <img id="newUniversity" src="../img/main/inicio/berkleecollegeofmusicLogo.png" alt="University Logo" style="width: 60%; height: auto; border-radius: 2px;">
                 </div>
                 <h1 id="uniName">Berklee College of Music</h1>
             </div>
@@ -32,27 +32,31 @@
         </div>
         
         <!-- Course Details and Like Button -->
-        <div class="row my-3 align-items-center">
-            <div class="info col-md-9">
-                <div id="saveAndApply">
-                    <button id="saveUniversityButton" class="btn btn-outline-primary">
-                        <span>&hearts;</span> Save
-                    </button>
-                    <button class="btn btn-primary">Apply</button>
-                </div>
+        <div class="row align-items-start">
+            <div class="info ">
+                
             </div>
         </div>
+        <div id="saveAndApply">
+            <button id="saveUniversityButton" class="btn btn-outline-primary">
+                <span>&hearts;</span> Guardar
+            </button>
+            <button class="btn btn-primary">Visitar web</button>
+        </div>
+        <!-- Course Options and Apply Button -->
+        <div class="courseType row">
+           
 
         <!-- Course Options and Apply Button -->
         <div class="courseType row">
             <div>
-                <h2>Music Performance (Taught)</h2>
-                <p>Undergraduate - B.M.</p>
+                <h2 class ="degree">Music Performance (Taught)</h2>
+                <p>Licenciatura - B.M.</p>
             </div>
-            <div class="dates col-md-4">
-                <p>Start Date: September 2024</p>
-                <p>Duration: 4 years</p>
-                <p>Full-time</p>
+            <div class="dates col-md-8">
+                <p>Fechas de comienzo: September 2024</p>
+                <p>Duracion: 4 years</p>
+                <p>A tiempo completo</p>
             </div>
         </div>
 
@@ -60,17 +64,17 @@
         <div class="row">
             <div class="context col-md-11">
                 <div class="content-block" id="content-block1">
-                    <h1 class="h1">About us</h1>
+                    <h1 class="h1">Sobre nosotros</h1>
                     <p class="p1">
-                        Berklee College of Music is a premier institution for music education, known for its diverse and innovative programs. Located in the heart of Boston, Berklee offers a dynamic environment where students can develop their musical skills and prepare for a career in the music industry. The college provides a wide range of programs in music performance, composition, production, and music business, with a focus on contemporary music and a commitment to nurturing creativity and excellence.
+                        Berklee College of Music es una institución de primera categoría en la educación musical, conocida por sus programas diversos e innovadores. Ubicada en el corazón de Boston, Berklee ofrece un entorno dinámico donde los estudiantes pueden desarrollar sus habilidades musicales y prepararse para una carrera en la industria de la música. La universidad ofrece una amplia gama de programas en interpretación musical, composición, producción y negocios musicales, con un enfoque en la música contemporánea y un compromiso con el fomento de la creatividad y la excelencia.
                     </p>
-                    <img src="https://via.placeholder.com/150" alt="Placeholder image" class="img-right">
+                    <img src="/img/main/inicio/berkleeimg1.jpeg" alt="Placeholder image" class="img-right" style="width: 100%; height: auto;">
                 </div>
         
                 <div class="content-block" id="content-block2">
-                    <h1 class="h2">Tuition Fees</h1>
+                    <h1 class="h2">Tasas para estudiantes</h1>
                     <p class="p2">
-                        Below are the tuition fees for undergraduate programs at Berklee College of Music:
+                        En la tabla que se propone, se aportan las tasas para estudiantes que deseen cursar una licenciatura.
                     </p>
                     <table>
                         <tr>
@@ -104,56 +108,59 @@
                             <td>$1,840</td>
                         </tr>
                     </table>
-                    <img src="https://via.placeholder.com/150" alt="Placeholder image" class="img-left">
+                    <img src="/img/main/inicio/berkleeimg2.jpg" alt="Placeholder image" class="img-left" style="width: 30%; height: auto;">
                 </div>
         
                 <div class="content-block" id="content-block3">
-                    <h1 class="h3">Scholarships and Financial Aid</h1>
+                    <h1 class="h3">Becas y Ayuda Financiera</h1>
                     <p class="p3">
-                        Berklee College of Music offers a variety of scholarships and financial aid options to help students fund their education. Here are some of the key financial aid opportunities available:
+                        Berklee College of Music ofrece una variedad de becas y opciones de ayuda financiera para ayudar a los estudiantes a financiar su educación. Aquí están algunas de las principales oportunidades de ayuda financiera disponibles:
                     </p>
-                    <table>
-                        <tr>
-                            <th>Type of Aid</th>
-                            <th>Eligibility</th>
-                            <th>Amount</th>
-                        </tr>
-                        <tr>
-                            <td>Merit-Based Scholarships</td>
-                            <td>Outstanding academic and musical achievement</td>
-                            <td>Up to full tuition</td>
-                        </tr>
-                        <tr>
-                            <td>Presidential Scholarships</td>
-                            <td>Exceptional talent and financial need</td>
-                            <td>Full tuition, housing, meal plan, laptop, and fees</td>
-                        </tr>
-                        <tr>
-                            <td>Need-Based Financial Aid</td>
-                            <td>Demonstrated financial need</td>
-                            <td>Varies based on need</td>
-                        </tr>
-                        <tr>
-                            <td>Thrive Scholarship</td>
-                            <td>Continuing undergraduate students with academic achievement and financial need</td>
-                            <td>Varies</td>
-                        </tr>
-                        <tr>
-                            <td>Division Awards</td>
-                            <td>High academic and artistic achievement within academic divisions</td>
-                            <td>Varies</td>
-                        </tr>
-                    </table>
-                    <img src="https://via.placeholder.com/150" alt="Placeholder image" class="img-right">
+                    <div class="flex-container">
+                        <table>
+                            <tr>
+                                <th>Tipo de Ayuda</th>
+                                <th>Elegibilidad</th>
+                                <th>Cantidad</th>
+                            </tr>
+                            <tr>
+                                <td>Becas por Mérito</td>
+                                <td>Logro académico y musical sobresaliente</td>
+                                <td>Hasta la matrícula completa</td>
+                            </tr>
+                            <tr>
+                                <td>Becas Presidenciales</td>
+                                <td>Talento excepcional y necesidad financiera</td>
+                                <td>Matrícula completa, alojamiento, plan de comidas, portátil y tasas</td>
+                            </tr>
+                            <tr>
+                                <td>Ayuda Financiera Basada en Necesidades</td>
+                                <td>Necesidad financiera demostrada</td>
+                                <td>Varía según la necesidad</td>
+                            </tr>
+                            <tr>
+                                <td>Beca Thrive</td>
+                                <td>Estudiantes universitarios continuos con logros académicos y necesidad financiera</td>
+                                <td>Varía</td>
+                            </tr>
+                            <tr>
+                                <td>Premios de División</td>
+                                <td>Alto logro académico y artístico dentro de las divisiones académicas</td>
+                                <td>Varía</td>
+                            </tr>
+                        </table>
+                        <!-- <img src="https://via.placeholder.com/150" alt="Placeholder image" class="img-right"> -->
+                    </div>
                 </div>
-        
+                
                 <div class="content-block" id="content-block4">
-                    <h1 class="h4">Stunning surroundings</h1>
+                    <h1 class="h4">Un entorno sinigual</h1>
                     <p class="p4">
-                        Berklee College of Music is located in the vibrant city of Boston, which offers a rich cultural and artistic environment. The campus is situated in the Back Bay neighborhood, close to numerous music venues, museums, and cultural landmarks. This dynamic setting provides students with countless opportunities for live performance, collaboration, and inspiration, making it an ideal place to study music and grow as an artist.
+                        Berklee College of Music está ubicado en la vibrante ciudad de Boston, que ofrece un rico entorno cultural y artístico. El campus está situado en el barrio de Back Bay, cerca de numerosos lugares de música, museos y monumentos culturales. Este entorno dinámico proporciona a los estudiantes innumerables oportunidades para actuaciones en vivo, colaboración e inspiración, lo que lo convierte en un lugar ideal para estudiar música y crecer como artista.
                     </p>
-                    <img src="https://via.placeholder.com/150" alt="Placeholder image" class="img-left">
+                    <img src="https://via.placeholder.com/150" alt="Imagen de marcador de posición" class="img-left">
                 </div>
+                
             </div>
         </div>
     </div>

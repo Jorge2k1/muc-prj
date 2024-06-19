@@ -1,10 +1,11 @@
-// index.js
+// //index.js
 import { registerUser, loginUser, sendFriendRequest, getFriendRequests, acceptFriendRequest, findUserByUsername, auth, loadUserProfile } from '../src/firestone.js';
 import { loadAndDisplayFiles, showSelectedFile, confirmFileUpload} from '../src/storage.js';
 import { displayFriendList } from "../src/chat.js";
 import { checkUniversity, loadUniversityPage, saveUniversityToFavorites  } from "../src/unis.js";
 import { loadFavoriteUniversities } from "../src/inicio.js";
 window.appState = window.appState || {}; 
+import Swal from 'sweetalert2';
 import { saveUserProfile } from '../src/profileConf.js';
 import { onAuthStateChanged } from "firebase/auth"; // Asegúrate de importar esto
 
@@ -23,13 +24,10 @@ document.addEventListener('DOMContentLoaded', () => {
       if (password === confirmPassword) {
         registerUser(email, password, username, userType)
           .then(() => {
-            console.log('Usuario registrado con éxito:');       
-            console.log('Usuario current:', auth.currentUser);
             window.location.href = 'main.html';
           })
           .catch(error => {
-            console.error('Error al registrar el usuario:', error.message);
-            alert('Error al registrar. Por favor, intente de nuevo.');
+            alert('Los datos que has introducido no son correctos');
           });
       } else {
         alert('Las contraseñas no coinciden.');
@@ -47,11 +45,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
       loginUser(email, password)
         .then(() => {
-          console.log('Inicio de sesión exitoso');
+
           window.location.href = 'main.html';
+          console.log("se hace");
+          console.log("se hizooo");
+
         })
         .catch(error => {
-          console.error('Error en el inicio de sesión:', error.message);
           alert('Las credenciales son incorrectas o el usuario no existe.');
         });
     });
@@ -110,8 +110,12 @@ function chargeSite(callback) {
                     console.log("la solicitud la está enviando", auth.currentUser.uid, "a", userId );
                     sendFriendRequest(auth.currentUser.uid, userIdFromHash)
                       .then(() => {
-                        alert('Solicitud de amistad enviada.');
-                      })
+                        Swal.fire({
+                          title: '¡Solicitud enviada!',
+                          text: '¡Genial, tu soloicitud de conexión se ha enviado correctamente!',
+                          icon: 'success',
+                          confirmButtonText: 'Aceptar'
+                        });                      })
                       .catch(error => {
                         console.error('Error al enviar la solicitud de amistad:', error);
                         alert('Error al enviar la solicitud de amistad. Por favor, intente de nuevo.');
@@ -162,10 +166,9 @@ document.addEventListener('DOMContentLoaded', () => {
           if (friendData) {
             window.location.hash = `profile?userId=${friendData.userId}`;
           } else {
-            alert('Usuario no encontrado.');
+            alert('Usuario no encontrado. Comprueba el nombre de usuario');
           }
         }).catch(error => {
-          console.error('Error al buscar usuario:', error);
           alert('Error al buscar usuario. Por favor, intente de nuevo.');
         });
       }
@@ -217,6 +220,12 @@ const showFriendRequests = (requestsDetails) => {
     const requestElement = document.createElement('div');
     requestElement.classList.add('friendRequest');
 
+    const profileImage = document.createElement('img');
+    profileImage.src = requestDetail.imageUrl || 'https://via.placeholder.com/50';
+    profileImage.alt = requestDetail.username;
+    profileImage.classList.add('profile-image');
+    requestElement.appendChild(profileImage);
+
     const requestText = document.createElement('div');
     requestText.textContent = `${requestDetail.username} ha solicitado seguirte`;
     requestText.classList.add('friendRequest-text');
@@ -226,34 +235,36 @@ const showFriendRequests = (requestsDetails) => {
     buttonContainer.classList.add('button-container');
 
     const acceptButton = document.createElement('button');
-    acceptButton.textContent     = 'Aceptar';
+    
+    acceptButton.textContent = 'Aceptar';
     acceptButton.classList.add('btn', 'btn-success', 'btn-sm', 'mr-2');
     acceptButton.onclick = () => {
       acceptFriendRequest(auth.currentUser.uid, requestDetail.id)
         .then(() => {
-          alert('¡Amigo agregado correctamente!');
+          Swal.fire({
+            title: '¡Solicitud de amistad aceptada!',
+            iconHtml: '🤝', 
+            customClass: {
+              icon: 'no-border', 
+              popup: 'animated bounceIn' // Animación personalizada
+            }
+          }),         
           requestElement.remove();
           requestsBadge.textContent = parseInt(requestsBadge.textContent) - 1;
         })
         .catch(console.error);
     };
 
-
     const rejectButton = document.createElement('button');
     rejectButton.textContent = 'Rechazar';
     rejectButton.classList.add('btn', 'btn-danger', 'btn-sm');
     rejectButton.onclick = () => {
-      // aun tengo q gestionar el rechazo de la soli
+      // Handle friend request rejection here
     };
-
 
     buttonContainer.appendChild(acceptButton);
     buttonContainer.appendChild(rejectButton);
 
-    requestElement.appendChild(requestText);
-
-    requestElement.appendChild(acceptButton);
-    requestElement.appendChild(rejectButton);
     requestElement.appendChild(buttonContainer);
 
     requestsContainer.appendChild(requestElement);
@@ -320,8 +331,6 @@ document.getElementById('content').addEventListener('click', function(event) {
 });
 
 function initializeChatListeners() {
-  console.log("Chat inicializado.");
-  console.log('Usuario current:', auth.currentUser.uid);
    displayFriendList();
 }
 

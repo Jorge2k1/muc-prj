@@ -78,6 +78,37 @@ html, body {
             width: 1500px;
             z-index: 1000; /* Ensures this is behind the logo and title */
         }
+        #attachProfileButton {
+            background-color: rgb(76, 74, 74);
+            border-style: solid;
+            border-width: 1px;  
+            border-color: black;
+            transition: ease 0.3s;
+        }
+        #attachProfileButton:hover {
+            background-color: rgb(210, 210, 210);
+            color: black;
+            border-style: solid;
+            border-color: rgb(148, 147, 147);
+        }
+
+
+        #saveUniversityButton {
+            background-color: rgb(159, 67, 74);
+            border-radius: 5px;
+            border-color: transparent;
+            color:rgb(255, 255, 255);
+            transition: ease 0.3s;
+
+        }
+        #saveUniversityButton:hover {
+            background-color: rgb(68, 28, 31);
+            border-radius: 5px;
+            border-color: transparent;
+            color:rgb(255, 255, 255);
+
+        }
+
 
 
         #uniName {
@@ -129,7 +160,7 @@ html, body {
         }
     
         #saveAndApply {
-            margin-top:50px;
+            margin-top:20px;
             margin-left: 20px;
             margin-bottom: 20px;
         }
@@ -144,8 +175,21 @@ html, body {
             border-radius: 20px;
             width: 91%;
         }
+        .degree {
+            color: white;
+            font-family:'Noto Serif Old Uyghur' ;
+        }
+        .dates {
+            margin-bottom: 20px;
+            padding-right: 0px;
+            padding: 10px;
+            color:black;
+            border-radius: 10px;
+            background-color: rgb(197, 207, 200);
 
-        #coachLabel {
+        }
+
+        .etiqueta {
             margin-left: 10px;
             background-color: black;
             border-style: none;
@@ -231,6 +275,36 @@ html, body {
             position: relative; 
             padding: 20px; /* Añade padding para dar espacio al contenido */
             color: white; /* Asegura que el texto sea visible sobre la imagen */
+        }
+        .flex-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px; /* Espacio entre la tabla y la imagen */
+            align-items: flex-start; /* Alineación superior */
+        }
+        
+        .flex-container table {
+            flex: 1 1 60%; /* La tabla tomará hasta el 60% del contenedor flexible */
+            border-collapse: collapse; /* Para que las celdas compartan los bordes */
+            margin-bottom: 20px;
+        }
+        
+        .flex-container th, .flex-container td {
+            border: 1px solid #26472f;
+            padding: 8px;
+            text-align: left;
+        }
+        
+        .flex-container th {
+            background-color: #032015af;
+            color: white;
+        }
+        
+        .flex-container img.img-right {
+            flex: 1 1 30%; /* La imagen tomará hasta el 30% del contenedor flexible */
+            max-width: 100%; /* Para que la imagen no se salga del contenedor */
+            height: auto; /* Mantener la proporción de la imagen */
+            object-fit: cover; /* Asegurar que la imagen mantenga su proporción */
         }
 
         #content-block3::before {

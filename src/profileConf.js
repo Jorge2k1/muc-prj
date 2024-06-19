@@ -2,6 +2,7 @@ import { auth, db, storage } from '../src/firestone.js';
 import { onAuthStateChanged } from "firebase/auth";
 import { doc, getDoc, updateDoc } from "firebase/firestore";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
+import Swal from 'sweetalert2';
 
 // Función para guardar los datos del perfil
 export const saveUserProfile = (name, bio, skills, imageUrl) => {

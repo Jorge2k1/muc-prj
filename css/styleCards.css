@@ -15,15 +15,18 @@
 .uniCard {
     align-items: center;
     margin-left: 90px;
-    border-radius: 10px;
 }
 
 #uniCard {
+    border-radius: 10px;
+    border-style: solid;
+    border-color: black;
+    border-width: 2px;
     position: relative;
     min-width: 90%;
     max-height: 400px; /* Ajusta la altura mínima según sea necesario */
     margin-top: 60px;
-    background: linear-gradient(rgba(255, 255, 255, 0.892), rgba(0, 0, 0, 0.423)), url('../img/main/inicio/bangg.png'); 
+    background: linear-gradient(rgba(240, 240, 240, 0.507), rgba(0, 0, 0, 0.423)), url('../img/main/inicio/bangg.png'); 
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -63,6 +66,7 @@
 }
 
 .card-title {
+
     font-size: 22px; /* Tamaño del título */
     margin-top:10px;
     font-weight: bold;

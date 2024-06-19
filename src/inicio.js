@@ -52,9 +52,11 @@ function createUniversityCard(universityId) {
             style="background-image: url('${headerUrl}');
             background: linear-gradient(rgba(218, 218, 218, 0.543), rgba(0, 0, 0, 0.423))
             , url('${headerUrl}'); ">
-                <img src="${logoUrl}" alt="${universityId}" id="cardImg" class="card-img-top">
-                <h5 class="card-title">${universityId}</h5>
-                <p class="card-text">Pulsa para revisar la información de la universidad</p>
+                    <img src="${logoUrl}" alt="${universityId}" id="cardImg" class="card-img-top">
+                <div class="cardText">
+                    <h5 class="card-title">${universityId}</h5>
+                    <p class="card-text">Pulsa para revisar la información de la universidad</p>
+                </div>
                 <button onclick="removeUniversityFromFavorites('${universityId}')" class="btn btn-danger">Eliminar</button>
             </div>
         `;

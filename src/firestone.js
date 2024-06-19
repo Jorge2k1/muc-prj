@@ -40,7 +40,6 @@ const registerUser = (email, password, username, userType) => {
   return createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       const uid = userCredential.user.uid;
-      //crear un documento en la colección users con el uid como id del documento
       const userDocRef = doc(db, "users", uid);
       const userDocData = {
         username: username,
@@ -52,7 +51,6 @@ const registerUser = (email, password, username, userType) => {
         friendRequests: []
       };
       setDoc(userDocRef, userDocData);
-      // también creo un documento en la colección uploadedFiles con el mismo UID
       const uploadedFilesDocRef = doc(db, "uploadedFiles", uid);
       const uploadedFilesDocData = {
         files: [] 
@@ -70,18 +68,16 @@ const sendFriendRequest = (currentUserId, friendUserId) => {
   const friendUserRef = doc(db, "users", friendUserId);
   console.log("el user autenticado es", currentUserId);
   return updateDoc(friendUserRef, {
-    // Añadir el ID del usuario actual al array de solicitudes de amistad del usuario amigo
     friendRequests: arrayUnion(currentUserId)
   });
 };
-//cargamos la informacion de la persona q queremos agregar
 export const loadUserProfile = async (uid) => {
   const userRef = doc(db, "users", uid);
   const docSnap = await getDoc(userRef);
   if (docSnap.exists()) {
       return docSnap.data();
   } else {
-      console.error("No se encontraron datos del usuario");
+      console.error("No se encontraron los datos del usuario");
       return null;
   }
 };
@@ -154,14 +150,29 @@ const acceptFriendRequest = (currentUserId, requestingUserId) => {
   });
 };
 
-
 const findUserByUsername = (username) => {
   return getDocs(query(collection(db, "users"), where("username", "==", username)))
-    .then((querySnapshot) => querySnapshot.empty ? null : {
-      userId: querySnapshot.docs[0].id,
-      username: querySnapshot.docs[0].data().username
+    .then((querySnapshot) => {
+      if (querySnapshot.empty) {
+        return null;
+      } else {
+        return {
+          userId: querySnapshot.docs[0].id,
+          username: querySnapshot.docs[0].data().username
+        };
+      }
     });
 };
+
+
+
+// const findUserByUsername = (username) => {
+//   return getDocs(query(collection(db, "users"), where("username", "==", username)))
+//     .then((querySnapshot) => querySnapshot.empty ? null : {
+//       userId: querySnapshot.docs[0].id,
+//       username: querySnapshot.docs[0].data().username
+//     });
+// };
 
 // Observador de mutaciones para esperar a que el DOM esté listo
 /* si no tuviese este observador, las solis de amistad tratarían de cargarse

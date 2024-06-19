@@ -6,6 +6,8 @@
     <title>Menú principal</title>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Old+Uyghur&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
     <!-- CSS de Bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <!-- Tu CSS personalizado -->
@@ -78,14 +80,13 @@
         <div class="modal-dialog modal-xl">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="profileModalLabel">Configuración de Perfil</h5>
+                    <div class="modal-title" id="profileModalLabel"><b>Configuración de Perfil</b></div>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body" id="profileModalBody">
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-md-3 side-menu" id="sideMenu">
-                                <h2>Configuración</h2>
                                 <ul class="nav flex-column">
                                     <li class="nav-item"><a class="nav-link" href="#personalizacion">Personalización</a></li>
                                     <li class="nav-item"><a class="nav-link" href="#apariencia">Interfaz</a></li>
@@ -99,26 +100,26 @@
                                         <!-- Row 1: Imagen y Nombre -->
                                         <div class="row mb-4">
                                             <div class="col-md-4">
-                                                <img id="profileImage" src="https://via.placeholder.com/110" alt="Imagen Predeterminada" class="img-fluid rounded-circle" style="cursor: pointer;">
+                                                <img id="profileImage" src="/img/main/inicio/pressHere.png" alt="Imagen Predeterminada" class="img-fluid rounded-circle" style="cursor: pointer;">
                                                 <input type="file" id="imageUpload" class="d-none">
                                             </div>
                                             <div class="col-md-8">
-                                                <label for="nombre">Nombre:</label>
+                                                <label class="type1" for="nombre">Nombre:</label>
                                                 <input type="text" id="nombre" class="form-control" placeholder="Introduce tu nombre">
                                             </div>
                                         </div>
                                         <!-- Row 2: Biografía -->
                                         <div class="row mb-4">
                                             <div class="col-12">
-                                                <label for="biografia">Biografía:</label>
-                                                <textarea id="biografia" class="form-control" rows="4" maxlength="300" placeholder="Escribe tu biografía aquí..."></textarea>
+                                                <label class="type2" for="biografia">Biografía:</label>
+                                                <textarea id="biografia" class="form-control" rows="4" maxlength="300" placeholder="¡Cuéntanos algo de ti! "></textarea>
                                             </div>
                                         </div>
                                         <!-- Row 3: Aptitudes -->
                                         <div class="row mb-4">
                                             <div class="col-12">
-                                                <label for="aptitudes">Aptitudes:</label>
-                                                <textarea id="aptitudes" class="form-control" rows="4" maxlength="300" placeholder="Escribe tus aptitudes aquí..."></textarea>
+                                                <label class="type3" for="aptitudes">Aptitudes:</label>
+                                                <textarea id="aptitudes" class="form-control" rows="4" maxlength="300" placeholder="¡Háblanos de tus habilidades!"></textarea>
                                             </div>
                                         </div>
                                     </div>
@@ -127,7 +128,7 @@
                                     </div>
                                 </section>
                                 <!-- Sección Apariencia -->
-                                <section id="apariencia" class="mt-5">
+                                <!-- <section id="apariencia" class="mt-5">
                                     <h3>Apariencia</h3>
                                     <p>Configuración de la apariencia del perfil...</p>
                                     <p>Configuración de la apariencia del perfil...</p>
@@ -135,7 +136,7 @@
                                     <p>Configuración de la apariencia del perfil...</p>
                                     <p>Configuración de la apariencia del perfil...</p>
                                     <p>Configuración de la apariencia del perfil...</p>
-                                </section>
+                                </section> -->
                             </div>
                         </div>
                     </div>

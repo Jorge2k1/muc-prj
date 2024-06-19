@@ -1,16 +1,21 @@
 body {
-    font-family: 'Noto Serif', serif;
+    font-family: 'Noto Serif Old Uyghur';
     background-color: #2e2e2e;
-    color: #fff;
+    color: #f8f8f8;
 }
 
 #profileImage {
     margin-left:10px;
+    object-fit: cover; /* Mantiene la proporción de la imagen */
     margin-top: 7px;
     width: 90px;
     height: 90px;
 
 }
+.img-fluid {
+    max-width: 100%;
+    height: auto;
+  }
 
 .modal-overlay {
     position: fixed;
@@ -26,19 +31,26 @@ body {
 }
 
 .modal-content {
-    background-color: #2c2c2c;
+    background-color: #9ea9a1e7;
     color: white;
     border-radius: 8px;
     width: 80%;
     height: 80%;
     max-width: 1200px;
 }
+.modal-title {
+    color: #000000;
+    font-size: 19px;
+    font-family: 'Noto Serif Old Uyghur';
+}
 
 .side-menu {
-    background-color: #3a3a3a;
+    background-color: #616961;
     padding: 20px;
     height: 100%;
+    border-radius: 6px;
     position: sticky;
+    padding-bottom: 677px;
     top: 0;
     overflow-y: auto;
 }
@@ -50,9 +62,17 @@ body {
 
 .side-menu ul li {
     margin-bottom: 10px;
+    border-width: 1px;
+    border-radius: 7px;
+    border-style: solid;
+    border-color: rgb(155, 160, 156);
+    border-top: none;
+    border-left: none;
+    border-right: none;
 }
 
 .side-menu ul li a {
+    
     color: white;
     text-decoration: none;
     display: block;
@@ -60,7 +80,7 @@ body {
 
 .side-menu ul li a:hover,
 .side-menu ul li a.active {
-    background-color: #505050;
+    background-color: #1b1919;
     border-radius: 4px;
     padding-left: 10px;
 }
@@ -71,8 +91,35 @@ body {
     overflow-y: auto;
 }
 
+.type1 {
+    margin-bottom: 20px;
+    border-style: solid;
+    border-color: rgb(247, 247, 247);
+    border-top: none;
+    padding-right: 314px;
+    padding-bottom: 5px;
+    border-left: none;
+    border-right: none;
+    font-weight: bolder;
+
+}
+
+.type2, .type3  {
+    padding-bottom: 5px;
+    margin-bottom: 20px;
+    border-style: solid;
+    border-color: rgb(247, 247, 247);
+    border-top: none;
+    padding-right: 512px;
+    border-left: none;
+    border-right: none;
+    font-weight: bolder;
+}
+
 h2, h3 {
-    margin-top: 0;
+    margin-top: -20px;
+    margin-bottom: 30px;
+    color:rgb(37, 43, 43);
 }
 
 textarea.form-control {
@@ -82,6 +129,35 @@ textarea.form-control {
 section {
     padding-bottom: 20px;
 }
+#nombre, #biografia, #aptitudes{
+    background-color: #cad1ccd5;
+    border-width: 2px;
+    border-style: solid;
+}
+
+.input{
+    float:right;
+}
+
+
+#applyChanges {
+    background-color: rgb(59, 82, 70);
+    color: #cccccc;
+    border-radius: 12px;
+    margin-right: 16px;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-style: none;
+    transition: ease 0.3s;
+
+}
+#applyChanges:hover {
+    background-color: rgb(255, 247, 247);
+    color:black;
+
+}
+
 
 section + section {
     border-top: 1px solid #505050;

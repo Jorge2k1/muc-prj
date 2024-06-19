@@ -61,6 +61,7 @@ function loadUniversityPage(uniId) {
 }
 
 // Función para adjuntar el perfil del coach a la universidad
+
 function attachProfileToUniversity(coachId, uniId) {
     const uniRef = doc(db, "universityId", uniId);
     updateDoc(uniRef, {
@@ -100,7 +101,7 @@ function displayCoachLabel(coachId, uniId) {
             const coachLabel = document.createElement('span');
             coachLabel.textContent = `#${coachName}`;
             coachLabel.classList.add('badge', 'badge-info', 'etiqueta');
-            coachLabel.id = `coachLabel`;
+            coachLabel.id = `coach-${coachId}`;
             coachLabel.onclick = () => {
                 window.location.href = `./profile.html?uid=${coachId}`;
             };
@@ -120,6 +121,7 @@ function displayCoachLabel(coachId, uniId) {
 }
 
 // Función para cargar y mostrar todas las etiquetas de coaches adheridas a la universidad
+
 function loadCoachLabels(uniId) {
     const uniRef = doc(db, "universityId", uniId);
     getDoc(uniRef).then(docSnapshot => {
