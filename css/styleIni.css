@@ -164,11 +164,12 @@ header.global {
 }
 
 .conocenos {
+    padding: 20px;
     margin-left: 200px;
     margin-right: 500px;
     margin-top: -80px;
     color:rgb(94, 54, 54);
-
+    padding-right: 200px;
 }
 
 #acercade{
@@ -184,16 +185,18 @@ header.global {
     z-index: 1;}
 
 #contactanos {
-    padding-top: 300px; /* Ajusta según la altura de tu cabecera */
-    margin-bottom: 150px;
-    height: auto;
-    color: whitesmoke;
-    background-size: cover;
-    background-position: center;
-    opacity: 0.7;
-    border-radius: 20px;
-    z-index: 1;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        padding-top: 50px; /* Ajusta según la altura de tu cabecera */
+        color: whitesmoke;
+        background-size: cover;
+        background-position: center;
+        opacity: 0.7;
+        border-radius: 20px;
+        z-index: 1;
 }
+
 
 #servicio, #contacto, #contactanos {
     padding-top: 300px; /* Ajusta según la altura de tu cabecera */
@@ -231,7 +234,7 @@ header.global {
 }
 
 #contactanos {
-    background-color: #ffffcc; /* Color de fondo para la sección "contactanos" */
+    background-color: #ffffff; /* Color de fondo para la sección "contactanos" */
     height: 868px;
 }
 
@@ -263,7 +266,7 @@ header.global {
     height: auto;
     position: relative;
     z-index: 2;
-    top: -50px; /* Ajusta para sobresalir por la parte superior */
+    top: -100px; /* Ajusta para sobresalir por la parte superior */
     right: -50px; /* Ajusta para sobresalir por la parte derecha */
     transition: transform 0.5s ease;
 }
@@ -277,12 +280,13 @@ header.global {
     margin-right: 50px;
 }
 
-.quienesSomos {
+.pretendemosTit {
     font-family: 'Noto Serif Old Uyghur';
     font-size: 70px;
 }
 
 .quienesSomosDiv {
+    font-family: 'Noto Serif Old Uyghur';
     position: relative;
     padding: 0px;
     height: 100%;
@@ -291,8 +295,95 @@ header.global {
     z-index: 1;
 }
 
-.loqquepretendemos {
-    margin-left: 180px;
-    margin-top: -30px;
+.quienesSomosDiv {
+    text-align: center;
 }
 
+.p1quienes {
+ margin-bottom: 40px;
+ font-size: 20px;
+
+}
+.persona {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+}
+
+.persona-alice, .persona-jorge {
+    width: 45%;
+    background-color:#b1beb9af ;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
+    border-radius: 16px;
+    padding: 30px;
+    color:rgb(1, 27, 8)
+}
+
+.persona-alice {
+    text-align: justify;
+}
+
+.persona-jorge {
+    text-align: justify;
+}
+
+.finP {
+    margin-top: 40px;
+
+}
+.quienesTit{
+    font-size: 70px;
+}
+
+.loqquepretendemosDiv {
+    font-family: 'Noto Serif Old Uyghur';
+    position: relative;
+    text-align: justify;
+    padding: 0px;
+    height: 100%;
+    margin-top: -70px;
+    margin-left: 80px;
+    margin-right: 50px;
+    z-index: 1;
+}
+
+.p3loque {
+    font-size: 20px;
+}
+
+.citas {
+    border: 0;
+    width: 100%;
+    height: 750px;
+    background-color: transparent;
+    border-radius: 8px;
+
+    margin-left: 30px;
+    margin-top: -200px;
+    margin-right: 220px;
+    padding-bottom:200px;
+}
+
+.conocenos {
+    padding: 20px;
+    margin-left: 1100px;
+}
+
+.contenidoConocenos {
+    margin-top: 70px;
+}
+.p3conocenos {
+    font-size: 20px;
+    margin-left:70px;
+
+}
+.conocenosTit {
+    font-size: 70px;
+    font-family: 'Noto Serif Old Uyghur';
+    position: relative;
+    padding: 0px;
+    height: 100%;
+    margin-top: -140px;
+    margin-left: 70px;
+    z-index: 1;
+}

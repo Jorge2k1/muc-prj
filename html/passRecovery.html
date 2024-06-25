@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio de sesión</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Old+Uyghur&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body class="dark-background">
+    <header class="global2">
+        <a href="index.html" class="watermark">
+            <img src="../img/inicio/muc.png" alt="Logo">
+        </a>
+    </header>
+
+    <video id="defaultBackground3" autoplay muted loop>
+        <source src="/img/login/videoBg.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <div class="progress-container">
+        <div class="progress">
+            <div id="progressBar" class="progress-bar" role="progressbar" style="width: 33%;" aria-valuenow="33" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+    </div>
+    <main class="access-container">
+        <div class="container">
+            <h2 class="titleLog">Recuperación de contraseña</h1>
+
+            <div id="step1" class="step-container active">
+                <form id="resetPasswordForm">
+                    <div class="form-group">
+                        <label for="email">Correo Electrónico:</label>
+                        <input type="email" class="form-control" id="email" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Enviar</button>
+                </form>
+            </div>
+            <div id="step2" class="step-container">
+                <p>Revisa tu bandeja de entrada y sigue las instrucciones para restablecer tu contraseña.</p>
+                <button id="nextToStep3" class="btn btn-primary">Siguiente</button>
+            </div>
+            <div id="step3" class="step-container">
+                <p>Tu contraseña ha sido restablecida con éxito.</p>
+                <button id="finish" class="btn btn-primary">Finalizar</button>
+            </div>
+        </div>   
+    </main>
+    
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="../dist/bundle.js" defer></script>
+</body>
+</html>

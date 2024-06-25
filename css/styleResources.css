@@ -23,6 +23,9 @@
 
 .file-text {
     margin-left: 15px;
+    color: rgb(29, 46, 33);
+    font-size: 20px;
+    transition: 0.6s ease;
 }
 
 .file-upload-button {
@@ -30,8 +33,7 @@
     margin-top: 10px;
     display: inline-flex;
     align-items: center;
-    /* background-color: #f7f3ef; */
-    background-color: transparent;
+    background-color: rgba(255, 255, 255, 0.602);
     border-style: solid;
     border-width: 2px;
     border-radius: 8px;
@@ -41,63 +43,73 @@
     font-size: 16px;
     cursor: pointer;
     text-decoration: none;
-    color: whitesmoke;
+    color: black;
     transition: all 0.2s ease;
 }
 
 .file-upload-button:hover {
-    background-color: white;
-    color: black;
-
+    border-color: black;
+    background-color: black;
+    color: white;
 }
 
 .titleResources {
-
     z-index: 2;
     display: flex;
     justify-content: left; 
-    margin-left: 3%;
-    margin-top: 1.5%;
+    margin-left: 21px;
+    margin-top: 1.9%;
+    margin-bottom: 20px;
+    padding-bottom: 13px;
+    border-style: solid;
+    border-top:none;
+    border-left:none;
+    border-right:none;
     width: 100%;
     font-size: 30px;
     font-family: 'Noto Serif Old Uyghur';
+    color:white;
 }
 
 .welcome {
     text-align: center;
     color: white; 
     font-family: 'Noto Serif Old Uyghur';
-
 }
+
 #fileList {
     padding-bottom: 20px;
     margin-left: 20px;
     margin-right: -60px;
-    background-color:transparent
-
-}
-.uploadTxt, .file-text {
-    color: rgb(29, 46, 33);
-    font-size: 20px;
-
-}
-
-#yourFilesList {
     background-color:transparent;
 }
 
-#each{
-    padding: 7px;
-    margin-left:20px;
-    margin-right:20px;
-    border-radius: 5px;
-    background-color: rgb(226, 238, 226)
-
+.uploadTxt {
+    color: rgb(29, 46, 33);
+    font-size: 20px;
 }
 
+#each {
+    color:white;
+    padding: 7px;
+    margin-left:20px;
+    margin-right:60px;
+    border-radius: 5px;
+    background-color: rgb(226, 238, 226);
+    transition: 0.3s ease;
+}
 
+#each:hover {
+    background-color: rgb(0, 0, 0);
+    color: whitesmoke;
+}
 
-/* Estilos para el modal *//* Estilos para el modal */
+/* Aplica el estilo hover del contenedor también al texto del archivo */
+#each:hover .file-text {
+    color: whitesmoke;
+}
+
+/* Estilos para el modal */
 .modal {
     margin-left: 1146px;
     margin-top: 720px;
@@ -116,7 +128,6 @@
     background-color: transparent; /* Blanco roto */
     width: inherit;
     border-radius: 10px;
-
     position: relative; /* Asegura que los elementos dentro del modal se posicionen correctamente */
 }
 

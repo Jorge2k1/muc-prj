@@ -1,4 +1,22 @@
 
+.titleInicio {
+    z-index: 2;
+    display: flex;
+    justify-content: left; 
+    margin-left: -70px;
+    margin-top: 2%;
+    margin-bottom: -20px;
+    padding-bottom: 13px;
+    border-style: solid;
+    border-top:none;
+    border-left:none;
+    border-right:none;
+    width: 100%;
+    font-size: 30px;
+    font-family: 'Noto Serif Old Uyghur';
+    color:white;
+}
+
 .mainContainer1 {
     z-index: 0;
     width: 85vw; /* Asegura que el contenedor ocupa todo el ancho de la ventana gráfica */

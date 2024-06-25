@@ -1,0 +1,126 @@
+.introjs-tooltip {
+    max-width: none; /* Eliminar el límite de ancho máximo */
+    height: 200px;
+    width: 550px;
+    padding-left: 40px;
+    padding-right: 40px;
+    background-color: rgba(182, 202, 245, 0.808); /* Cambiar el color de fondo */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.587); /* Sombra */
+}
+
+/* Título del tooltip */
+.introjs-tooltip-title {
+    font-size: 1.5em; /* Tamaño de fuente */
+    font-weight: bold; /* Negrita */
+}
+
+/* Texto del tooltip */
+.introjs-tooltiptext {
+    font-family: 'Noto Serif Old Uyghur';
+    margin-top: -17px;
+    font-style: oblique;
+    width: 550px;
+    font-size: 1.25em; /* Tamaño de fuente */
+    color: #010400; /* Color del texto */
+}
+.introjs-progress {
+    margin-top:-40px;
+}
+
+.introjs-progressbar {
+    background-color: rgb(51, 86, 65);
+}
+
+.introjs-bullets {
+    padding-top: 40px;
+}
+
+/* Botones del tooltip */
+.introjs-button {
+    background-color: #246d52bd; /* Color de fondo */
+    color: transparent; /* Color del texto */
+    border-radius: 4px; /* Bordes redondeados */
+    padding: 8px 12px; /* Espaciado interno */
+    border: none; /* Sin borde */
+}
+
+.introjs-button:hover {
+    background-color: #218838; /* Color de fondo al pasar el cursor */
+}
+
+/* Botón de salto */
+.introjs-skipbutton {
+    font-size: 1.5em; /* Tamaño de fuente aumentado */
+    background-color: transparent; /* Color de fondo */
+    color: #7d0404; /* Color del texto */
+    border-radius: 4px; /* Bordes redondeados */
+    margin-right: -40px;   
+    border: none; /* Sin borde */
+}
+
+/* Botones de retroceso y avance */
+.introjs-prevbutton, .introjs-nextbutton {
+    background: transparent; /* Fondo transparente */
+    border: none; /* Sin borde */
+    font-size: 1.5em; /* Tamaño de fuente */
+    padding: 8px; /* Espaciado interno */
+    transition: 0.3s ease;
+    border-radius: 4px; /* Bordes redondeados */
+    position: relative; /* Necesario para los pseudo-elementos */
+    overflow: hidden; /* Ocultar cualquier desbordamiento */
+    width: 3em; /* Ancho fijo para que los botones sean cuadrados */
+    height: 3em; /* Altura fija para que los botones sean cuadrados */
+}
+
+/* Ocultar el texto utilizando visibility */
+.introjs-prevbutton, .introjs-nextbutton {
+    visibility: hidden; /* Oculta el texto */
+}
+
+/* Pseudo-elemento antes del botón de retroceso */
+.introjs-prevbutton::before {
+    visibility: visible;
+    content: '\f053'; /* Código Unicode para la flecha izquierda de Font Awesome */
+    font-family: 'Font Awesome 5 Free';
+    font-weight: bolder;
+    font-size: 1.2em;
+    color: #000000; /* Color del icono */
+    position: absolute; /* Necesario para colocar correctamente el icono */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centra el icono */
+}
+
+/* Pseudo-elemento después del botón de avance */
+.introjs-nextbutton::after {
+    visibility: visible;
+    content: '\f054'; /* Código Unicode para la flecha derecha de Font Awesome */
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    font-size: 1.2em;
+    
+    color: #141212; /* Color del icono */
+    position: absolute; /* Necesario para colocar correctamente el icono */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centra el icono */
+}
+
+.introjs-prevbutton:hover, .introjs-nextbutton:hover {
+    background-color: #080707; /* Color de fondo al pasar el cursor */
+    color: rgba(0, 0, 0, 0.97);
+}
+/* Punto de enfoque */
+.introjs-helperLayer {
+    background: rgba(255, 255, 255, 0.237); /* Fondo semi-transparente */
+    border-style: solid;
+    border-width: 2px;
+    border-color: rgb(255, 255, 255);
+}
+
+/* Sombra alrededor del punto de enfoque */
+.introjs-overlay {
+
+    background: rgba(255, 255, 255, 0.932); /* Fondo semi-transparente */
+}

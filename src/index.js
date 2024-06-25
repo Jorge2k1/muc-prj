@@ -5,9 +5,18 @@ import { displayFriendList } from "../src/chat.js";
 import { checkUniversity, loadUniversityPage, saveUniversityToFavorites  } from "../src/unis.js";
 import { loadFavoriteUniversities } from "../src/inicio.js";
 window.appState = window.appState || {}; 
+import { startIntroJsTour } from './utils.js';
+
 import Swal from 'sweetalert2';
 import { saveUserProfile } from '../src/profileConf.js';
-import { onAuthStateChanged } from "firebase/auth"; // Asegúrate de importar esto
+import { onAuthStateChanged } from "firebase/auth"; 
+
+document.addEventListener('DOMContentLoaded', () => {
+  if (localStorage.getItem('showIntro') === 'true') {
+    localStorage.removeItem('showIntro'); 
+    startIntroJsTour();
+  }
+});
 
 document.addEventListener('DOMContentLoaded', () => {
   // Listener para el formulario de registro
@@ -23,12 +32,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if (password === confirmPassword) {
         registerUser(email, password, username, userType)
-          .then(() => {
-            window.location.href = 'main.html';
-          })
-          .catch(error => {
-            alert('Los datos que has introducido no son correctos');
-          });
+        .then(() => {
+          localStorage.setItem('showIntro', 'true');
+          window.location.href = 'main.html';
+          console.log("holaa");
+        })
+        .catch(error => {
+          alert('Los datos que has introducido no son correctos');
+        });
       } else {
         alert('Las contraseñas no coinciden.');
       }
@@ -45,11 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       loginUser(email, password)
         .then(() => {
-
           window.location.href = 'main.html';
-          console.log("se hace");
-          console.log("se hizooo");
-
         })
         .catch(error => {
           alert('Las credenciales son incorrectas o el usuario no existe.');
@@ -384,6 +391,7 @@ const loadProfile = () => {
     });
   }
 };
+
 
 document.addEventListener('DOMContentLoaded', () => {
   loadProfile();

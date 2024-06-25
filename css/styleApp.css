@@ -5,6 +5,10 @@
     height: 1px;
 }
 
+header.row {
+    background-color:#0b281d57;
+
+}
 #contentwrapper{
     width: 100vh;
     height: 100vh;
@@ -39,12 +43,7 @@ html, body {
 
 }
 
-.background {
-    background-color: hsl(149, 52%, 20%);
-    display: flex;
-    flex-direction: column;
-    height: 100%; 
-}
+
 
 .watermark img {
     color: white;
@@ -52,13 +51,7 @@ html, body {
     padding-top: 15px;
     width: 100%;
 }
-#overlay {
-    display:block;
-    width: 100%;
-    height: 100%;
-    background-color: transparent;
-    z-index:1001;
-}
+
 
 #sendFriendRequest {
     padding: 10px; 
@@ -73,7 +66,24 @@ html, body {
     border-radius: 15px;
     transition: all 0.2s ease;
 }
+.background {
+    background-color: hsl(149, 52%, 20%);
+    display: flex;
+    flex-direction: column;
+    height: 100%; 
+}
 
+#overlay2 {
+    /* display: block;
+    position: fixed;
+    top: 0;
+    left: 0; 
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(255, 255, 255, 1), rgba(255, 255, 255, 1)), url('/img/main/notiLlena.png') no-repeat center center;
+    background-size: cover;
+    z-index: 9999  !important; */
+}
 
 #sendFriendRequest:hover, #sendFriendRequest:focus {
     width: 150%;

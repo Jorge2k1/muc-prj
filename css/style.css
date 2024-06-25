@@ -1,4 +1,3 @@
-/*estilos aplicados a la página de inicio*/
 body, html {
     margin: 0;
     padding: 0;
@@ -6,9 +5,8 @@ body, html {
 
 body.dark-background {
     background: radial-gradient(circle at center, black 10%, #013220 100%);
-
-
 }
+
 #defaultBackground3 {
     position: fixed;
     top: 0;
@@ -19,27 +17,23 @@ body.dark-background {
     z-index: -1;
     opacity: 1;
     pointer-events: none;
-    transition: opacity 1s ease-out; 
-    transition: opacity 1s ease-in; 
-
-
+    transition: opacity 1s ease-out, opacity 1s ease-in; 
 }
-
 
 .global2 {
     position: sticky; 
     top: 0;
     color: black;
-    background-color: transparent
+    background-color: transparent;
 }
 
 .watermark img {
     color: white;
     padding-left: 30px;
-    padding-top:15px;
+    padding-top: 15px;
     width: 16%;
-
 }
+
 .access-container {
     position: relative;
     border: 2px solid rgba(53, 91, 53, 0.376); 
@@ -54,7 +48,7 @@ body.dark-background {
     transition: background-color 0.7s ease;
 }
 
- .access-container::before {
+.access-container::before {
     content: "";
     position: absolute;
     top: 0;
@@ -64,8 +58,8 @@ body.dark-background {
     background: radial-gradient(circle at center, black 10%, rgba(103, 247, 167, 0.257) 100%);
     transition: opacity 0.7s ease;
     opacity: 0;
-    z-index: -1; /* Coloca el pseudo-elemento detrás del contenido */
-    border-radius: 10px; /* Asegúrate de que el pseudo-elemento siga la forma del contenedor */
+    z-index: -1; 
+    border-radius: 10px;
 }
 
 .access-container:hover::before {
@@ -78,18 +72,37 @@ body.dark-background {
     margin-bottom: 200px;
     flex-direction: column; 
     border-radius: 100px; 
-    
 }
 
 .userTypeSelector {
-    margin-left:19%;
+    margin-left: 19%;
     margin-bottom: 15px;
+}
+.progress {
+    border-radius: 20px;
+    opacity: 0.6;
+}
+#progressBar {
+    background-color: rgb(63, 74, 233);
+    border-radius: 8px;
+}
+
+.step-container {
+    display: none;
+}
+.step-container.active {
+    display: block;
+}
+.progress-container {
+    margin-left: 300px;
+    width: 1000px;
+    height: 100px;
+    margin-top: 40px;
 }
 
 #userType {
     font-size: 15px;
     font-family: 'Noto Serif Old Uyghur';
-
     align-items: center;
     text-align: center;
     justify-content: center;
@@ -99,16 +112,14 @@ body.dark-background {
     padding-right: 10px;
     border-radius: 10px;
     width: 250px;
-
 }
 
-.register, .login  {
-    padding-top:20px;
-    padding-bottom:200px;
+.register, .login, .container {
+    padding-top: 20px;
+    padding-bottom: 200px;
     justify-content: center;
     align-items: center; 
     color: white;
-    /* border: 2px solid rgba(53, 91, 53, 0.376);  */
     font-family: 'Noto Serif Old Uyghur';
     width: 100%; 
     max-width: 400px;
@@ -119,7 +130,6 @@ body.dark-background {
 .titleLog {
     text-align: center;
     padding-bottom: 50px;
-
 }
 
 .form-group, .field {
@@ -128,14 +138,11 @@ body.dark-background {
     text-align: center;
 }
 
- .input {
+.input {
     margin-top: 70px;
-
     margin-left: 320px;
     width: 40%;
-    
-} 
-/*PRUEBAS*/
+}
 
 .field input {
     background: none;
@@ -150,37 +157,40 @@ body.dark-background {
     transition: all 0.2s ease;
 }
 
-.field input:hover,.field input:focus {
+
+.field input:hover, .field input:focus {
     background-color: rgb(27, 43, 34);
     border-radius: 10px;
 }
 
-.access, .rediReg, .confirmReg {
+
+.access, .rediReg, .confirmReg, .recover {
     font-family: 'Noto Serif Old Uyghur';
     font-size: 16px;
     position: relative;
-    color:inherit;
+    color: inherit;
     text-decoration: none;
 }
-.access{
+
+.access, .rediReg, .recover {
     padding-left: 12px;
     cursor: pointer;
 }
 .rediReg {
     padding-left: 12px;
     cursor: pointer;
-
     width: 120%;
 }
 
-.access:hover, .confirmReg:hover{
+.access:hover, .confirmReg:hover, .rediReg:hover {
     color: rgb(94, 128, 72);
-  }
+}
 
-.access::after, .confirmReg::after{
-    background: black;
+
+
+.access::after, .rediReg.access::after, .confirmReg::after {
     font-size: 16px;
-    border:none;
+    border: none;
     font-family: 'Noto Serif Old Uyghur';
     cursor: pointer;
     content: '';
@@ -193,11 +203,12 @@ body.dark-background {
     transition: all 0.3s ease;
 }
 
-.access:hover::after {
+.access:hover::after, .rediReg.access:hover::after {
     color: rgb(94, 128, 72);
     width: 79%; 
     left: 0;
 }
+
 
 .confirmReg:hover::after {
     color: rgb(94, 128, 72);
