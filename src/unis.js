@@ -1,4 +1,4 @@
-import { auth, db } from '../src/firestone.js';
+import { auth, findUserByUsername, db } from '../src/firestone.js';
 import { getDoc, doc, arrayUnion, updateDoc, arrayRemove } from "firebase/firestore";
 
 // Función para verificar si un nombre corresponde a una universidad en Firestore
@@ -103,7 +103,8 @@ function displayCoachLabel(coachId, uniId) {
             coachLabel.classList.add('badge', 'badge-info', 'etiqueta');
             coachLabel.id = `coach-${coachId}`;
             coachLabel.onclick = () => {
-                window.location.href = `./profile.html?uid=${coachId}`;
+                console.log("redirigimos a", coachId);
+                window.location.href = `./main.html#profile?userId=${coachId}`;
             };
             const detachButton = document.createElement('button');
             detachButton.textContent = 'X';

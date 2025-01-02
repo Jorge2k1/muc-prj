@@ -35,7 +35,6 @@ document.addEventListener('DOMContentLoaded', () => {
         .then(() => {
           localStorage.setItem('showIntro', 'true');
           window.location.href = 'main.html';
-          console.log("holaa");
         })
         .catch(error => {
           alert('Los datos que has introducido no son correctos');
@@ -119,7 +118,7 @@ function chargeSite(callback) {
                       .then(() => {
                         Swal.fire({
                           title: '¡Solicitud enviada!',
-                          text: '¡Genial, tu soloicitud de conexión se ha enviado correctamente!',
+                          text: '¡Genial, tu solicitud de conexión se ha enviado correctamente!',
                           icon: 'success',
                           confirmButtonText: 'Aceptar'
                         });                      })

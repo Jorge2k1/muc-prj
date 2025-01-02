@@ -3,6 +3,9 @@ body {
     background-color: #2e2e2e;
     color: #f8f8f8;
 }
+.volver  {
+    margin-top: 20px;
+}
 
 #profileImage {
     margin-left:10px;
